@@ -6,6 +6,21 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		4AC7401D245D1FF900679E39 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4AC7401E245D1FF900679E39 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				4AC74023245D200900679E39 /* Build Documentation */,
+			);
+			dependencies = (
+				4AC74022245D200700679E39 /* PBXTargetDependency */,
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4A397654244A8FB7006C934C /* ArtistHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397653244A8FB7006C934C /* ArtistHandler.swift */; };
 		4A397656244A921E006C934C /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
@@ -16,7 +31,7 @@
 		4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765F244A9620006C934C /* ImageRefHandler.swift */; };
 		4A397662244A96CB006C934C /* EventusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* EventusClient.swift */; };
 		4A397664244B9B1E006C934C /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
-		4A45D5A52441771100CF4E1B /* EventusAPI_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A45D59B2441771100CF4E1B /* EventusAPI_Swift.framework */; };
+		4A45D5A52441771100CF4E1B /* EventusAPI_Swift_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A45D59B2441771100CF4E1B /* EventusAPI_Swift_iOS.framework */; };
 		4A45D5AC2441771100CF4E1B /* EventusAPI_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* EventusAPI_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A45D5B724417C7200CF4E1B /* Bundle+FramworkBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B624417C7200CF4E1B /* Bundle+FramworkBundle.swift */; };
 		4A45D5B924417D9800CF4E1B /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
@@ -26,6 +41,10 @@
 		4AC74017245D0C6700679E39 /* LinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */; };
 		4AC7401A245D18D900679E39 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */; };
 		4AC7401C245D1D6300679E39 /* TagHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */; };
+		4AC74025245D20A300679E39 /* .jazzy.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74024245D20A300679E39 /* .jazzy.yaml */; };
+		4AC74027245D255D00679E39 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74026245D255D00679E39 /* .gitignore */; };
+		4AC74029245D258800679E39 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
+		4AC7402B245D266C00679E39 /* .bartycrouch.toml in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7402A245D266C00679E39 /* .bartycrouch.toml */; };
 		4ACBAF3F2459821D00140AA6 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */; };
 		4AFE00AD2455827300996DD9 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */; };
 		4AFE00AF2455917B00996DD9 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */; };
@@ -33,6 +52,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		4A45D5A62441771100CF4E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A45D5922441771100CF4E1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A45D59A2441771100CF4E1B;
+			remoteInfo = "EventusAPI-Swift";
+		};
+		4AC74021245D200700679E39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4A45D5922441771100CF4E1B /* Project object */;
 			proxyType = 1;
@@ -51,7 +77,7 @@
 		4A39765F244A9620006C934C /* ImageRefHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRefHandler.swift; sourceTree = "<group>"; };
 		4A397661244A96CB006C934C /* EventusClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventusClient.swift; sourceTree = "<group>"; };
 		4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandlerTests.swift; sourceTree = "<group>"; };
-		4A45D59B2441771100CF4E1B /* EventusAPI_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EventusAPI_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A45D59B2441771100CF4E1B /* EventusAPI_Swift_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EventusAPI_Swift_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A45D59E2441771100CF4E1B /* EventusAPI_Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventusAPI_Swift.h; sourceTree = "<group>"; };
 		4A45D59F2441771100CF4E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A45D5A42441771100CF4E1B /* EventusAPI-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventusAPI-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +90,10 @@
 		4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandlerTests.swift; sourceTree = "<group>"; };
 		4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandlerTests.swift; sourceTree = "<group>"; };
 		4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagHandlerTests.swift; sourceTree = "<group>"; };
+		4AC74024245D20A300679E39 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = "<group>"; };
+		4AC74026245D255D00679E39 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4AC74028245D258800679E39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4AC7402A245D266C00679E39 /* .bartycrouch.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bartycrouch.toml; sourceTree = "<group>"; };
 		4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlerTests.swift; sourceTree = "<group>"; };
 		4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandlerTests.swift; sourceTree = "<group>"; };
 		4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandlerTests.swift; sourceTree = "<group>"; };
@@ -81,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A45D5A52441771100CF4E1B /* EventusAPI_Swift.framework in Frameworks */,
+				4A45D5A52441771100CF4E1B /* EventusAPI_Swift_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,13 +139,17 @@
 				4A45D59D2441771100CF4E1B /* EventusAPI-Swift */,
 				4A45D5A82441771100CF4E1B /* EventusAPI-SwiftTests */,
 				4A45D59C2441771100CF4E1B /* Products */,
+				4AC74028245D258800679E39 /* README.md */,
+				4AC74024245D20A300679E39 /* .jazzy.yaml */,
+				4AC7402A245D266C00679E39 /* .bartycrouch.toml */,
+				4AC74026245D255D00679E39 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
 		4A45D59C2441771100CF4E1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59B2441771100CF4E1B /* EventusAPI_Swift.framework */,
+				4A45D59B2441771100CF4E1B /* EventusAPI_Swift_iOS.framework */,
 				4A45D5A42441771100CF4E1B /* EventusAPI-SwiftTests.xctest */,
 			);
 			name = Products;
@@ -173,9 +207,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4A45D59A2441771100CF4E1B /* EventusAPI-Swift */ = {
+		4A45D59A2441771100CF4E1B /* EventusAPI-Swift iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI-Swift" */;
+			buildConfigurationList = 4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI-Swift iOS" */;
 			buildPhases = (
 				4A45D5962441771100CF4E1B /* Headers */,
 				4A45D5972441771100CF4E1B /* Sources */,
@@ -186,9 +220,9 @@
 			);
 			dependencies = (
 			);
-			name = "EventusAPI-Swift";
+			name = "EventusAPI-Swift iOS";
 			productName = "EventusAPI-Swift";
-			productReference = 4A45D59B2441771100CF4E1B /* EventusAPI_Swift.framework */;
+			productReference = 4A45D59B2441771100CF4E1B /* EventusAPI_Swift_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4A45D5A32441771100CF4E1B /* EventusAPI-SwiftTests */ = {
@@ -226,6 +260,9 @@
 					4A45D5A32441771100CF4E1B = {
 						CreatedOnToolsVersion = 11.4;
 					};
+					4AC7401D245D1FF900679E39 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 4A45D5952441771100CF4E1B /* Build configuration list for PBXProject "EventusAPI-Swift" */;
@@ -241,8 +278,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A45D59A2441771100CF4E1B /* EventusAPI-Swift */,
+				4A45D59A2441771100CF4E1B /* EventusAPI-Swift iOS */,
 				4A45D5A32441771100CF4E1B /* EventusAPI-SwiftTests */,
+				4AC7401D245D1FF900679E39 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +290,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC74029245D258800679E39 /* README.md in Resources */,
+				4AC74027245D255D00679E39 /* .gitignore in Resources */,
+				4AC74025245D20A300679E39 /* .jazzy.yaml in Resources */,
+				4AC7402B245D266C00679E39 /* .bartycrouch.toml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +305,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AC74023245D200900679E39 /* Build Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Documentation";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#jazzy Xcode script\nif which jazzy > /dev/null; then\n\njazzy \\\n--theme apple \\\n--min-acl internal\n\nelse\necho \"warning: jazzy not installed, download it from https://github.com/realm/jazzy\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A45D5972441771100CF4E1B /* Sources */ = {
@@ -304,8 +367,13 @@
 /* Begin PBXTargetDependency section */
 		4A45D5A72441771100CF4E1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A45D59A2441771100CF4E1B /* EventusAPI-Swift */;
+			target = 4A45D59A2441771100CF4E1B /* EventusAPI-Swift iOS */;
 			targetProxy = 4A45D5A62441771100CF4E1B /* PBXContainerItemProxy */;
+		};
+		4AC74022245D200700679E39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A45D59A2441771100CF4E1B /* EventusAPI-Swift iOS */;
+			targetProxy = 4AC74021245D200700679E39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -519,6 +587,24 @@
 			};
 			name = Release;
 		};
+		4AC7401F245D1FF900679E39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N67G6688LK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4AC74020245D1FF900679E39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N67G6688LK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -531,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI-Swift" */ = {
+		4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI-Swift iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A45D5B02441771100CF4E1B /* Debug */,
@@ -545,6 +631,15 @@
 			buildConfigurations = (
 				4A45D5B32441771100CF4E1B /* Debug */,
 				4A45D5B42441771100CF4E1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC7401E245D1FF900679E39 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC7401F245D1FF900679E39 /* Debug */,
+				4AC74020245D1FF900679E39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
