@@ -14,25 +14,25 @@ import Foundation
 public struct Place: Codable {
     
     /// The identifier of the place. Every objectID is unique within all place instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the festival. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// The street associated with the place.
-    var street: String
+    public var street: String
     /// The zip code associated with the place.
-    var zip: String
+    public var zip: String
     /// The town associated with the place.
-    var town: String
+    public var town: String
     /// The street addition associated with the place.
-    var streetAddition: String
+    public var streetAddition: String
     /// The country associated with the place.
-    var country: String
+    public var country: String
     /// The latitude of the place.
-    var lat: Decimal
+    public var lat: Decimal
     /// The longitude of the place.
-    var lon: Decimal
+    public var lon: Decimal
     /// The description of the place.
-    var description: String
+    public var description: String
     
     /// Initializes a place with the given data.
     /// - Parameter objectDict: The dict containing the place values.

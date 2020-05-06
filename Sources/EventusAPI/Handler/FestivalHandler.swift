@@ -14,32 +14,32 @@ import Foundation
 public struct Festival: Codable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the festival. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// Boolean value indicating if the object is valid. The value is ment to control the visibility of the object, as there are situation in which the objet should not be displayed but also not deleted altogether.
-    var valid: Bool
+    public var valid: Bool
     /// The name of the festival. The name must not be unique but it is highly recommended.
-    var name: String
+    public var name: String
     /// The start date of the festival. Must be before the end date.
-    var start: Date
+    public var start: Date
     /// The end date of the festival. Must be after the start date.
-    var end: Date
+    public var end: Date
     /// The description of the festival.
-    var description: String
+    public var description: String
     /// A descritpition of the pricing of the festival.
-    var price: String
+    public var price: String
     
     /// The image associated with the festival.
-    var image: ImageRef?
+    public var image: ImageRef?
     /// The links associated with the festival.
-    var links: [Link]?
+    public var links: [Link]?
     /// The place associated with the festival.
-    var place: Place?
+    public var place: Place?
     /// The tags associated with the festival.
-    var tags: [Tag]?
+    public var tags: [Tag]?
     /// The events associated with the festival.
-    var events: [Event]?
+    public var events: [Event]?
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.

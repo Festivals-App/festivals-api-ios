@@ -14,20 +14,20 @@ import Foundation
 public struct Artist: Codable {
     
     /// The identifier of the artist. Every objectID is unique within all artist instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the artist. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// The name of the artist. The name must not be unique but it is highly recommended.
-    var name: String
+    public var name: String
     /// The description of the artist.
-    var description: String
+    public var description: String
     
     /// The image associated with the artist.
-    var image: ImageRef?
+    public var image: ImageRef?
     /// The links associated with the artist.
-    var links: [Link]?
+    public var links: [Link]?
     /// The tags associated with the artist.
-    var tags: [Tag]?
+    public var tags: [Tag]?
     
     /// Initializes an artist with the given data.
     /// - Parameter objectDict: The dict containing the artist values.

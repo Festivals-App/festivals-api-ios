@@ -14,13 +14,13 @@ import Foundation
 public struct ImageRef: Codable {
     
     /// The identifier of the image reference. Every objectID is unique within all image reference instances.
-    var objectID: Int
+    public var objectID: Int
     /// The hash of the referenced image.
-    var hash: String
+    public var hash: String
     /// The comment of the image reference. This value is ment to contain information about copyright, author and lizense of the image.
-    var comment: String
+    public var comment: String
     /// The reference to the image.
-    var referrerURL: URL?
+    public var referrerURL: URL?
     
     /// Initializes an image reference with the given data.
     /// - Parameter objectDict: The dict containing the image reference values.

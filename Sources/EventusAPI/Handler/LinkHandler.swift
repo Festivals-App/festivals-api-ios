@@ -68,13 +68,13 @@ public enum LinkType: Int, Codable, CaseIterable {
 public struct Link: Codable {
     
     /// The identifier of the link. Every objectID is unique within all link instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the link. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// The referrer value.
-    var referrer: String
+    public var referrer: String
     /// The type of the link.
-    var service: LinkType
+    public var service: LinkType
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.

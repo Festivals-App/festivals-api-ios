@@ -14,22 +14,22 @@ import Foundation
 public struct Event: Codable {
     
     /// The identifier of the event. Every objectID is unique within all event instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the event. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// The name of the event. The name must not be unique but it is highly recommended.
-    var name: String
+    public var name: String
     /// The start date of the event. Must be before the end date.
-    var start: Date
+    public var start: Date
     /// The end date of the event. Must be after the start date.
-    var end: Date
+    public var end: Date
     /// The description of the event.
-    var description: String
+    public var description: String
     
     /// The artist associated with the event.
-    var artist: Artist?
+    public var artist: Artist?
     /// The location associated with the event.
-    var location: Location?
+    public var location: Location?
     
     /// Initializes an event with the given data.
     /// - Parameter objectDict: The dict containing the event values.

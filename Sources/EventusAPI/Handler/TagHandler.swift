@@ -14,9 +14,9 @@ import Foundation
 public struct Tag: Codable {
     
     /// The identifier of the tag. Every objectID is unique within all tag instances.
-    var objectID: Int
+    public var objectID: Int
     /// The name of the tag. The name must not be unique but it is highly recommended.
-    var name: String
+    public var name: String
     
     /// Initializes a tag with the given data.
     /// - Parameter objectDict: The dict containing the tag values.

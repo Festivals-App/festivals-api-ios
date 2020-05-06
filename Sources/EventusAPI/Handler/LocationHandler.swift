@@ -14,24 +14,24 @@ import Foundation
 public struct Location: Codable {
     
     /// The identifier of the location. Every objectID is unique within all location instances.
-    var objectID: Int
+    public var objectID: Int
     /// The version of the location. Although the value is actual a timestamp, it is not recommended to perform any calcualtions that depend on the value of the timstamp.
-    var version: String
+    public var version: String
     /// The name of the location. The name must not be unique but it is highly recommended.
-    var name: String
+    public var name: String
     /// The description of the artist.
-    var description: String
+    public var description: String
     /// Boolean value indicating if the location is accessible.
-    var accessible: Bool
+    public var accessible: Bool
     /// Boolean value indicating if the location is open air.
-    var openair: Bool
+    public var openair: Bool
     
     /// The image associated with the location.
-    var image: ImageRef?
+    public var image: ImageRef?
     /// The links associated with the location.
-    var links: [Link]?
+    public var links: [Link]?
     /// The place associated with the location.
-    var place: Place?
+    public var place: Place?
     
     /// Initializes a location with the given data.
     /// - Parameter objectDict: The dict containing the location values.
