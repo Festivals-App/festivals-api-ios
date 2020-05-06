@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4A1CFF2C246250C30082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
+		4A1CFF2D246250C40082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
 		4A341EEE2461F87400CF84E5 /* EventusAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* EventusAPI.framework */; };
 		4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
 		4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
@@ -91,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A1CFF30246254200082AF96 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		4A341EE92461F87400CF84E5 /* EventusAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventusAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
@@ -156,11 +159,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A341EEA2461F87400CF84E5 /* EventusAPI macOS Tests */ = {
+		4A1CFF2E246251C40082AF96 /* EventusAPIPackage */ = {
 			isa = PBXGroup;
 			children = (
+				4A45D59E2441771100CF4E1B /* EventusAPI.h */,
+				4A45D59F2441771100CF4E1B /* Info.plist */,
+				4A397661244A96CB006C934C /* EventusClient.swift */,
+				4A397652244A8F9A006C934C /* Handler */,
+				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
 			);
-			path = "EventusAPI macOS Tests";
+			path = EventusAPIPackage;
+			sourceTree = "<group>";
+		};
+		4A1CFF2F246251DD0082AF96 /* EventusAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				4A45D5AB2441771100CF4E1B /* Info.plist */,
+				4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */,
+				4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */,
+				4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */,
+				4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */,
+				4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */,
+				4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */,
+				4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */,
+				4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */,
+				4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */,
+			);
+			path = EventusAPITests;
 			sourceTree = "<group>";
 		};
 		4A397652244A8F9A006C934C /* Handler */ = {
@@ -181,11 +206,11 @@
 		4A45D5912441771100CF4E1B = {
 			isa = PBXGroup;
 			children = (
-				4A45D59D2441771100CF4E1B /* EventusAPI */,
-				4A45D5A82441771100CF4E1B /* Integration Tests */,
-				4A341EEA2461F87400CF84E5 /* EventusAPI macOS Tests */,
-				4A45D59C2441771100CF4E1B /* Products */,
 				4AC74028245D258800679E39 /* README.md */,
+				4A1CFF30246254200082AF96 /* Package.swift */,
+				4A45D59D2441771100CF4E1B /* Sources */,
+				4A45D5A82441771100CF4E1B /* Tests */,
+				4A45D59C2441771100CF4E1B /* Products */,
 				4AC74024245D20A300679E39 /* .jazzy.yaml */,
 				4AC74026245D255D00679E39 /* .gitignore */,
 			);
@@ -202,41 +227,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4A45D59D2441771100CF4E1B /* EventusAPI */ = {
+		4A45D59D2441771100CF4E1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59E2441771100CF4E1B /* EventusAPI.h */,
-				4A45D59F2441771100CF4E1B /* Info.plist */,
-				4A45D5B524417C3800CF4E1B /* Source */,
+				4A1CFF2E246251C40082AF96 /* EventusAPIPackage */,
 			);
-			path = EventusAPI;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		4A45D5A82441771100CF4E1B /* Integration Tests */ = {
+		4A45D5A82441771100CF4E1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D5AB2441771100CF4E1B /* Info.plist */,
-				4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */,
-				4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */,
-				4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */,
-				4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */,
-				4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */,
-				4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */,
-				4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */,
-				4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */,
-				4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */,
+				4A1CFF2F246251DD0082AF96 /* EventusAPITests */,
 			);
-			path = "Integration Tests";
-			sourceTree = "<group>";
-		};
-		4A45D5B524417C3800CF4E1B /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				4A397661244A96CB006C934C /* EventusClient.swift */,
-				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
-				4A397652244A8F9A006C934C /* Handler */,
-			);
-			path = Source;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1CFF2D246250C40082AF96 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1CFF2C246250C30082AF96 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +573,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = "Integration Tests/Info.plist";
+				INFOPLIST_FILE = Tests/EventusAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -587,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = "Integration Tests/Info.plist";
+				INFOPLIST_FILE = Tests/EventusAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -732,7 +738,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/EventusAPIPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -761,7 +767,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/EventusAPIPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -784,7 +790,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = "Integration Tests/Info.plist";
+				INFOPLIST_FILE = Tests/EventusAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -803,7 +809,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = "Integration Tests/Info.plist";
+				INFOPLIST_FILE = Tests/EventusAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -844,7 +850,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/EventusAPIPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -871,7 +877,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/EventusAPIPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

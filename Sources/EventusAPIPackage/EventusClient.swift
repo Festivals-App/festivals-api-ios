@@ -38,7 +38,7 @@ To ease code organisation and structuring the EventusAPI framework is split into
 * `ArtistHandler` for accessing artist objects.
 * `LocationHandler` for accessing location objects.
 * `EventHandler` for accessing event objects.
-* `ImageHandler` for accessing image objects.
+* `ImageRefHandler` for accessing image objects.
 * `TagHandler` for accessing tag objects.
 * `PlaceHandler` for accessing place objects.
 * `LinkHandler` for accessing link objects.
