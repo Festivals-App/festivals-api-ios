@@ -159,7 +159,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A1CFF2E246251C40082AF96 /* EventusAPIPackage */ = {
+		4A1CFF2E246251C40082AF96 /* EventusAPI */ = {
 			isa = PBXGroup;
 			children = (
 				4A45D59E2441771100CF4E1B /* EventusAPI.h */,
@@ -168,10 +168,10 @@
 				4A397652244A8F9A006C934C /* Handler */,
 				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
 			);
-			path = EventusAPIPackage;
+			path = EventusAPI;
 			sourceTree = "<group>";
 		};
-		4A1CFF2F246251DD0082AF96 /* EventusAPITests */ = {
+		4A1CFF2F246251DD0082AF96 /* EventusAPI */ = {
 			isa = PBXGroup;
 			children = (
 				4A45D5AB2441771100CF4E1B /* Info.plist */,
@@ -185,7 +185,7 @@
 				4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */,
 				4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */,
 			);
-			path = EventusAPITests;
+			path = EventusAPI;
 			sourceTree = "<group>";
 		};
 		4A397652244A8F9A006C934C /* Handler */ = {
@@ -230,7 +230,7 @@
 		4A45D59D2441771100CF4E1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CFF2E246251C40082AF96 /* EventusAPIPackage */,
+				4A1CFF2E246251C40082AF96 /* EventusAPI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 		4A45D5A82441771100CF4E1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CFF2F246251DD0082AF96 /* EventusAPITests */,
+				4A1CFF2F246251DD0082AF96 /* EventusAPI */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
