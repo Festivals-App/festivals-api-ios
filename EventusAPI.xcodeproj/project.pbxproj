@@ -22,8 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4A341EE0246047DC00CF84E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A341EE3246047DC00CF84E5 /* Localizable.strings */; };
-		4A341EE1246047DC00CF84E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A341EE3246047DC00CF84E5 /* Localizable.strings */; };
 		4A341EEE2461F87400CF84E5 /* EventusAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* EventusAPI.framework */; };
 		4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
 		4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
@@ -52,9 +50,6 @@
 		4AC74017245D0C6700679E39 /* LinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */; };
 		4AC7401A245D18D900679E39 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */; };
 		4AC7401C245D1D6300679E39 /* TagHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */; };
-		4AC74025245D20A300679E39 /* .jazzy.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74024245D20A300679E39 /* .jazzy.yaml */; };
-		4AC74027245D255D00679E39 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74026245D255D00679E39 /* .gitignore */; };
-		4AC74029245D258800679E39 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
 		4AC74039245DA00A00679E39 /* FestivalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */; };
 		4AC7403A245DA00A00679E39 /* ArtistHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397653244A8FB7006C934C /* ArtistHandler.swift */; };
 		4AC7403B245DA00A00679E39 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
@@ -96,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A341EE2246047DC00CF84E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A341EE92461F87400CF84E5 /* EventusAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventusAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
@@ -213,7 +207,6 @@
 			children = (
 				4A45D59E2441771100CF4E1B /* EventusAPI.h */,
 				4A45D59F2441771100CF4E1B /* Info.plist */,
-				4A341EE3246047DC00CF84E5 /* Localizable.strings */,
 				4A45D5B524417C3800CF4E1B /* Source */,
 			);
 			path = EventusAPI;
@@ -404,10 +397,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC74029245D258800679E39 /* README.md in Resources */,
-				4A341EE0246047DC00CF84E5 /* Localizable.strings in Resources */,
-				4AC74027245D255D00679E39 /* .gitignore in Resources */,
-				4AC74025245D20A300679E39 /* .jazzy.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +411,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A341EE1246047DC00CF84E5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,17 +559,6 @@
 			targetProxy = 4AC74021245D200700679E39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4A341EE3246047DC00CF84E5 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A341EE2246047DC00CF84E5 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4A341EF22461F87400CF84E5 /* Debug */ = {
