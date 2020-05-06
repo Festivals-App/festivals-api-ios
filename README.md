@@ -10,9 +10,11 @@ The EventusAPI framework is designed to make interacting with the Eventus web se
 
 ## Requirements
 
--  iOS 13.1+
--  macOS 10.13+
--  Xcode 11.4.1+
+- iOS 13.1+
+- macOS 10.13+
+- Xcode 11.4.1+
+- [jazzy](https://github.com/realm/jazzy) 0.13.3+ (for building the documentation)
+- [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.2.0+ (for localization)
 
 ## Installation
 
@@ -21,7 +23,7 @@ The EventusAPI framework is designed to make interacting with the Eventus web se
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate EventusAPI into your Xcode project using Carthage, specify it in your Cartfilee:
 
 ```ogdl
-github "https://github.com/Phisto/EventusAPI-Swift" ~> 0.1
+github "https://github.com/Phisto/EventusAPI" ~> 0.1
 ```
 
 ### Manually

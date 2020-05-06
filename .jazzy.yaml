@@ -2,8 +2,6 @@
 
 output: Documentation
 clean: true
-objc: false
-framework_root: .
 sdk: macosx
 author: Simon Gaus
 author_url: http://simonsapps.de
