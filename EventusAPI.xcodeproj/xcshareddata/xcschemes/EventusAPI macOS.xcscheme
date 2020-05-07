@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AC74030245D9FA400679E39"
-               BuildableName = "EventusAPI_macOS.framework"
+               BuildableName = "EventusAPI.framework"
                BlueprintName = "EventusAPI macOS"
                ReferencedContainer = "container:EventusAPI.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AC74030245D9FA400679E39"
-            BuildableName = "EventusAPI_macOS.framework"
+            BuildableName = "EventusAPI.framework"
             BlueprintName = "EventusAPI macOS"
             ReferencedContainer = "container:EventusAPI.xcodeproj">
          </BuildableReference>

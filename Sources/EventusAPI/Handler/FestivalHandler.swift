@@ -11,7 +11,7 @@ import Foundation
 // MARK: Festival Struct
 
 /// The `Festival` struct represents a festival as it is represented in the Eventus webservice.
-public struct Festival: Codable {
+public struct Festival: Codable, Hashable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
     public var objectID: Int
@@ -106,6 +106,14 @@ public struct Festival: Codable {
         
         let dict: [String: Any] = ["festival_id": self.objectID, "festival_version": self.version, "festival_is_valid": self.valid, "festival_name": self.name, "festival_start": Int(self.start.timeIntervalSince1970), "festival_end": Int(self.end.timeIntervalSince1970), "festival_description": self.description, "festival_price": self.price]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    public static func == (lhs: Festival, rhs: Festival) -> Bool {
+        return lhs.name == rhs.name && lhs.name == rhs.name
     }
 }
 
