@@ -270,26 +270,27 @@ class Webservice: NSObject {
         
         self.session.dataTask(with: request) { (data, response, err) in
            
-            // no response is bad
-            guard  let _ = response as? HTTPURLResponse else{
-                result(nil, APIError.requestFailed)
-                return
-            }
-            // no data is bad, as the eventus service always returns data
-            guard let jsonData = data else {
-                if let err = err {
-                    print(err)
+            DispatchQueue.main.async {
+                // no response is bad
+                guard  let _ = response as? HTTPURLResponse else{
+                    result(nil, APIError.requestFailed)
+                    return
                 }
-                result(nil, APIError.requestFailed)
-                return
+                // no data is bad, as the eventus service always returns data
+                guard let jsonData = data else {
+                    if let err = err {
+                        print(err)
+                    }
+                    result(nil, APIError.requestFailed)
+                    return
+                }
+                // retrieve data array if possible
+                guard let dataArray = self.dataArrayFrom(jsonData) else {
+                    result(nil, APIError.serviceError)
+                    return
+                }
+                result(dataArray, nil)
             }
-            // retrieve data array if possible
-            guard let dataArray = self.dataArrayFrom(jsonData) else {
-                result(nil, APIError.serviceError)
-                return
-            }
-            result(dataArray, nil)
-            
         }.resume()
     }
     

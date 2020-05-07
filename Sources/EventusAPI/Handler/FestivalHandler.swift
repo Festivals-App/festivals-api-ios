@@ -141,7 +141,7 @@ public class FestivalHandler {
     public func all(festivals completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
         
         self.festivals() { festivals, error in
-
+            
             completion(festivals, error)
         }
     }
