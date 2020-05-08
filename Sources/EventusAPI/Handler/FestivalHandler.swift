@@ -90,7 +90,7 @@ public struct Festival: Hashable {
     ///  Creates festivals with the given name and random values.
     /// - Parameter name: The name of the festival.
     /// - Returns: The festival
-    public func makeFestival(with name: String) -> Festival {
+    public static func makeFestival(with name: String) -> Festival {
         
         let dict: [String : Any] = ["festival_id": 0,
                                     "festival_version": "2020-02-25T\(Int.random(in: 0...23)):\(Int.random(in: 0...59)):23Z",
