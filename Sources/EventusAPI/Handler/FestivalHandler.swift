@@ -11,7 +11,7 @@ import Foundation
 // MARK: Festival Struct
 
 /// The `Festival` struct represents a festival as it is represented in the Eventus webservice.
-public struct Festival: Codable, Hashable {
+public struct Festival: Hashable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
     public var objectID: Int
@@ -85,6 +85,23 @@ public struct Festival: Codable, Hashable {
                 self.events = Event.events(from: events)
             }
         }
+    }
+    
+    ///  Creates festivals with the given name and random values.
+    /// - Parameter name: The name of the festival.
+    /// - Returns: The festival
+    public func festival(with name: String) -> Festival {
+        
+        let dict: [String : Any] = ["festival_id": 0,
+                                    "festival_version": "2020-02-25T\(Int.random(in: 0...23)):\(Int.random(in: 0...59)):23Z",
+                                    "festival_is_valid": false,
+                                    "festival_name": name,
+                                    "festival_start": Int.random(in: 1596794440...1596794440+Int.random(in: 50000...200000)),
+                                    "festival_end": Int.random(in: 1596794440+200000...(1596794440+200000+Int.random(in: 50000...200000))),
+                                    "festival_description": "",
+                                    "festival_price": "Ab \(Int.random(in: 5...35)) Euro"]
+        
+        return Festival(with: dict)!
     }
     
     /// Creates festivals from an array of festival dicts.
