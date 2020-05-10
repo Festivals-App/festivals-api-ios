@@ -381,6 +381,9 @@ class Webservice: NSObject {
             }
         } else {
             queryString = "/\(objectType)s"
+            if let includes = includes {
+                queryString = queryString + "?include=\(includes)"
+            }
         }
      
         return queryString

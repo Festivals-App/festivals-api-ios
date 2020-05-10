@@ -15,9 +15,12 @@ class FestivalHandlerTests: XCTestCase {
     var webservice: Webservice!
     var handler: FestivalHandler!
     
+    let url = "http://localhost:8080"
+    //let url = "https://api.simonsserver.de"
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.webservice = Webservice.init(baseURL: URL.init(string: "http://localhost:8080")!, session: URLSession.init(configuration: .default), apiVersion: "")
+        self.webservice = Webservice.init(baseURL: URL.init(string: url)!, session: URLSession.init(configuration: .default), apiVersion: "")
         self.handler = FestivalHandler.init(with: self.webservice)
     }
     
@@ -34,6 +37,8 @@ class FestivalHandlerTests: XCTestCase {
         
         self.handler.all { (festivals, error) -> (Void) in
             testResult = (festivals != nil)
+            print(festivals?[0])
+            
             expectation.fulfill()
         }
         
