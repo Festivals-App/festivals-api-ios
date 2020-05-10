@@ -37,8 +37,6 @@ class FestivalHandlerTests: XCTestCase {
         
         self.handler.all { (festivals, error) -> (Void) in
             testResult = (festivals != nil)
-            print(festivals?[0])
-            
             expectation.fulfill()
         }
         
