@@ -1,4 +1,4 @@
-# EventusAPI client library
+# Festivals API client library for iOS and macOS
 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
