@@ -1,19 +1,57 @@
-# Festivals API client library for iOS and macOS
+<h1 align="center">
+Festivals API client library for iOS and macOS
+</h1>
 
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+<p align="center">
+    <a href="https://github.com/Carthage/Carthage" title="License"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
+   <a href="https://github.com/festivals-app/festivals-api-ios/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/festivals-app/festivals-api-ios?style=flat"></a>
+   <a href="https://github.com/festivals-app/festivals-api-ios/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/festivals-app/festivals-api-ios?style=flat"></a>
+   <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/festivals-app/festivals-api-ios.svg"></a>
+</p>
 
-Eventus web service, live and lightweight in your app.
+<p align="center">
+  <a href="#development">Development</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#participate">Participate</a> •
+  <a href="#licensing">Licensing</a>
+</p>
 
-## Overview
+The framework is designed to make interacting with the Festivals API seamless and efficient. Downloading festivals, artists and other objects to your app is all made easy with FestivalsAPI's components. 
 
-The EventusAPI framework is designed to make interacting with the Eventus web service seamless and efficient. Downloading festivals, artists and other objects to your app is all made easy with EventusAPI's components. 
+## Development
 
-## Requirements
+TBA
+
+### Requirements
 
 - iOS 13.1+
 - macOS 10.13+
 - Xcode 11.4.1+
 - [jazzy](https://github.com/realm/jazzy) 0.13.3+ (for building the documentation)
+
+## Usage
+
+TBA
+
+```swift
+// Create the handler
+let handler = FestivalHandler.init(with: <#webservice#>)
+
+// fetch all festivals
+handler.all { (festivals, error) -> (Void) in
+    guard let festivals = festivals else {
+        print(error)
+        return
+    }
+    
+    // use festivals
+}
+```
+
+### Documentation
+
+The full documentation for the Festivals App is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
 
 ## Installation
 
@@ -42,20 +80,24 @@ dependencies: [
 If you prefer not to use Carthage, you can integrate EventusAPI into your project manually.
 You only need to build and add the EventusAPI framework (EventusAPI.framework) to your project. 
 
-## Usage
+## Participate
 
-```swift
-// Create the handler
-let handler = FestivalHandler.init(with: <#webservice#>)
+TBA
 
-// fetch all festivals
-handler.all { (festivals, error) -> (Void) in
-    guard let festivals = festivals else {
-        print(error)
-        return
-    }
-    
-    // use festivals
-}
-```
+The following channels are available for discussions, feedback, and support requests:
 
+| Type                     | Channel                                                |
+| ------------------------ | ------------------------------------------------------ |
+| **General Discussion**   | <a href="https://github.com/festivals-app/festivals-documentation/issues/new/choose" title="General Discussion"><img src="https://img.shields.io/github/issues/festivals-app/festivals-documentation/question.svg?style=flat-square"></a> </a>   |
+| **Concept Feedback**    | <a href="https://github.com/festivals-app/festivals-documentation/issues/new/choose" title="Open Concept Feedback"><img src="https://img.shields.io/github/issues/festivals-app/festivals-documentation/architecture.svg?style=flat-square"></a>  |
+| **Other Requests**    | <a href="mailto:phisto05@gmail.com" title="Email Festivals Team"><img src="https://img.shields.io/badge/email-Festivals%20team-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
+
+## Licensing
+
+Copyright (c) 2020 Simon Gaus.
+
+Licensed under the **GNU Lesser General Public License v3.0** (the "License"); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at https://www.gnu.org/licenses/lgpl-3.0.html.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.
