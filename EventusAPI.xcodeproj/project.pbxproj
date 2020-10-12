@@ -112,6 +112,7 @@
 		4A45D5B824417D9800CF4E1B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
 		4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandler.swift; sourceTree = "<group>"; };
+		4AC5145D2535153E00F24354 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRefHandlerTests.swift; sourceTree = "<group>"; };
 		4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandlerTests.swift; sourceTree = "<group>"; };
 		4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandlerTests.swift; sourceTree = "<group>"; };
@@ -212,6 +213,7 @@
 				4A45D5A82441771100CF4E1B /* Tests */,
 				4A45D59C2441771100CF4E1B /* Products */,
 				4AC74024245D20A300679E39 /* .jazzy.yaml */,
+				4AC5145D2535153E00F24354 /* LICENSE */,
 				4AC74026245D255D00679E39 /* .gitignore */,
 			);
 			sourceTree = "<group>";
