@@ -8,6 +8,28 @@
 
 import Foundation
 
+// MARK: Event Type
+
+/// The EventType enumeration defines a list themes an event can be associated with.
+public enum EventType: Int, Codable, CaseIterable {
+    /// The event is a musical performance.
+    case music          = 0
+    /// The event is a movie screening,
+    case movie          = 1
+    /// The event is an artistic performance.
+    case performance    = 2
+    /// The event is a theatrical performance.
+    case theater        = 3
+    /// The event represents a food store/restaurant.
+    case food           = 4
+    /// The event is an exhibition.
+    case exhibition     = 5
+    /// The event hosts a talk.
+    case talk           = 6
+    /// The event hosts a workshop.
+    case workshop       = 7
+}
+
 // MARK: Event Struct
 
 /// The  `Event` struct represents an event as it is represented in the Eventus webservice.
@@ -25,6 +47,8 @@ public struct Event: Codable {
     public var end: Date
     /// The description of the event.
     public var description: String
+    /// The type of the event.
+    public var type: EventType
     
     /// The artist associated with the event.
     public var artist: Artist?
@@ -42,12 +66,15 @@ public struct Event: Codable {
         guard let object_start_int      = objectDict["event_start"] as? Int else { return nil }
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
         guard let object_description    = objectDict["event_description"] as? String else { return nil }
+        guard let object_type           = objectDict["event_type"] as? Int else { return nil }
+        guard let eventType             = EventType(rawValue: object_type) else { return nil }
         self.objectID = object_id
         self.version = object_version
         self.name = object_name
         self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
         self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
         self.description = object_description
+        self.type = eventType
         
         if let includes = objectDict["include"] as? [String: Any] {
             
@@ -81,7 +108,7 @@ public struct Event: Codable {
     /// - Returns: The JSON representation as data.
     func JSON() -> Data {
 
-        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description]
+        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
 }
