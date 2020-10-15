@@ -74,7 +74,7 @@ public class EventusClient {
     public init(apiKey: String, apiVersion: String, baseURL: URL) {
         
         let config = URLSessionConfiguration.ephemeral
-        config.httpAdditionalHeaders = ["Api-Key": apiKey]
+        config.httpAdditionalHeaders = ["API-KEY": apiKey]
         let session = URLSession.init(configuration: config)
         self.webservice =  Webservice.init(baseURL: baseURL, session: session, apiVersion: "")
     }
