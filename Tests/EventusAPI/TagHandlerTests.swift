@@ -17,7 +17,7 @@ class TagHandlerTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.webservice = Webservice.init(baseURL: URL.init(string: "http://localhost:8080")!, session: URLSession.init(configuration: .default), apiVersion: "")
+        self.webservice = Webservice.init(baseURL: URL.init(string: "http://localhost:10439")!, session: URLSession.init(configuration: .default), apiKey: "TEST_API_KEY_001", apiVersion: .v0_1)
         self.handler = TagHandler.init(with: self.webservice)
     }
     

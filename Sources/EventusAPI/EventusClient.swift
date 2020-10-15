@@ -11,7 +11,7 @@ import Foundation
 // MARK: APIError
 
 /// The errors returned by the EventusAPI framework.
-enum APIError: Error {
+public enum APIError: Error {
     /// Returned if the request to the Eventus web service failed.
     case requestFailed
     /// Returned if the response from the Eventus web service could not be processed.
@@ -22,6 +22,12 @@ enum APIError: Error {
     case unknownError
     ///Returned if the request was successfull, but the requested record is not available.
     case recordDoesNotExist
+}
+
+// MARK: APIVersions
+
+public enum APIVersion: String {
+    case v0_1 = "0.1"
 }
 
 // MARK: EventusClient
@@ -71,11 +77,9 @@ public class EventusClient {
     ///     - apiKey: The API key used for making requests.
     ///     - apiVersion: The API version used for making requests.
     ///     - baseURL: The base URL used for making request.
-    public init(apiKey: String, apiVersion: String, baseURL: URL) {
+    public init(apiKey: String, apiVersion: APIVersion, baseURL: URL) {
         
-        let config = URLSessionConfiguration.ephemeral
-        config.httpAdditionalHeaders = ["API-KEY": apiKey]
-        let session = URLSession.init(configuration: config)
-        self.webservice =  Webservice.init(baseURL: baseURL, session: session, apiVersion: "")
+        let session = URLSession.init(configuration: .ephemeral)
+        self.webservice =  Webservice.init(baseURL: baseURL, session: session, apiKey: "TEST_API_KEY_001", apiVersion: .v0_1)
     }
 }

@@ -16,7 +16,7 @@ class WebserviceTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.service = Webservice.init(baseURL: URL.init(string: "http://localhost:8080")!, session: URLSession.init(configuration: .default), apiVersion: "")
+        self.service = Webservice.init(baseURL: URL.init(string: "http://localhost:10439")!, session: URLSession.init(configuration: .default), apiKey: "TEST_API_KEY_001", apiVersion: .v0_1)
     }
     
     override func tearDownWithError() throws {
@@ -161,7 +161,7 @@ class WebserviceTests: XCTestCase {
     func testPerform() throws {
         
         let expectation = self.expectation(description: "Perform request")
-        let request = URLRequest.init(url: URL.init(string: "http://localhost:8080/festivals?ids=1,2")!)
+        let request = URLRequest.init(url: URL.init(string: "http://localhost:10439/festivals?ids=1,2")!)
         var testResult: Bool = false
         
         self.service.perfrom(request) { (data, err) -> (Void) in

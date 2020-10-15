@@ -57,11 +57,12 @@ class Webservice: NSObject {
     ///     - baseURL: The base URL used for makeing calls to the Eventus web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, session: URLSession, apiVersion: String) {
+    init(baseURL: URL, session: URLSession, apiKey: String, apiVersion: APIVersion) {
         
         self.baseURL = baseURL
+        session.configuration.httpAdditionalHeaders = ["API-KEY": apiKey]
         self.session = session
-        self.apiVersion = apiVersion
+        self.apiVersion = apiVersion.rawValue
     }
     
     // MARK: Manage Objects
