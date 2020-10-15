@@ -79,7 +79,7 @@ class EventHandlerTests: XCTestCase {
         var deltedTheEvent: Bool = false
 
         let eventDict: [String: Any] = ["event_id": 0, "event_version": "", "event_name": "TESTEVENT",
-                                           "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION"]
+                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.talk.rawValue]
         let event = Event.init(with: eventDict)!
 
         self.handler.create(event: event) { (createdEvent, error) -> (Void) in
@@ -111,7 +111,7 @@ class EventHandlerTests: XCTestCase {
         var deltedTheEvent: Bool = false
         
         let eventDict: [String: Any] = ["event_id": 0, "event_version": "", "event_name": "TESTEVENT",
-                                           "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION"]
+                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.food.rawValue]
         let event = Event.init(with: eventDict)!
         
         self.handler.create(event: event) { (createdEvent, error) -> (Void) in
@@ -124,6 +124,7 @@ class EventHandlerTests: XCTestCase {
             createdTheEvent = true
             
             createdEvent.name = "ANOTHERNAME"
+            createdEvent.type = .music
             
             self.handler.update(event: createdEvent) { (updatedEvent, error) -> (Void) in
                 
@@ -132,7 +133,7 @@ class EventHandlerTests: XCTestCase {
                     return
                 }
                 
-                updatedTheEvent = (updatedEvent.name == "ANOTHERNAME")
+                updatedTheEvent = (updatedEvent.name == "ANOTHERNAME" && updatedEvent.type == .music)
                 
                 self.handler.delete(event: updatedEvent) { (delted, error) -> (Void) in
                     

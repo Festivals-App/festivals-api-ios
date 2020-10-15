@@ -210,7 +210,7 @@ class FestivalHandlerTests: XCTestCase {
         var didDeleteEvent: Bool = false
         
         let eventHandler = EventHandler.init(with: self.webservice)
-        let eventDict: [String: Any] = ["event_id": 75, "event_version": "", "event_name": "TESTEVENT", "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION"]
+        let eventDict: [String: Any] = ["event_id": 75, "event_version": "", "event_name": "TESTEVENT", "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": 0]
         let event = Event.init(with: eventDict)!
         
         eventHandler.create(event: event) { (createdEvent, error) -> (Void) in
