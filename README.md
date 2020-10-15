@@ -13,7 +13,7 @@ Festivals API client library for iOS and macOS
   <a href="#development">Development</a> •
   <a href="#usage">Usage</a> •
   <a href="#installation">Installation</a> •
-  <a href="#participate">Participate</a> •
+  <a href="#engage">Engage</a> •
   <a href="#licensing">Licensing</a>
 </p>
 
@@ -80,7 +80,7 @@ dependencies: [
 If you prefer not to use Carthage, you can integrate EventusAPI into your project manually.
 You only need to build and add the EventusAPI framework (EventusAPI.framework) to your project. 
 
-## Participate
+## Engage
 
 TBA
 
