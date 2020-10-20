@@ -15,9 +15,6 @@ class FestivalHandlerTests: XCTestCase {
     var webservice: Webservice!
     var handler: FestivalHandler!
     
-    let url = "http://localhost:10439"
-    //let url = "https://api.simonsserver.de"
-    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         guard let urlValue = Bundle(for: Self.self).object(forInfoDictionaryKey: "FestivalsAPI_URL") as? String else { return }
