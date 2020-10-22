@@ -163,7 +163,8 @@ class WebserviceTests: XCTestCase {
     func testPerform() throws {
         
         let expectation = self.expectation(description: "Perform request")
-        let request = URLRequest.init(url: URL.init(string: "http://localhost:10439/festivals?ids=1,2")!)
+        guard let host = Bundle(for: Self.self).object(forInfoDictionaryKey: "FestivalsAPI_URL") as? String else { return }
+        let request = URLRequest.init(url: URL.init(string: host + "/festivals?ids=1,2")!)
         var testResult: Bool = false
         
         self.service.perfrom(request) { (data, err) -> (Void) in
