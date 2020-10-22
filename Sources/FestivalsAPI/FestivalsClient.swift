@@ -1,6 +1,6 @@
 //
-//  EventusClient.swift
-//  EventusAPI
+//  FestivalsClient.swift
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 18.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -10,11 +10,11 @@ import Foundation
 
 // MARK: APIError
 
-/// The errors returned by the EventusAPI framework.
+/// The errors returned by the FestivalsAPI framework.
 public enum APIError: Error {
-    /// Returned if the request to the Eventus web service failed.
+    /// Returned if the request to the FestivalsAPI web service failed.
     case requestFailed
-    /// Returned if the response from the Eventus web service could not be processed.
+    /// Returned if the response from the FestivalsAPI web service could not be processed.
     case serviceError
     ///Returned if the received data could not be parsed into objects.
     case parsingFailed
@@ -30,13 +30,13 @@ public enum APIVersion: String {
     case v0_1 = "0.1"
 }
 
-// MARK: EventusClient
+// MARK: FestivalsClient
 
 /**
 
-This class is the central entry point to the EventusAPI framework.
+This class is the central entry point to the FestivalsAPI framework.
 
-To ease code organisation and structuring the EventusAPI framework is split into different parts which correspond to an object type stored and manged by the Eventus web service. Through the corresponding object handler you have access to the objects, their associated objects and properties.
+To ease code organisation and structuring the FestivalsAPI framework is split into different parts which correspond to an object type stored and manged by the FestivalsAPI web service. Through the corresponding object handler you have access to the objects, their associated objects and properties.
 
 ## Available object handler:
 
@@ -50,7 +50,7 @@ To ease code organisation and structuring the EventusAPI framework is split into
 * `LinkHandler` for accessing link objects.
 
 */
-public class EventusClient {
+public class FestivalsClient {
     
     /// The object handler to access festival objects.
     public lazy var festivalHandler = FestivalHandler.init(with: self.webservice)
@@ -72,7 +72,7 @@ public class EventusClient {
     /// The webservice to use.
     private var webservice: Webservice
     
-    /// Initilizes the Eventus client object.
+    /// Initilizes the FestivalsAPI client object.
     /// - Parameters:
     ///     - apiKey: The API key used for making requests.
     ///     - apiVersion: The API version used for making requests.

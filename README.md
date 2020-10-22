@@ -57,28 +57,28 @@ The full documentation for the Festivals App is in the [festivals-documentation]
 
 ### Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate EventusAPI into your Xcode project using Carthage, specify it in your Cartfilee:
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate FestivalsAPI into your Xcode project using Carthage, specify it in your Cartfilee:
 
 ```ogdl
-github "https://github.com/Phisto/EventusAPI-Swift" ~> 0.1
+github "https://github.com/Phisto/FestivalsAPI-Swift" ~> 0.1
 ```
 
 ### Swift Package Manager
 
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
 
-Once you have your Swift package set up, adding EventusAPI as a dependency is as easy as adding it to the dependencies value of your Package.swift.
+Once you have your Swift package set up, adding FestivalsAPI as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 
 ```ogdl
 dependencies: [
-.package(url: "https://github.com/Phisto/EventusAPI-Swift.git", .upToNextMajor(from: "0.1"))
+.package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.1"))
 ]
 ```
 
 ### Manually
 
-If you prefer not to use Carthage, you can integrate EventusAPI into your project manually.
-You only need to build and add the EventusAPI framework (EventusAPI.framework) to your project. 
+If you prefer not to use Carthage, you can integrate FestivalsAPI into your project manually.
+You only need to build and add the FestivalsAPI framework (FestivalsAPI.framework) to your project. 
 
 ## Engage
 

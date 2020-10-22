@@ -1,6 +1,6 @@
 //
 //  ArtistHandler.swift
-//  EventusAPI
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 18.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Artist Struct
 
-/// The `Artist` struct represents an artist as it is represented in the Eventus webservice.
+/// The `Artist` struct represents an artist as it is represented in the FestivalsAPI webservice.
 public struct Artist: Codable {
     
     /// The identifier of the artist. Every objectID is unique within all artist instances.
@@ -90,7 +90,7 @@ public class ArtistHandler {
     var webservice: Webservice
     
     /// Initilizes the handler object.
-    /// - Parameter webservice: The webservice object for makeing calls to the Eventus web service.
+    /// - Parameter webservice: The webservice object for makeing calls to the FestivalsAPI web service.
     init(with webservice: Webservice) {
         self.webservice = webservice
     }

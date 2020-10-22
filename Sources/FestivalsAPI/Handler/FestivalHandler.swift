@@ -1,6 +1,6 @@
 //
 //  FestivalHandler.swift
-//  EventusAPI
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 16.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Festival Struct
 
-/// The `Festival` struct represents a festival as it is represented in the Eventus webservice.
+/// The `Festival` struct represents a festival as it is represented in the FestivalsAPI webservice.
 public struct Festival: Hashable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
@@ -143,7 +143,7 @@ public class FestivalHandler {
     var webservice: Webservice
     
     /// Initilizes the handler object.
-    /// - Parameter  webservice: The webservice object for makeing calls to the Eventus web service.
+    /// - Parameter  webservice: The webservice object for makeing calls to the FestivalsAPI web service.
     init(with webservice: Webservice) {
         self.webservice = webservice
     }

@@ -24,7 +24,7 @@
 /* Begin PBXBuildFile section */
 		4A1CFF2C246250C30082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
 		4A1CFF2D246250C40082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
-		4A341EEE2461F87400CF84E5 /* EventusAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* EventusAPI.framework */; };
+		4A341EEE2461F87400CF84E5 /* FestivalsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* FestivalsAPI.framework */; };
 		4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
 		4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
 		4A341EF62461F88200CF84E5 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */; };
@@ -41,10 +41,10 @@
 		4A39765C244A953A006C934C /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765B244A953A006C934C /* PlaceHandler.swift */; };
 		4A39765E244A95E7006C934C /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765D244A95E7006C934C /* LinkHandler.swift */; };
 		4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765F244A9620006C934C /* ImageRefHandler.swift */; };
-		4A397662244A96CB006C934C /* EventusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* EventusClient.swift */; };
+		4A397662244A96CB006C934C /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
 		4A397664244B9B1E006C934C /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
-		4A45D5A52441771100CF4E1B /* EventusAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A45D59B2441771100CF4E1B /* EventusAPI.framework */; };
-		4A45D5AC2441771100CF4E1B /* EventusAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* EventusAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A45D5A52441771100CF4E1B /* FestivalsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */; };
+		4A45D5AC2441771100CF4E1B /* FestivalsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* FestivalsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A45D5B924417D9800CF4E1B /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
 		4A45D5BF2442894E00CF4E1B /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
 		4A45D5DF2448513100CF4E1B /* FestivalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */; };
@@ -61,8 +61,8 @@
 		4AC7403F245DA00A00679E39 /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765B244A953A006C934C /* PlaceHandler.swift */; };
 		4AC74040245DA00A00679E39 /* TagHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397659244A949C006C934C /* TagHandler.swift */; };
 		4AC74041245DA01300679E39 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
-		4AC74043245DA01600679E39 /* EventusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* EventusClient.swift */; };
-		4AC74044245DA01E00679E39 /* EventusAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* EventusAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AC74043245DA01600679E39 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
+		4AC74044245DA01E00679E39 /* FestivalsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* FestivalsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ACBAF3F2459821D00140AA6 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */; };
 		4AFE00AD2455827300996DD9 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */; };
 		4AFE00AF2455917B00996DD9 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */; };
@@ -94,7 +94,7 @@
 
 /* Begin PBXFileReference section */
 		4A1CFF30246254200082AF96 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		4A341EE92461F87400CF84E5 /* EventusAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventusAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestivalsAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		4A397657244A9350006C934C /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -102,12 +102,12 @@
 		4A39765B244A953A006C934C /* PlaceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandler.swift; sourceTree = "<group>"; };
 		4A39765D244A95E7006C934C /* LinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
 		4A39765F244A9620006C934C /* ImageRefHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRefHandler.swift; sourceTree = "<group>"; };
-		4A397661244A96CB006C934C /* EventusClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventusClient.swift; sourceTree = "<group>"; };
+		4A397661244A96CB006C934C /* FestivalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsClient.swift; sourceTree = "<group>"; };
 		4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandlerTests.swift; sourceTree = "<group>"; };
-		4A45D59B2441771100CF4E1B /* EventusAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EventusAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A45D59E2441771100CF4E1B /* EventusAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventusAPI.h; sourceTree = "<group>"; };
+		4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FestivalsAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A45D59E2441771100CF4E1B /* FestivalsAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FestivalsAPI.h; sourceTree = "<group>"; };
 		4A45D59F2441771100CF4E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A45D5A42441771100CF4E1B /* EventusAPI iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventusAPI iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestivalsAPI iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A45D5AB2441771100CF4E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A45D5B824417D9800CF4E1B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		4AC74024245D20A300679E39 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = "<group>"; };
 		4AC74026245D255D00679E39 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4AC74028245D258800679E39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4AC74031245D9FA400679E39 /* EventusAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EventusAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC74031245D9FA400679E39 /* FestivalsAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FestivalsAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlerTests.swift; sourceTree = "<group>"; };
 		4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandlerTests.swift; sourceTree = "<group>"; };
 		4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandlerTests.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A341EEE2461F87400CF84E5 /* EventusAPI.framework in Frameworks */,
+				4A341EEE2461F87400CF84E5 /* FestivalsAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A45D5A52441771100CF4E1B /* EventusAPI.framework in Frameworks */,
+				4A45D5A52441771100CF4E1B /* FestivalsAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,19 +160,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A1CFF2E246251C40082AF96 /* EventusAPI */ = {
+		4A1CFF2E246251C40082AF96 /* FestivalsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59E2441771100CF4E1B /* EventusAPI.h */,
+				4A45D59E2441771100CF4E1B /* FestivalsAPI.h */,
 				4A45D59F2441771100CF4E1B /* Info.plist */,
-				4A397661244A96CB006C934C /* EventusClient.swift */,
+				4A397661244A96CB006C934C /* FestivalsClient.swift */,
 				4A397652244A8F9A006C934C /* Handler */,
 				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
 			);
-			path = EventusAPI;
+			path = FestivalsAPI;
 			sourceTree = "<group>";
 		};
-		4A1CFF2F246251DD0082AF96 /* EventusAPI */ = {
+		4A1CFF2F246251DD0082AF96 /* FestivalsAPI */ = {
 			isa = PBXGroup;
 			children = (
 				4A45D5AB2441771100CF4E1B /* Info.plist */,
@@ -186,7 +186,7 @@
 				4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */,
 				4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */,
 			);
-			path = EventusAPI;
+			path = FestivalsAPI;
 			sourceTree = "<group>";
 		};
 		4A397652244A8F9A006C934C /* Handler */ = {
@@ -221,10 +221,10 @@
 		4A45D59C2441771100CF4E1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59B2441771100CF4E1B /* EventusAPI.framework */,
-				4A45D5A42441771100CF4E1B /* EventusAPI iOS Tests.xctest */,
-				4AC74031245D9FA400679E39 /* EventusAPI.framework */,
-				4A341EE92461F87400CF84E5 /* EventusAPI macOS Tests.xctest */,
+				4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */,
+				4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */,
+				4AC74031245D9FA400679E39 /* FestivalsAPI.framework */,
+				4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 		4A45D59D2441771100CF4E1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CFF2E246251C40082AF96 /* EventusAPI */,
+				4A1CFF2E246251C40082AF96 /* FestivalsAPI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 		4A45D5A82441771100CF4E1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CFF2F246251DD0082AF96 /* EventusAPI */,
+				4A1CFF2F246251DD0082AF96 /* FestivalsAPI */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A45D5AC2441771100CF4E1B /* EventusAPI.h in Headers */,
+				4A45D5AC2441771100CF4E1B /* FestivalsAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,16 +260,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC74044245DA01E00679E39 /* EventusAPI.h in Headers */,
+				4AC74044245DA01E00679E39 /* FestivalsAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4A341EE82461F87400CF84E5 /* EventusAPI macOS Tests */ = {
+		4A341EE82461F87400CF84E5 /* FestivalsAPI macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "EventusAPI macOS Tests" */;
+			buildConfigurationList = 4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS Tests" */;
 			buildPhases = (
 				4A341EE52461F87400CF84E5 /* Sources */,
 				4A341EE62461F87400CF84E5 /* Frameworks */,
@@ -280,14 +280,14 @@
 			dependencies = (
 				4A341EF02461F87400CF84E5 /* PBXTargetDependency */,
 			);
-			name = "EventusAPI macOS Tests";
+			name = "FestivalsAPI macOS Tests";
 			productName = "EventusAPI macOS Tests";
-			productReference = 4A341EE92461F87400CF84E5 /* EventusAPI macOS Tests.xctest */;
+			productReference = 4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4A45D59A2441771100CF4E1B /* EventusAPI iOS */ = {
+		4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI iOS" */;
+			buildConfigurationList = 4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS" */;
 			buildPhases = (
 				4A45D5962441771100CF4E1B /* Headers */,
 				4A45D5972441771100CF4E1B /* Sources */,
@@ -299,14 +299,14 @@
 			);
 			dependencies = (
 			);
-			name = "EventusAPI iOS";
+			name = "FestivalsAPI iOS";
 			productName = "EventusAPI-Swift";
-			productReference = 4A45D59B2441771100CF4E1B /* EventusAPI.framework */;
+			productReference = 4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4A45D5A32441771100CF4E1B /* EventusAPI iOS Tests */ = {
+		4A45D5A32441771100CF4E1B /* FestivalsAPI iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI iOS Tests" */;
+			buildConfigurationList = 4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS Tests" */;
 			buildPhases = (
 				4A45D5A02441771100CF4E1B /* Sources */,
 				4A45D5A12441771100CF4E1B /* Frameworks */,
@@ -317,14 +317,14 @@
 			dependencies = (
 				4A45D5A72441771100CF4E1B /* PBXTargetDependency */,
 			);
-			name = "EventusAPI iOS Tests";
+			name = "FestivalsAPI iOS Tests";
 			productName = "EventusAPI-SwiftTests";
-			productReference = 4A45D5A42441771100CF4E1B /* EventusAPI iOS Tests.xctest */;
+			productReference = 4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4AC74030245D9FA400679E39 /* EventusAPI macOS */ = {
+		4AC74030245D9FA400679E39 /* FestivalsAPI macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "EventusAPI macOS" */;
+			buildConfigurationList = 4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS" */;
 			buildPhases = (
 				4AC7402C245D9FA400679E39 /* Headers */,
 				4AC7402D245D9FA400679E39 /* Sources */,
@@ -336,9 +336,9 @@
 			);
 			dependencies = (
 			);
-			name = "EventusAPI macOS";
+			name = "FestivalsAPI macOS";
 			productName = "EventusAPI macOS";
-			productReference = 4AC74031245D9FA400679E39 /* EventusAPI.framework */;
+			productReference = 4AC74031245D9FA400679E39 /* FestivalsAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +369,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A45D5952441771100CF4E1B /* Build configuration list for PBXProject "EventusAPI" */;
+			buildConfigurationList = 4A45D5952441771100CF4E1B /* Build configuration list for PBXProject "FestivalsAPI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -382,10 +382,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A45D59A2441771100CF4E1B /* EventusAPI iOS */,
-				4AC74030245D9FA400679E39 /* EventusAPI macOS */,
-				4A45D5A32441771100CF4E1B /* EventusAPI iOS Tests */,
-				4A341EE82461F87400CF84E5 /* EventusAPI macOS Tests */,
+				4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */,
+				4AC74030245D9FA400679E39 /* FestivalsAPI macOS */,
+				4A45D5A32441771100CF4E1B /* FestivalsAPI iOS Tests */,
+				4A341EE82461F87400CF84E5 /* FestivalsAPI macOS Tests */,
 				4AC7401D245D1FF900679E39 /* Documentation */,
 			);
 		};
@@ -505,7 +505,7 @@
 				4A39765C244A953A006C934C /* PlaceHandler.swift in Sources */,
 				4A45D5B924417D9800CF4E1B /* Webservice.swift in Sources */,
 				4A397658244A9350006C934C /* EventHandler.swift in Sources */,
-				4A397662244A96CB006C934C /* EventusClient.swift in Sources */,
+				4A397662244A96CB006C934C /* FestivalsClient.swift in Sources */,
 				4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */,
 				4A45D5DF2448513100CF4E1B /* FestivalHandler.swift in Sources */,
 				4A397656244A921E006C934C /* LocationHandler.swift in Sources */,
@@ -536,7 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC7403B245DA00A00679E39 /* LocationHandler.swift in Sources */,
-				4AC74043245DA01600679E39 /* EventusClient.swift in Sources */,
+				4AC74043245DA01600679E39 /* FestivalsClient.swift in Sources */,
 				4AC7403C245DA00A00679E39 /* EventHandler.swift in Sources */,
 				4AC74039245DA00A00679E39 /* FestivalHandler.swift in Sources */,
 				4AC7403D245DA00A00679E39 /* ImageRefHandler.swift in Sources */,
@@ -553,17 +553,17 @@
 /* Begin PBXTargetDependency section */
 		4A341EF02461F87400CF84E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AC74030245D9FA400679E39 /* EventusAPI macOS */;
+			target = 4AC74030245D9FA400679E39 /* FestivalsAPI macOS */;
 			targetProxy = 4A341EEF2461F87400CF84E5 /* PBXContainerItemProxy */;
 		};
 		4A45D5A72441771100CF4E1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A45D59A2441771100CF4E1B /* EventusAPI iOS */;
+			target = 4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */;
 			targetProxy = 4A45D5A62441771100CF4E1B /* PBXContainerItemProxy */;
 		};
 		4AC74022245D200700679E39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A45D59A2441771100CF4E1B /* EventusAPI iOS */;
+			target = 4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */;
 			targetProxy = 4AC74021245D200700679E39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -575,14 +575,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = Tests/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.EventusAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -595,14 +595,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = Tests/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.EventusAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -742,7 +742,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,8 +751,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.EventusAPI;
-				PRODUCT_NAME = EventusAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
+				PRODUCT_NAME = FestivalsAPI;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -771,7 +771,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -780,8 +780,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.EventusAPI;
-				PRODUCT_NAME = EventusAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
+				PRODUCT_NAME = FestivalsAPI;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -794,13 +794,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = Tests/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.EventusAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -813,13 +813,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = Tests/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.EventusAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -854,7 +854,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -863,8 +863,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.EventusAPI;
-				PRODUCT_NAME = EventusAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
+				PRODUCT_NAME = FestivalsAPI;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -881,7 +881,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/EventusAPI/Info.plist;
+				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -890,8 +890,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.EventusAPI;
-				PRODUCT_NAME = EventusAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
+				PRODUCT_NAME = FestivalsAPI;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -901,7 +901,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "EventusAPI macOS Tests" */ = {
+		4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A341EF22461F87400CF84E5 /* Debug */,
@@ -910,7 +910,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A45D5952441771100CF4E1B /* Build configuration list for PBXProject "EventusAPI" */ = {
+		4A45D5952441771100CF4E1B /* Build configuration list for PBXProject "FestivalsAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A45D5AD2441771100CF4E1B /* Debug */,
@@ -919,7 +919,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI iOS" */ = {
+		4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A45D5B02441771100CF4E1B /* Debug */,
@@ -928,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "EventusAPI iOS Tests" */ = {
+		4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A45D5B32441771100CF4E1B /* Debug */,
@@ -946,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "EventusAPI macOS" */ = {
+		4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AC74037245D9FA400679E39 /* Debug */,

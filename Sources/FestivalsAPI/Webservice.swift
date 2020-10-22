@@ -1,6 +1,6 @@
 //
 //  Webservice.swift
-//  EventusAPI
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 11.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -38,7 +38,7 @@ enum HTTPContentType: String {
 
 // MARK: Implementation
 
-/// This class is responsible for consuming the Eventus web service's REST API and provides methodes for all available API requests.
+/// This class is responsible for consuming the FestivalsAPI web service's REST API and provides methodes for all available API requests.
 class Webservice: NSObject {
     
     /// The base url to send the requests to .
@@ -54,7 +54,7 @@ class Webservice: NSObject {
     
     /// Initilizes the webservice object.
     /// - Parameters:
-    ///     - baseURL: The base URL used for makeing calls to the Eventus web service.
+    ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
     init(baseURL: URL, session: URLSession, apiKey: String, apiVersion: APIVersion) {
@@ -261,7 +261,7 @@ class Webservice: NSObject {
     // MARK: Perform Requests
     
     /// Runs the given request. If the request was successful the result closure will return the data object, otherwise an error is returned.
-    /// - Note:See https://github.com/Phisto/eventusserver/wiki/Eventus-API-Documentation
+    /// - Note:See https://github.com/Festivals-App/festivals-server/wiki/Festivals-API-Documentation
     /// - Parameters:
     ///     - request: The request to run.
     ///     - result: The result closure will be called when the request is done.
@@ -277,7 +277,7 @@ class Webservice: NSObject {
                     result(nil, APIError.requestFailed)
                     return
                 }
-                // no data is bad, as the eventus service always returns data
+                // no data is bad, as the FestivalsAPI service always returns data
                 guard let jsonData = data else {
                     if let err = err {
                         print(err)

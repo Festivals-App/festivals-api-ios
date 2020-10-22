@@ -1,6 +1,6 @@
 //
 //  LocationHandler.swift
-//  EventusAPI
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 18.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Location Struct
 
-/// The `Location` struct represents a location as it is represented in the Eventus webservice.
+/// The `Location` struct represents a location as it is represented in the FestivalsAPI webservice.
 public struct Location: Codable {
     
     /// The identifier of the location. Every objectID is unique within all location instances.
@@ -100,7 +100,7 @@ public class LocationHandler {
     var webservice: Webservice
     
     /// Initilizes the handler object.
-    /// - Parameter webservice: The webservice object for makeing calls to the Eventus web service.
+    /// - Parameter webservice: The webservice object for makeing calls to the FestivalsAPI web service.
     init(with webservice: Webservice) {
         self.webservice = webservice
     }

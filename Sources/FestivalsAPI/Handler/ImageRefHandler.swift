@@ -1,6 +1,6 @@
 //
 //  ImageRefHandler.swift
-//  EventusAPI
+//  FestivalsAPI
 //
 //  Created by Simon Gaus on 18.04.20.
 //  Copyright © 2020 Simon Gaus. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: ImageRef Struct
 
-/// The `ImageRef` struct represents an image reference as it is represented in the Eventus webservice.
+/// The `ImageRef` struct represents an image reference as it is represented in the FestivalsAPI webservice.
 public struct ImageRef: Codable {
     
     /// The identifier of the image reference. Every objectID is unique within all image reference instances.
@@ -68,7 +68,7 @@ public class ImageRefHandler {
     var webservice: Webservice
     
     /// Initilizes the handler object.
-    /// - Parameter webservice: The webservice object for makeing calls to the Eventus web service.
+    /// - Parameter webservice: The webservice object for makeing calls to the FestivalsAPI web service.
     init(with webservice: Webservice) {
         self.webservice = webservice
     }
