@@ -254,7 +254,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - artist: The fetched artist.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func artist(for eventID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+    public func artist(for eventID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image", "link", "tag"]
         self.webservice.fetchResource("artist", for: "event", with: eventID, including: includeVals) { (resources, error) -> (Void) in
@@ -313,7 +313,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - location: The fetched location.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func location(for eventID: Int, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
+    public func location(for eventID: Int, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image", "link", "place"]
         self.webservice.fetchResource("location", for: "event", with: eventID, including: includeVals) { (resources, error) -> (Void) in
