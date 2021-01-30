@@ -33,7 +33,7 @@ public enum EventType: Int, Codable, CaseIterable {
 // MARK: Event Struct
 
 /// The  `Event` struct represents an event as it is represented in the FestivalsAPI webservice.
-public struct Event: Codable {
+public class Event {
     
     /// The identifier of the event. Every objectID is unique within all event instances.
     public var objectID: Int
@@ -51,9 +51,9 @@ public struct Event: Codable {
     public var type: EventType
     
     /// The artist associated with the event.
-    public var artist: Artist?
+    @Published public var artist: Artist?
     /// The location associated with the event.
-    public var location: Location?
+    @Published public var location: Location?
     
     /// Initializes an event with the given data.
     /// - Parameter objectDict: The dict containing the event values.

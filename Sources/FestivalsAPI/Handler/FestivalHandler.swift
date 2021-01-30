@@ -11,7 +11,7 @@ import Foundation
 // MARK: Festival Struct
 
 /// The `Festival` struct represents a festival as it is represented in the FestivalsAPI webservice.
-public struct Festival: Hashable {
+public class Festival: Hashable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
     public var objectID: Int
@@ -31,15 +31,15 @@ public struct Festival: Hashable {
     public var price: String
     
     /// The image associated with the festival.
-    public var image: ImageRef?
+    @Published public var image: ImageRef?
     /// The links associated with the festival.
-    public var links: [Link]?
+    @Published public var links: [Link]?
     /// The place associated with the festival.
-    public var place: Place?
+    @Published public var place: Place?
     /// The tags associated with the festival.
-    public var tags: [Tag]?
+    @Published public var tags: [Tag]?
     /// The events associated with the festival.
-    public var events: [Event]?
+    @Published public var events: [Event]?
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.
@@ -127,7 +127,7 @@ public struct Festival: Hashable {
 
     /// Initializes a festival with the given json data.
     /// - Parameter jsonData: The festival dict ecoded as json data.
-    public init?(resolving jsonData: Data) {
+    public convenience init?(resolving jsonData: Data) {
         
         guard let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return nil }
         self.init(with: dict)
