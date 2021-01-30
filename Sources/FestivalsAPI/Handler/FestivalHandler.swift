@@ -43,7 +43,7 @@ public struct Festival: Hashable {
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["festival_id"] as? Int else { return nil }
@@ -87,10 +87,10 @@ public struct Festival: Hashable {
         }
     }
     
-    ///  Creates festivals with the given name and random values.
+    ///  Creates a mock festival with the given name and random values.
     /// - Parameter name: The name of the festival.
     /// - Returns: The festival
-    public static func makeFestival(with name: String) -> Festival {
+    public static func mockFestival(named name: String) -> Festival {
         
         let dict: [String : Any] = ["festival_id": 0,
                                     "festival_version": "2020-02-25T\(Int.random(in: 0...23)):\(Int.random(in: 0...59)):23Z",
@@ -107,11 +107,11 @@ public struct Festival: Hashable {
     /// Creates festivals from an array of festival dicts.
     /// - Parameter data: The dicts that contain the festival values.
     /// - Returns: An array of festivals or nil.
-    static func festivals(from data: [Any]) -> [Festival]? {
+    static func festivals(from dicts: [Any]) -> [Festival]? {
         
         var festivals: [Festival] = []
-        for objectDict in data {
-            guard let festival = Festival.init(with: objectDict) else { return nil }
+        for objectDict in dicts {
+            guard let festival = Festival(with: objectDict) else { return nil }
             festivals.append(festival)
         }
         return festivals
@@ -119,10 +119,18 @@ public struct Festival: Hashable {
     
     /// Creates a JSON representation of the festival.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
         
         let dict: [String: Any] = ["festival_id": self.objectID, "festival_version": self.version, "festival_is_valid": self.valid, "festival_name": self.name, "festival_start": Int(self.start.timeIntervalSince1970), "festival_end": Int(self.end.timeIntervalSince1970), "festival_description": self.description, "festival_price": self.price]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+
+    /// Initializes a festival with the given json data.
+    /// - Parameter jsonData: The festival dict ecoded as json data.
+    public init?(resolving jsonData: Data) {
+        
+        guard let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return nil }
+        self.init(with: dict)
     }
     
     public func hash(into hasher: inout Hasher) {
