@@ -11,7 +11,7 @@ import Foundation
 // MARK: Festival Struct
 
 /// The `Festival` struct represents a festival as it is represented in the FestivalsAPI webservice.
-public class Festival: Hashable {
+public class Festival: ObservableObject, Hashable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
     public var objectID: Int

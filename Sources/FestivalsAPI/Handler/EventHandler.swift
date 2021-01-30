@@ -33,7 +33,7 @@ public enum EventType: Int, Codable, CaseIterable {
 // MARK: Event Struct
 
 /// The  `Event` struct represents an event as it is represented in the FestivalsAPI webservice.
-public class Event {
+public class Event: ObservableObject {
     
     /// The identifier of the event. Every objectID is unique within all event instances.
     public var objectID: Int
