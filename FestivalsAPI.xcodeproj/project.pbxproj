@@ -193,9 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */,
+				4A397657244A9350006C934C /* EventHandler.swift */,
 				4A397653244A8FB7006C934C /* ArtistHandler.swift */,
 				4A397655244A921E006C934C /* LocationHandler.swift */,
-				4A397657244A9350006C934C /* EventHandler.swift */,
 				4A39765F244A9620006C934C /* ImageRefHandler.swift */,
 				4A39765D244A95E7006C934C /* LinkHandler.swift */,
 				4A39765B244A953A006C934C /* PlaceHandler.swift */,

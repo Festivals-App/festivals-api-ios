@@ -11,7 +11,7 @@ import Foundation
 // MARK: Location Struct
 
 /// The `Location` struct represents a location as it is represented in the FestivalsAPI webservice.
-public struct Location: Codable {
+public class Location: ObservableObject {
     
     /// The identifier of the location. Every objectID is unique within all location instances.
     public var objectID: Int
