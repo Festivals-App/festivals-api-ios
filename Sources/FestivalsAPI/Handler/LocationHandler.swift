@@ -91,6 +91,18 @@ public class Location: ObservableObject {
     }
 }
 
+extension Location: Hashable {
+    
+    public static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+        hasher.combine(version)
+    }
+}
+
 // MARK: LocationHandler Class
 
 /// The LocationHandler class handles access to location objects, their associated objects and properties.
