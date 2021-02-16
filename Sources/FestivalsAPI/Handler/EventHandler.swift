@@ -73,6 +73,10 @@ public class Event: ObservableObject {
         self.name = object_name
         self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
         self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
+        if object_start_int == 0 || object_end_int == 0 {
+            self.start = Date.init(timeIntervalSince1970: 0)
+            self.end = Date.init(timeIntervalSince1970: 1)
+        }
         self.description = object_description
         self.type = eventType
         
