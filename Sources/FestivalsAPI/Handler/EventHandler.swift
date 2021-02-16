@@ -76,7 +76,7 @@ public class Event: ObservableObject {
         #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
         if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date.init(timeIntervalSince1970: 0)
-            self.end = Date.init(timeIntervalSince1970: 1)
+            self.end = Date.init(timeIntervalSince1970: 0)
         }
         self.description = object_description
         self.type = eventType
