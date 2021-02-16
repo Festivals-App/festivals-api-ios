@@ -73,7 +73,8 @@ public class Event: ObservableObject {
         self.name = object_name
         self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
         self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
-        if object_start_int == 0 || object_end_int == 0 {
+        #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
+        if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date.init(timeIntervalSince1970: 0)
             self.end = Date.init(timeIntervalSince1970: 1)
         }
