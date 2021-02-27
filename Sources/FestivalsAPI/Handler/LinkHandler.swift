@@ -20,7 +20,7 @@ public enum LinkType: Int, Codable, CaseIterable {
     case mail                       = 1
     /// A phone numer including the country code. Example: 0049406083579
     case phone                      = 2
-    /// A youtube video referrer. Example: https://www.youtube.com/user/**der8auer**
+    /// A youtube video referrer. Example: https://www.youtube.com/watch?v=**GpRd7i2Hyfk**
     case youtubeVideoRef            = 3
     /// A youtube user referrer. Example: https://www.youtube.com/user/**der8auer**
     case youtubeUserRef             = 4
@@ -60,7 +60,7 @@ public enum LinkType: Int, Codable, CaseIterable {
     case deezerArtistRef            = 21
     /// A Twitter profile referrer. Example: https://twitter.com/**thisistunng**
     case twitterProfileRef          = 22
-    /// A tiktook profile referer. Example: https://www.tiktok.com/*@rosalia*
+    /// A tiktook profile referer. Example: https://www.tiktok.com/**@rosalia**
     case tiktokProfileRef           = 23
     /// A Tripadvisor profile page URL. Example: https://www.tripadvisor.de/Restaurant_Review-g187323-d718338-Reviews-Schokoladen-Berlin.html).
     case tripadvisorURL              = 24
