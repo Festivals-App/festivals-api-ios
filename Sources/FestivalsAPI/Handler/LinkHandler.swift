@@ -20,36 +20,38 @@ public enum LinkType: Int, Codable, CaseIterable {
     case mail                       = 1
     /// A phone numer including the country code. Example: 0049406083579
     case phone                      = 2
+    /// A youtube video referrer. Example: https://www.youtube.com/user/**der8auer**
+    case youtubeVideoRef            = 3
     /// A youtube user referrer. Example: https://www.youtube.com/user/**der8auer**
-    case youtubeUserRef             = 3
+    case youtubeUserRef             = 4
     /// A youtube channel referrer. Example: https://www.youtube.com/channel/**UC7_gcs09iThXybpVgjHZ_7g**
-    case youtubeChannelRef          = 4
+    case youtubeChannelRef          = 5
     /// A youtube playlist referrer. Example: https://www.youtube.com/playlist?list=**PLsPUh22kYmNBVC9vvhnleNvgQOvkfjCrV**
-    case youtubePlaylistRef         = 5
+    case youtubePlaylistRef         = 6
     /// A youtube music playlist referrer. Example:  https://music.youtube.com/playlist?list=**PL4fGSI1pDJn4X-OicSCOy-dChXWdTgziQ**
-    case youtubeMusicPlaylistRef    = 6
+    case youtubeMusicPlaylistRef    = 7
     /// A soundcloud profile page referrer.  Example: https://soundcloud.com/**googy**
-    case soundcloudProfileRef       = 7
+    case soundcloudProfileRef       = 8
     /// A bandcamp profile page URL. Example: https://alestorm.bandcamp.com/
-    case bandcampProfileURL         = 8
+    case bandcampProfileURL         = 9
     /// A bandcamp track URL. Example: https://joshuavirtue.bandcamp.com/track/fenti-face
-    case bandcampTrackURL           = 9
+    case bandcampTrackURL           = 10
     /// A Hearthis profile page referrer. Example: https://hearthis.at/**mixbuzz**
-    case hearthisProfileRef         = 10
+    case hearthisProfileRef         = 11
     /// A Hearthis enmbeded track referrer. Example: https://app.hearthis.at/embed/**3685286**
-    case hearthisEmbededTrackRef    = 11
+    case hearthisEmbededTrackRef    = 12
     /// A facebook profile page referrer. Example https://www.facebook.com/**Sufjan-Stevens-73949695413**
-    case facebookProfileRef         = 12
+    case facebookProfileRef         = 13
     /// A instagram profile page referrer. Example: https://www.instagram.com/**thisistunng**
-    case instagramProfileRef        = 13
+    case instagramProfileRef        = 14
     /// A spotify artist page referrer. Example: https://open.spotify.com/artist/**6KImCVD70vtIoJWnq6nGn3**
-    case spotifyArtistRef           = 14
+    case spotifyArtistRef           = 15
     /// A spotify album page referrer. Example: https://open.spotify.com/album/**1FZKIm3JVDCxTchXDo5jOV**
-    case spotifyAlbumRef            = 15
+    case spotifyAlbumRef            = 16
     /// A spotify track referrer. Example: https://open.spotify.com/track/**1IF5UcqRO42D12vYwceOY6**
-    case spotifyTrackRef            = 16
+    case spotifyTrackRef            = 17
     /// An apple music store URL. Example: https://music.apple.com/de/artist/menomena/4384720
-    case appleMusicStoreURL         = 17
+    case appleMusicStoreURL         = 18
     /// A shazam profile page referrer. Example: https://www.shazam.com/de/artist/**40827987**/die-antwoord
     case shazamProfileRef           = 19
     /// A shazam track referrer. Example: https://www.shazam.com/de/track/**55636080**/i-fink-u-freeky
@@ -58,8 +60,10 @@ public enum LinkType: Int, Codable, CaseIterable {
     case deezerArtistRef            = 21
     /// A Twitter profile referrer. Example: https://twitter.com/**thisistunng**
     case twitterProfileRef          = 22
+    /// A tiktook profile referer. Example: https://www.tiktok.com/*@rosalia*
+    case tiktokProfileRef           = 23
     /// A Tripadvisor profile page URL. Example: https://www.tripadvisor.de/Restaurant_Review-g187323-d718338-Reviews-Schokoladen-Berlin.html).
-    case tripadvisorURL              = 23
+    case tripadvisorURL              = 24
 }
 
 // MARK: Link Struct
