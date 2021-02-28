@@ -138,7 +138,7 @@ public class LocationHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - locations: The fetched locations.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func locations(with objectIDs: [Int]? = nil, completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
+    public func locations(with objectIDs: [Int]? = nil, completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("location", with: objectIDs, including: ["image", "link", "place"]) { (objects, error) -> (Void) in
             
@@ -160,7 +160,7 @@ public class LocationHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - location: The fetched location.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func location(with objectID: Int, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
+    public func location(with objectID: Int, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
         self.locations(with: [objectID]) { locations, error in
             
