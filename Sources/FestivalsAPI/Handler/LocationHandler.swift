@@ -27,11 +27,11 @@ public class Location: ObservableObject {
     public var openair: Bool
     
     /// The image associated with the location.
-    public var image: ImageRef?
+    @Published public var image: ImageRef?
     /// The links associated with the location.
-    public var links: [Link]?
+    @Published public var links: [Link]?
     /// The place associated with the location.
-    public var place: Place?
+    @Published public var place: Place?
     
     /// Initializes a location with the given data.
     /// - Parameter objectDict: The dict containing the location values.
