@@ -89,7 +89,7 @@ public class Event: ObservableObject, Hashable {
         self.type = eventType
         
         print("-> did set EVENT values")
-        
+        /*
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let artists = includes["artist"] as? [Any] {
@@ -103,6 +103,7 @@ public class Event: ObservableObject, Hashable {
                 }
             }
         }
+        */
         
         print("-> finished EVENT values")
     }
