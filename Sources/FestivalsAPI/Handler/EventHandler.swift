@@ -74,6 +74,8 @@ public class Event: ObservableObject, Hashable {
         self.version = object_version
         self.name = object_name
         
+        print("-> extracted EVENT values")
+        
         #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
         if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date(timeIntervalSince1970: 0)
@@ -85,6 +87,8 @@ public class Event: ObservableObject, Hashable {
         }
         self.description = object_description
         self.type = eventType
+        
+        print("-> did set EVENT values")
         
         if let includes = objectDict["include"] as? [String: Any] {
             
@@ -99,6 +103,8 @@ public class Event: ObservableObject, Hashable {
                 }
             }
         }
+        
+        print("-> finished EVENT values")
     }
     
     /// Creates events from an array of event dicts.
