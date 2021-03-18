@@ -65,9 +65,12 @@ public class Event: ObservableObject, Hashable {
         guard let object_name           = objectDict["event_name"] as? String else { return nil }
         guard let object_start_int      = objectDict["event_start"] as? Int else { return nil }
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
-        guard let object_description    = objectDict["event_description"] as? String else { return nil }
+        //guard let object_description    = objectDict["event_description"] as? String else { return nil }
         guard let object_type           = objectDict["event_type"] as? Int else { return nil }
         guard let eventType             = EventType(rawValue: object_type)  else { return nil }
+        
+        let object_description = "Warum geht das denn nicht?"
+        
         self.objectID = object_id
         self.version = object_version
         self.name = object_name
