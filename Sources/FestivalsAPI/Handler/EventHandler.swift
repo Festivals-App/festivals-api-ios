@@ -46,7 +46,7 @@ public class Event: ObservableObject, Hashable {
     /// The end date of the event. Must be after the start date.
     public var end: Date
     /// The description of the event.
-    public var eventDescription: String
+    //public var eventDescription: String
     /// The type of the event.
     public var type: EventType
     
@@ -81,7 +81,7 @@ public class Event: ObservableObject, Hashable {
             self.start = Date(timeIntervalSince1970: Double(object_start_int))
             self.end = Date(timeIntervalSince1970: Double(object_end_int))
         }
-        self.eventDescription = object_description
+        //self.eventDescription = object_description
         self.type = eventType
         
         if let includes = objectDict["include"] as? [String: Any] {
@@ -116,9 +116,17 @@ public class Event: ObservableObject, Hashable {
     /// - Returns: The JSON representation as data.
     func JSON() -> Data {
 
-        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.eventDescription, "event_type": self.type.rawValue]
+        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
+    /*
+     func JSON() -> Data {
+
+         let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.eventDescription, "event_type": self.type.rawValue]
+         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+     }
+     */
+    
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
