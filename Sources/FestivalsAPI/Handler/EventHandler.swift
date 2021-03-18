@@ -78,8 +78,8 @@ public class Event: ObservableObject, Hashable {
             self.end = Date(timeIntervalSince1970: 0)
         }
         else {
-            self.start = Date(timeIntervalSince1970: Double(object_start_int))
-            self.end = Date(timeIntervalSince1970: Double(object_end_int))
+            self.start = Date(timeIntervalSince1970: TimeInterval(object_start_int))
+            self.end = Date(timeIntervalSince1970: TimeInterval(object_end_int))
         }
         //self.eventDescription = object_description
         self.type = eventType
