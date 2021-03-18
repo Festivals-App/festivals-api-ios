@@ -33,7 +33,7 @@ public enum EventType: Int, Codable, CaseIterable {
 // MARK: Event Struct
 
 /// The  `Event` struct represents an event as it is represented in the FestivalsAPI webservice.
-public class Event: ObservableObject {
+public class Event: ObservableObject, Hashable {
     
     /// The identifier of the event. Every objectID is unique within all event instances.
     public var objectID: Int
@@ -58,6 +58,8 @@ public class Event: ObservableObject {
     /// Initializes an event with the given data.
     /// - Parameter objectDict: The dict containing the event values.
     init?(with objectDict: Any?) {
+        
+        print("-> create EVENT")
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["event_id"] as? Int else { return nil }
@@ -106,7 +108,7 @@ public class Event: ObservableObject {
         
         var events: [Event] = []
         for objectDict in data {
-            guard let event = Event.init(with: objectDict) else { return nil }
+            guard let event = Event(with: objectDict) else { return nil }
             events.append(event)
         }
         return events
@@ -118,6 +120,14 @@ public class Event: ObservableObject {
 
         let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+    }
+    
+    public static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.objectID == rhs.objectID
     }
 }
 
@@ -210,7 +220,7 @@ public class EventHandler {
                 completion(nil, error)
                 return
             }
-            guard let createdEvent = Event.init(with: object) else {
+            guard let createdEvent = Event(with: object) else {
                 completion(nil, APIError.parsingFailed)
                 return
             }
@@ -232,7 +242,7 @@ public class EventHandler {
                 completion(nil, error)
                 return
             }
-            guard let updatedEvent = Event.init(with: object) else {
+            guard let updatedEvent = Event(with: object) else {
                 completion(nil, APIError.parsingFailed)
                 return
             }
