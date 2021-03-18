@@ -46,9 +46,9 @@ public class Event: ObservableObject, Hashable {
     /// The end date of the event. Must be after the start date.
     public var end: Date
     /// The description of the event.
-    //public var eventDescription: String
+    public var description: String
     /// The type of the event.
-    //public var type: EventType
+    public var type: EventType
     
     /// The artist associated with the event.
     @Published public var artist: Artist?
@@ -65,27 +65,23 @@ public class Event: ObservableObject, Hashable {
         guard let object_name           = objectDict["event_name"] as? String else { return nil }
         guard let object_start_int      = objectDict["event_start"] as? Int else { return nil }
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
-        //guard let object_description    = objectDict["event_description"] as? String else { return nil }
-        //guard let object_type           = objectDict["event_type"] as? Int else { return nil }
-        //guard let eventType             = EventType(rawValue: object_type)  else { return nil }
-        
-        let object_description = "Warum geht das denn nicht?"
-        
+        guard let object_description    = objectDict["event_description"] as? String else { return nil }
+        guard let object_type           = objectDict["event_type"] as? Int else { return nil }
+        guard let eventType             = EventType(rawValue: object_type) else { return nil }
         self.objectID = object_id
         self.version = object_version
         self.name = object_name
-       // self.eventDescription = object_description
-        //self.type = eventType
-        
         #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
         if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date(timeIntervalSince1970: 0)
-            self.end = Date(timeIntervalSince1970: 10)
+            self.end = Date(timeIntervalSince1970: 0)
         }
         else {
-            self.start = Date(timeIntervalSince1970: TimeInterval(object_start_int))
-            self.end = Date(timeIntervalSince1970: TimeInterval(object_end_int))
+            self.start = Date(timeIntervalSince1970: Double(object_start_int))
+            self.end = Date(timeIntervalSince1970: Double(object_end_int))
         }
+        self.description = object_description
+        self.type = eventType
         
         if let includes = objectDict["include"] as? [String: Any] {
             
@@ -119,17 +115,9 @@ public class Event: ObservableObject, Hashable {
     /// - Returns: The JSON representation as data.
     func JSON() -> Data {
 
-        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970)]
+        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
-    /*
-     func JSON() -> Data {
-
-         let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.eventDescription, "event_type": self.type.rawValue]
-         return try! JSONSerialization.data(withJSONObject: dict, options: [])
-     }
-     */
-    
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
