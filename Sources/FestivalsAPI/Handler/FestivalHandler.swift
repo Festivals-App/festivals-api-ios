@@ -65,8 +65,8 @@ public class Festival: ObservableObject, Hashable {
             self.end = Date(timeIntervalSince1970: 0)
         }
         else {
-            self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
-            self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
+            self.start = Date(timeIntervalSince1970: Double(object_start_int))
+            self.end = Date(timeIntervalSince1970: Double(object_end_int))
         }
         
         self.description = object_description

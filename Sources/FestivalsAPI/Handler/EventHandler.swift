@@ -46,7 +46,7 @@ public class Event: ObservableObject, Hashable {
     /// The end date of the event. Must be after the start date.
     public var end: Date
     /// The description of the event.
-    public var description: String
+    public var description: String = ""
     /// The type of the event.
     public var type: EventType
     
@@ -81,7 +81,7 @@ public class Event: ObservableObject, Hashable {
             self.start = Date(timeIntervalSince1970: Double(object_start_int))
             self.end = Date(timeIntervalSince1970: Double(object_end_int))
         }
-        self.description = object_description
+        //self.description = object_description
         self.type = eventType
         
         if let includes = objectDict["include"] as? [String: Any] {
@@ -106,9 +106,8 @@ public class Event: ObservableObject, Hashable {
         
         var events: [Event] = []
         for objectDict in data {
-            if let event = Event(with: objectDict) {
-                events.append(event)
-            }
+            guard let event = Event(with: objectDict) else { return nil }
+            events.append(event)
         }
         return events
     }
