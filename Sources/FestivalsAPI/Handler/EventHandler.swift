@@ -67,7 +67,7 @@ public class Event: ObservableObject, Hashable {
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
         guard let object_description    = objectDict["event_description"] as? String else { return nil }
         guard let object_type           = objectDict["event_type"] as? Int else { return nil }
-        guard let eventType             = EventType(rawValue: object_type) else { return nil }
+        guard let eventType             = EventType(rawValue: object_type)  else { return nil }
         self.objectID = object_id
         self.version = object_version
         self.name = object_name
@@ -77,7 +77,7 @@ public class Event: ObservableObject, Hashable {
         #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
         if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date(timeIntervalSince1970: 0)
-            self.end = Date(timeIntervalSince1970: 0)
+            self.end = Date(timeIntervalSince1970: 10)
         }
         else {
             self.start = Date(timeIntervalSince1970: TimeInterval(object_start_int))
