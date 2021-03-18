@@ -324,9 +324,7 @@ public class FestivalHandler {
                 completion(nil, error)
                 return
             }
-            
-            print("resources: \(resources)")
-            
+        
             guard let events = Event.events(from: resources) else {
                 completion(nil, APIError.parsingFailed)
                 return
