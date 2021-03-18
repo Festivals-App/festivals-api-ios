@@ -59,8 +59,6 @@ public class Event: ObservableObject, Hashable {
     /// - Parameter objectDict: The dict containing the event values.
     init?(with objectDict: Any?) {
         
-        print("-> create EVENT")
-        
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["event_id"] as? Int else { return nil }
         guard let object_version        = objectDict["event_version"] as? String else { return nil }
@@ -74,8 +72,6 @@ public class Event: ObservableObject, Hashable {
         self.version = object_version
         self.name = object_name
         
-        print("-> extracted EVENT values")
-        
         #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
         if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
             self.start = Date(timeIntervalSince1970: 0)
@@ -88,8 +84,6 @@ public class Event: ObservableObject, Hashable {
         self.description = object_description
         self.type = eventType
         
-        print("-> did set EVENT values")
-        /*
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let artists = includes["artist"] as? [Any] {
@@ -103,9 +97,6 @@ public class Event: ObservableObject, Hashable {
                 }
             }
         }
-        */
-        
-        print("-> finished EVENT values")
     }
     
     /// Creates events from an array of event dicts.
@@ -115,8 +106,9 @@ public class Event: ObservableObject, Hashable {
         
         var events: [Event] = []
         for objectDict in data {
-            guard let event = Event(with: objectDict) else { return nil }
-            events.append(event)
+            if let event = Event(with: objectDict) {
+                events.append(event)
+            }
         }
         return events
     }
