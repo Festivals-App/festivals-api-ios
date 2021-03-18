@@ -58,8 +58,17 @@ public class Festival: ObservableObject, Hashable {
         self.version = object_version
         self.valid = object_is_valid
         self.name = object_name
-        self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
-        self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
+        
+        #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
+        if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
+            self.start = Date(timeIntervalSince1970: 0)
+            self.end = Date(timeIntervalSince1970: 0)
+        }
+        else {
+            self.start = Date.init(timeIntervalSince1970: Double(object_start_int))
+            self.end = Date.init(timeIntervalSince1970: Double(object_end_int))
+        }
+        
         self.description = object_description
         self.price = object_price
         
