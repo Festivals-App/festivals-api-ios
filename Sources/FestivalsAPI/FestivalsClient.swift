@@ -80,6 +80,6 @@ public class FestivalsClient {
     public init(apiKey: String, apiVersion: APIVersion, baseURL: URL) {
         
         let session = URLSession.init(configuration: .ephemeral)
-        self.webservice =  Webservice.init(baseURL: baseURL, session: session, apiKey: "TEST_API_KEY_001", apiVersion: .v0_1)
+        self.webservice =  Webservice.init(baseURL: baseURL, session: session, apiKey: apiKey, apiVersion: .v0_1)
     }
 }
