@@ -57,11 +57,13 @@ class Webservice: NSObject {
     ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, session: URLSession, apiKey: String, apiVersion: APIVersion) {
+    init(baseURL: URL, apiKey: String, apiVersion: APIVersion) {
         
         self.baseURL = baseURL
-        session.configuration.httpAdditionalHeaders = ["Api-Key": apiKey]
-        self.session = session
+        //session.configuration.httpAdditionalHeaders = ["Api-Key": apiKey]
+        let config = URLSessionConfiguration.ephemeral
+        config.httpAdditionalHeaders = ["Api-Key": apiKey]
+        self.session = URLSession.init(configuration: config)
         self.apiVersion = apiVersion.rawValue
     }
     
