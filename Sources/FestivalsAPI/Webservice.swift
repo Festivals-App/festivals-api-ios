@@ -60,7 +60,7 @@ class Webservice: NSObject {
     init(baseURL: URL, session: URLSession, apiKey: String, apiVersion: APIVersion) {
         
         self.baseURL = baseURL
-        session.configuration.httpAdditionalHeaders = ["API-KEY": apiKey]
+        session.configuration.httpAdditionalHeaders = ["Api-Key": apiKey]
         self.session = session
         self.apiVersion = apiVersion.rawValue
     }
