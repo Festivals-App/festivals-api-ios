@@ -11,7 +11,7 @@ import Foundation
 // MARK: Location Struct
 
 /// The `Location` struct represents a location as it is represented in the FestivalsAPI webservice.
-public class Location: ObservableObject {
+public class Location: ObservableObject, Hashable, Identifiable {
     
     /// The identifier of the location. Every objectID is unique within all location instances.
     public var objectID: Int
@@ -89,17 +89,18 @@ public class Location: ObservableObject {
         let dict: [String: Any] = ["location_id": self.objectID, "location_version": self.version, "location_name": self.name, "location_description": self.description, "location_accessible": self.accessible, "location_openair": self.openair]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
-}
-
-extension Location: Hashable {
-    
-    public static func == (lhs: Location, rhs: Location) -> Bool {
-        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
-    }
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
         hasher.combine(version)
+    }
+    
+    public static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

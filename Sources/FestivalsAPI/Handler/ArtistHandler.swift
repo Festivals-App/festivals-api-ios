@@ -11,7 +11,7 @@ import Foundation
 // MARK: Artist Struct
 
 /// The `Artist` struct represents an artist as it is represented in the FestivalsAPI webservice.
-public struct Artist: Codable {
+public class Artist: ObservableObject, Hashable, Identifiable {
     
     /// The identifier of the artist. Every objectID is unique within all artist instances.
     public var objectID: Int
@@ -23,11 +23,11 @@ public struct Artist: Codable {
     public var description: String
     
     /// The image associated with the artist.
-    public var image: ImageRef?
+    @Published public var image: ImageRef?
     /// The links associated with the artist.
-    public var links: [Link]?
+    @Published public var links: [Link]?
     /// The tags associated with the artist.
-    public var tags: [Tag]?
+    @Published public var tags: [Tag]?
     
     /// Initializes an artist with the given data.
     /// - Parameter objectDict: The dict containing the artist values.
@@ -78,6 +78,19 @@ public struct Artist: Codable {
 
         let dict: [String: Any] = ["artist_id": self.objectID, "artist_version": self.version, "artist_name": self.name, "artist_description": self.description]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+        hasher.combine(version)
+    }
+    
+    public static func == (lhs: Artist, rhs: Artist) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

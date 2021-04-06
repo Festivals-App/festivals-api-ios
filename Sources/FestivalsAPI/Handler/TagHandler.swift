@@ -11,7 +11,7 @@ import Foundation
 // MARK: Tag Struct
 
 /// The `Tag` struct represents a tag as it is represented in the FestivalsAPI webservice.
-public struct Tag: Codable {
+public struct Tag: Codable, Hashable, Identifiable {
     
     /// The identifier of the tag. Every objectID is unique within all tag instances.
     public var objectID: Int
@@ -48,6 +48,18 @@ public struct Tag: Codable {
         
         let dict: [String: Any] = ["tag_id": self.objectID, "tag_name": self.name]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+    }
+    
+    public static func == (lhs: Tag, rhs: Tag) -> Bool {
+        return lhs.objectID == rhs.objectID
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

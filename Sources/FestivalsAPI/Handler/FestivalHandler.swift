@@ -11,7 +11,7 @@ import Foundation
 // MARK: Festival Struct
 
 /// The `Festival` struct represents a festival as it is represented in the FestivalsAPI webservice.
-public class Festival: ObservableObject, Hashable {
+public class Festival: ObservableObject, Hashable, Identifiable {
     
     /// The identifier of the festival. Every objectID is unique within all festival instances.
     public var objectID: Int
@@ -147,7 +147,11 @@ public class Festival: ObservableObject, Hashable {
     }
     
     public static func == (lhs: Festival, rhs: Festival) -> Bool {
-        return lhs.name == rhs.name && lhs.name == rhs.name
+        return lhs.name == rhs.name
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

@@ -11,7 +11,7 @@ import Foundation
 // MARK: Place Struct
 
 /// The `Place` struct represents a place as it is represented in the FestivalsAPI webservice.
-public struct Place: Codable {
+public struct Place: Codable, Hashable, Identifiable {
     
     /// The identifier of the place. Every objectID is unique within all place instances.
     public var objectID: Int
@@ -80,6 +80,19 @@ public struct Place: Codable {
 
         let dict: [String: Any] = ["place_id": self.objectID, "place_version": self.version, "place_street": self.street, "place_zip": self.zip, "place_town": self.town, "place_street_addition": self.streetAddition, "place_country": self.country, "place_lat": self.lat, "place_lon": self.lon, "place_description": self.description]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+        hasher.combine(version)
+    }
+    
+    public static func == (lhs: Place, rhs: Place) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

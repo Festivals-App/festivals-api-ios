@@ -33,7 +33,7 @@ public enum EventType: Int, Codable, CaseIterable {
 // MARK: Event Struct
 
 /// The  `Event` struct represents an event as it is represented in the FestivalsAPI webservice.
-public class Event: ObservableObject, Hashable {
+public class Event: ObservableObject, Hashable, Identifiable {
     
     /// The identifier of the event. Every objectID is unique within all event instances.
     public var objectID: Int
@@ -121,10 +121,15 @@ public class Event: ObservableObject, Hashable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
+        hasher.combine(version)
     }
     
     public static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.objectID == rhs.objectID && lhs.objectID == rhs.objectID
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

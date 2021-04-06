@@ -11,7 +11,7 @@ import Foundation
 // MARK: ImageRef Struct
 
 /// The `ImageRef` struct represents an image reference as it is represented in the FestivalsAPI webservice.
-public struct ImageRef: Codable {
+public struct ImageRef: Codable, Hashable, Identifiable {
     
     /// The identifier of the image reference. Every objectID is unique within all image reference instances.
     public var objectID: Int
@@ -20,7 +20,7 @@ public struct ImageRef: Codable {
     /// The comment of the image reference. This value is ment to contain information about copyright, author and lizense of the image.
     public var comment: String
     /// The reference to the image.
-    public var referrerURL: URL?
+    public var referrerURL: URL
     
     /// Initializes an image reference with the given data.
     /// - Parameter objectDict: The dict containing the image reference values.
@@ -31,10 +31,12 @@ public struct ImageRef: Codable {
         guard let object_hash       = objectDict["image_hash"] as? String else { return nil }
         guard let object_comment    = objectDict["image_comment"] as? String else { return nil }
         guard let object_ref_string = objectDict["image_ref"] as? String else { return nil }
+        guard let urlFromString     = URL.init(string: object_ref_string) else { return nil }
+        
         self.objectID = object_id
         self.hash = object_hash
         self.comment = object_comment
-        self.referrerURL = URL.init(string: object_ref_string)
+        self.referrerURL = urlFromString
     }
     
     /// Creates image refs from an array of image ref dicts.
@@ -53,9 +55,22 @@ public struct ImageRef: Codable {
     /// Creates a JSON representation of the image reference.
     /// - Returns: The JSON representation as data.
     func JSON() -> Data {
-
-        let dict: [String: Any] = ["image_id": self.objectID, "image_hash": self.hash, "image_comment": self.comment, "image_ref": self.referrerURL!.absoluteString]
+        
+        let dict: [String: Any] = ["image_id": self.objectID, "image_hash": self.hash, "image_comment": self.comment, "image_ref": self.referrerURL.absoluteString]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+        hasher.combine(hashValue)
+    }
+    
+    public static func == (lhs: ImageRef, rhs: ImageRef) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.hashValue == rhs.hashValue
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 

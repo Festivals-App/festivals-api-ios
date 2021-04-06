@@ -69,7 +69,7 @@ public enum LinkType: Int, Codable, CaseIterable {
 // MARK: Link Struct
 
 /// The `Link` struct represents a link as it is represented in the FestivalsAPI webservice.
-public struct Link: Codable {
+public struct Link: Codable, Hashable, Identifiable {
     
     /// The identifier of the link. Every objectID is unique within all link instances.
     public var objectID: Int
@@ -115,6 +115,19 @@ public struct Link: Codable {
 
         let dict: [String: Any] = ["link_id": self.objectID, "link_version": self.version, "link_url": self.referrer, "link_service": self.service.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
+        hasher.combine(version)
+    }
+    
+    public static func == (lhs: Link, rhs: Link) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.version == rhs.version
+    }
+    
+    public var id: Int {
+        return objectID
     }
 }
 
