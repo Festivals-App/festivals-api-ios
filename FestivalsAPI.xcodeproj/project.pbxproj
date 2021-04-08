@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		4A2ADDAA261E9F4C005B58C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */; };
-		4A2ADDAC261E9F4E005B58C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */; };
 		4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADDD7261E9FF3005B58C8 /* Preview Assets.xcassets */; };
 		4A2ADDDC261EA000005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
 		4A2ADDE1261EA029005B58C8 /* FestivalsAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */; };
@@ -37,6 +36,17 @@
 		4A2ADDF0261EA105005B58C8 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
 		4A2ADDF1261EA105005B58C8 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
 		4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
+		4A2ADE10261EA2BB005B58C8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE0E261EA2BB005B58C8 /* Info.plist */; };
+		4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */; };
+		4A2ADE18261EA2FB005B58C8 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */; };
+		4A2ADE19261EA2FB005B58C8 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */; };
+		4A2ADE1A261EA2FB005B58C8 /* TagHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD76261E9DB1005B58C8 /* TagHandlerTests.swift */; };
+		4A2ADE1B261EA2FB005B58C8 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7A261E9DB1005B58C8 /* ArtistHandlerTests.swift */; };
+		4A2ADE1C261EA2FB005B58C8 /* LinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7B261E9DB1005B58C8 /* LinkHandlerTests.swift */; };
+		4A2ADE1D261EA2FB005B58C8 /* ImageRefHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD77261E9DB1005B58C8 /* ImageRefHandlerTests.swift */; };
+		4A2ADE1E261EA2FB005B58C8 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD78261E9DB1005B58C8 /* EventHandlerTests.swift */; };
+		4A2ADE1F261EA2FB005B58C8 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD79261E9DB1005B58C8 /* LocationHandlerTests.swift */; };
+		4A2ADE20261EA2FB005B58C8 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,16 +73,15 @@
 		4A2ADD7B261E9DB1005B58C8 /* LinkHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHandlerTests.swift; sourceTree = "<group>"; };
 		4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalHandlerTests.swift; sourceTree = "<group>"; };
 		4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
-		4A2ADD7E261E9DB1005B58C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceHandlerTests.swift; sourceTree = "<group>"; };
 		4A2ADD90261E9DC1005B58C8 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		4A2ADDA5261E9F4B005B58C8 /* FestivalsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../FestivalsAPI/Assets.xcassets; sourceTree = "<group>"; };
-		4A2ADDB0261E9F4E005B58C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../FestivalsAPI/Info.plist; sourceTree = "<group>"; };
 		4A2ADDBC261E9F63005B58C8 /* FestivalsAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestivalsAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2ADDD7261E9FF3005B58C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsAPIApp.swift; sourceTree = "<group>"; };
+		4A2ADE0E261EA2BB005B58C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		4A397657244A9350006C934C /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -136,7 +145,6 @@
 				4A2ADD7B261E9DB1005B58C8 /* LinkHandlerTests.swift */,
 				4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */,
 				4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */,
-				4A2ADD7E261E9DB1005B58C8 /* Info.plist */,
 				4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */,
 			);
 			path = FestivalsAPITests;
@@ -147,8 +155,8 @@
 			children = (
 				4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */,
 				4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */,
-				4A2ADDB0261E9F4E005B58C8 /* Info.plist */,
-				4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */,
+				4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */,
+				4A2ADE0E261EA2BB005B58C8 /* Info.plist */,
 				4A2ADDD6261E9FE3005B58C8 /* Preview Content */,
 			);
 			path = ExampleApp;
@@ -308,8 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */,
-				4A2ADDAC261E9F4E005B58C8 /* Assets.xcassets in Resources */,
 				4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */,
+				4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */,
+				4A2ADE10261EA2BB005B58C8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +377,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2ADE1A261EA2FB005B58C8 /* TagHandlerTests.swift in Sources */,
+				4A2ADE19261EA2FB005B58C8 /* WebserviceTests.swift in Sources */,
+				4A2ADE18261EA2FB005B58C8 /* FestivalHandlerTests.swift in Sources */,
+				4A2ADE1C261EA2FB005B58C8 /* LinkHandlerTests.swift in Sources */,
+				4A2ADE1D261EA2FB005B58C8 /* ImageRefHandlerTests.swift in Sources */,
+				4A2ADE1B261EA2FB005B58C8 /* ArtistHandlerTests.swift in Sources */,
+				4A2ADE1E261EA2FB005B58C8 /* EventHandlerTests.swift in Sources */,
+				4A2ADE1F261EA2FB005B58C8 /* LocationHandlerTests.swift in Sources */,
+				4A2ADE20261EA2FB005B58C8 /* PlaceHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
