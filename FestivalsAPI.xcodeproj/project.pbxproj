@@ -14,7 +14,6 @@
 				4AC74023245D200900679E39 /* Build Documentation */,
 			);
 			dependencies = (
-				4AC74022245D200700679E39 /* PBXTargetDependency */,
 			);
 			name = Documentation;
 			productName = Documentation;
@@ -22,77 +21,31 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4A1CFF2C246250C30082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
-		4A1CFF2D246250C40082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
-		4A2ADD1A261E6FC0005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
-		4A2ADD1B261E6FC0005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
-		4A2ADD2A261E8981005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
-		4A2ADD2B261E8981005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
-		4A341EEE2461F87400CF84E5 /* FestivalsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* FestivalsAPI.framework */; };
-		4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
-		4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
-		4A341EF62461F88200CF84E5 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */; };
-		4A341EF72461F88200CF84E5 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */; };
-		4A341EF82461F88200CF84E5 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */; };
-		4A341EF92461F88200CF84E5 /* ImageRefHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */; };
-		4A341EFA2461F88200CF84E5 /* LinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */; };
-		4A341EFB2461F88200CF84E5 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */; };
-		4A341EFC2461F88200CF84E5 /* TagHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */; };
-		4A397654244A8FB7006C934C /* ArtistHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397653244A8FB7006C934C /* ArtistHandler.swift */; };
-		4A397656244A921E006C934C /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
-		4A397658244A9350006C934C /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397657244A9350006C934C /* EventHandler.swift */; };
-		4A39765A244A949C006C934C /* TagHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397659244A949C006C934C /* TagHandler.swift */; };
-		4A39765C244A953A006C934C /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765B244A953A006C934C /* PlaceHandler.swift */; };
-		4A39765E244A95E7006C934C /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765D244A95E7006C934C /* LinkHandler.swift */; };
-		4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765F244A9620006C934C /* ImageRefHandler.swift */; };
-		4A397662244A96CB006C934C /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
-		4A397664244B9B1E006C934C /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
-		4A45D5A52441771100CF4E1B /* FestivalsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */; };
-		4A45D5AC2441771100CF4E1B /* FestivalsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* FestivalsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A45D5B924417D9800CF4E1B /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
-		4A45D5BF2442894E00CF4E1B /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
-		4A45D5DF2448513100CF4E1B /* FestivalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */; };
-		4AC74015245D043D00679E39 /* ImageRefHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */; };
-		4AC74017245D0C6700679E39 /* LinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */; };
-		4AC7401A245D18D900679E39 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */; };
-		4AC7401C245D1D6300679E39 /* TagHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */; };
-		4AC74039245DA00A00679E39 /* FestivalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */; };
-		4AC7403A245DA00A00679E39 /* ArtistHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397653244A8FB7006C934C /* ArtistHandler.swift */; };
-		4AC7403B245DA00A00679E39 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
-		4AC7403C245DA00A00679E39 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397657244A9350006C934C /* EventHandler.swift */; };
-		4AC7403D245DA00A00679E39 /* ImageRefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765F244A9620006C934C /* ImageRefHandler.swift */; };
-		4AC7403E245DA00A00679E39 /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765D244A95E7006C934C /* LinkHandler.swift */; };
-		4AC7403F245DA00A00679E39 /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765B244A953A006C934C /* PlaceHandler.swift */; };
-		4AC74040245DA00A00679E39 /* TagHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397659244A949C006C934C /* TagHandler.swift */; };
-		4AC74041245DA01300679E39 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
-		4AC74043245DA01600679E39 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
-		4AC74044245DA01E00679E39 /* FestivalsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45D59E2441771100CF4E1B /* FestivalsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACBAF3F2459821D00140AA6 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */; };
-		4AFE00AD2455827300996DD9 /* ArtistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */; };
-		4AFE00AF2455917B00996DD9 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */; };
+		4A2ADDAA261E9F4C005B58C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */; };
+		4A2ADDAC261E9F4E005B58C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */; };
+		4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADDD7261E9FF3005B58C8 /* Preview Assets.xcassets */; };
+		4A2ADDDC261EA000005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
+		4A2ADDE1261EA029005B58C8 /* FestivalsAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */; };
+		4A2ADDE8261EA105005B58C8 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5B824417D9800CF4E1B /* Webservice.swift */; };
+		4A2ADDE9261EA105005B58C8 /* ArtistHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397653244A8FB7006C934C /* ArtistHandler.swift */; };
+		4A2ADDEA261EA105005B58C8 /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765D244A95E7006C934C /* LinkHandler.swift */; };
+		4A2ADDEB261EA105005B58C8 /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765B244A953A006C934C /* PlaceHandler.swift */; };
+		4A2ADDEC261EA105005B58C8 /* TagHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397659244A949C006C934C /* TagHandler.swift */; };
+		4A2ADDED261EA105005B58C8 /* FestivalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */; };
+		4A2ADDEE261EA105005B58C8 /* ImageRefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39765F244A9620006C934C /* ImageRefHandler.swift */; };
+		4A2ADDEF261EA105005B58C8 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397657244A9350006C934C /* EventHandler.swift */; };
+		4A2ADDF0261EA105005B58C8 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
+		4A2ADDF1261EA105005B58C8 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
+		4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4A341EEF2461F87400CF84E5 /* PBXContainerItemProxy */ = {
+		4A2ADDC1261E9F63005B58C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4A45D5922441771100CF4E1B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4AC74030245D9FA400679E39;
-			remoteInfo = "EventusAPI macOS";
-		};
-		4A45D5A62441771100CF4E1B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4A45D5922441771100CF4E1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4A45D59A2441771100CF4E1B;
-			remoteInfo = "EventusAPI-Swift";
-		};
-		4AC74021245D200700679E39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4A45D5922441771100CF4E1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4A45D59A2441771100CF4E1B;
-			remoteInfo = "EventusAPI-Swift";
+			remoteGlobalIDString = 4A2ADDA4261E9F4B005B58C8;
+			remoteInfo = FestivalsAPI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -102,7 +55,24 @@
 		4A2ADD23261E6FD6005B58C8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleModuleFix.swift; sourceTree = "<group>"; };
 		4A2ADD3C261E8B4A005B58C8 /* .bartycrouch.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bartycrouch.toml; sourceTree = "<group>"; };
-		4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestivalsAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2ADD76261E9DB1005B58C8 /* TagHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD77261E9DB1005B58C8 /* ImageRefHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRefHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD78261E9DB1005B58C8 /* EventHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD79261E9DB1005B58C8 /* LocationHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD7A261E9DB1005B58C8 /* ArtistHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD7B261E9DB1005B58C8 /* LinkHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
+		4A2ADD7E261E9DB1005B58C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceHandlerTests.swift; sourceTree = "<group>"; };
+		4A2ADD90261E9DC1005B58C8 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
+		4A2ADDA5261E9F4B005B58C8 /* FestivalsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../FestivalsAPI/Assets.xcassets; sourceTree = "<group>"; };
+		4A2ADDB0261E9F4E005B58C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../FestivalsAPI/Info.plist; sourceTree = "<group>"; };
+		4A2ADDBC261E9F63005B58C8 /* FestivalsAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestivalsAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2ADDD7261E9FF3005B58C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsAPIApp.swift; sourceTree = "<group>"; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		4A397657244A9350006C934C /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -111,54 +81,23 @@
 		4A39765D244A95E7006C934C /* LinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
 		4A39765F244A9620006C934C /* ImageRefHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRefHandler.swift; sourceTree = "<group>"; };
 		4A397661244A96CB006C934C /* FestivalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsClient.swift; sourceTree = "<group>"; };
-		4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandlerTests.swift; sourceTree = "<group>"; };
-		4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FestivalsAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A45D59E2441771100CF4E1B /* FestivalsAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FestivalsAPI.h; sourceTree = "<group>"; };
-		4A45D59F2441771100CF4E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestivalsAPI iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A45D5AB2441771100CF4E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A45D5B824417D9800CF4E1B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
-		4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
 		4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandler.swift; sourceTree = "<group>"; };
 		4AC5145D2535153E00F24354 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRefHandlerTests.swift; sourceTree = "<group>"; };
-		4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandlerTests.swift; sourceTree = "<group>"; };
-		4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandlerTests.swift; sourceTree = "<group>"; };
-		4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagHandlerTests.swift; sourceTree = "<group>"; };
 		4AC74024245D20A300679E39 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = "<group>"; };
 		4AC74026245D255D00679E39 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4AC74028245D258800679E39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4AC74031245D9FA400679E39 /* FestivalsAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FestivalsAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlerTests.swift; sourceTree = "<group>"; };
-		4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandlerTests.swift; sourceTree = "<group>"; };
-		4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4A341EE62461F87400CF84E5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A341EEE2461F87400CF84E5 /* FestivalsAPI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A45D5982441771100CF4E1B /* Frameworks */ = {
+		4A2ADDA2261E9F4B005B58C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A45D5A12441771100CF4E1B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A45D5A52441771100CF4E1B /* FestivalsAPI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC7402E245D9FA400679E39 /* Frameworks */ = {
+		4A2ADDB9261E9F63005B58C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,28 +110,9 @@
 		4A1CFF2E246251C40082AF96 /* FestivalsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59E2441771100CF4E1B /* FestivalsAPI.h */,
-				4A45D59F2441771100CF4E1B /* Info.plist */,
 				4A397661244A96CB006C934C /* FestivalsClient.swift */,
-				4A397652244A8F9A006C934C /* Handler */,
 				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
-			);
-			path = FestivalsAPI;
-			sourceTree = "<group>";
-		};
-		4A1CFF2F246251DD0082AF96 /* FestivalsAPI */ = {
-			isa = PBXGroup;
-			children = (
-				4A45D5AB2441771100CF4E1B /* Info.plist */,
-				4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */,
-				4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */,
-				4AFE00AC2455827300996DD9 /* ArtistHandlerTests.swift */,
-				4AFE00AE2455917B00996DD9 /* LocationHandlerTests.swift */,
-				4ACBAF3E2459821D00140AA6 /* EventHandlerTests.swift */,
-				4AC74014245D043D00679E39 /* ImageRefHandlerTests.swift */,
-				4AC74016245D0C6700679E39 /* LinkHandlerTests.swift */,
-				4AC74019245D18D900679E39 /* PlaceHandlerTests.swift */,
-				4AC7401B245D1D6300679E39 /* TagHandlerTests.swift */,
+				4A397652244A8F9A006C934C /* Handler */,
 			);
 			path = FestivalsAPI;
 			sourceTree = "<group>";
@@ -200,10 +120,47 @@
 		4A2ADD07261E6781005B58C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */,
 				4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A2ADD75261E9DB1005B58C8 /* FestivalsAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ADD76261E9DB1005B58C8 /* TagHandlerTests.swift */,
+				4A2ADD77261E9DB1005B58C8 /* ImageRefHandlerTests.swift */,
+				4A2ADD78261E9DB1005B58C8 /* EventHandlerTests.swift */,
+				4A2ADD79261E9DB1005B58C8 /* LocationHandlerTests.swift */,
+				4A2ADD7A261E9DB1005B58C8 /* ArtistHandlerTests.swift */,
+				4A2ADD7B261E9DB1005B58C8 /* LinkHandlerTests.swift */,
+				4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */,
+				4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */,
+				4A2ADD7E261E9DB1005B58C8 /* Info.plist */,
+				4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */,
+			);
+			path = FestivalsAPITests;
+			sourceTree = "<group>";
+		};
+		4A2ADD98261E9ED7005B58C8 /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */,
+				4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */,
+				4A2ADDB0261E9F4E005B58C8 /* Info.plist */,
+				4A2ADDAB261E9F4E005B58C8 /* Assets.xcassets */,
+				4A2ADDD6261E9FE3005B58C8 /* Preview Content */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		4A2ADDD6261E9FE3005B58C8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ADDD7261E9FF3005B58C8 /* Preview Assets.xcassets */,
+				4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		4A397652244A8F9A006C934C /* Handler */ = {
@@ -224,8 +181,9 @@
 		4A45D5912441771100CF4E1B = {
 			isa = PBXGroup;
 			children = (
-				4AC74028245D258800679E39 /* README.md */,
 				4A1CFF30246254200082AF96 /* Package.swift */,
+				4AC74028245D258800679E39 /* README.md */,
+				4A2ADD98261E9ED7005B58C8 /* ExampleApp */,
 				4A45D59D2441771100CF4E1B /* Sources */,
 				4A45D5A82441771100CF4E1B /* Tests */,
 				4A45D59C2441771100CF4E1B /* Products */,
@@ -239,10 +197,8 @@
 		4A45D59C2441771100CF4E1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */,
-				4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */,
-				4AC74031245D9FA400679E39 /* FestivalsAPI.framework */,
-				4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */,
+				4A2ADDA5261E9F4B005B58C8 /* FestivalsAPI.app */,
+				4A2ADDBC261E9F63005B58C8 /* FestivalsAPITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,107 +215,49 @@
 		4A45D5A82441771100CF4E1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CFF2F246251DD0082AF96 /* FestivalsAPI */,
+				4A2ADD90261E9DC1005B58C8 /* LinuxMain.swift */,
+				4A2ADD75261E9DB1005B58C8 /* FestivalsAPITests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		4A45D5962441771100CF4E1B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A45D5AC2441771100CF4E1B /* FestivalsAPI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC7402C245D9FA400679E39 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AC74044245DA01E00679E39 /* FestivalsAPI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		4A341EE82461F87400CF84E5 /* FestivalsAPI macOS Tests */ = {
+		4A2ADDA4261E9F4B005B58C8 /* FestivalsAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS Tests" */;
+			buildConfigurationList = 4A2ADDB1261E9F4E005B58C8 /* Build configuration list for PBXNativeTarget "FestivalsAPI" */;
 			buildPhases = (
-				4A341EE52461F87400CF84E5 /* Sources */,
-				4A341EE62461F87400CF84E5 /* Frameworks */,
-				4A341EE72461F87400CF84E5 /* Resources */,
+				4A2ADDA1261E9F4B005B58C8 /* Sources */,
+				4A2ADDA2261E9F4B005B58C8 /* Frameworks */,
+				4A2ADDA3261E9F4B005B58C8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4A341EF02461F87400CF84E5 /* PBXTargetDependency */,
 			);
-			name = "FestivalsAPI macOS Tests";
-			productName = "EventusAPI macOS Tests";
-			productReference = 4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */;
+			name = FestivalsAPI;
+			productName = FestivalsAPI;
+			productReference = 4A2ADDA5261E9F4B005B58C8 /* FestivalsAPI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A2ADDBB261E9F63005B58C8 /* FestivalsAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A2ADDC3261E9F63005B58C8 /* Build configuration list for PBXNativeTarget "FestivalsAPITests" */;
+			buildPhases = (
+				4A2ADDB8261E9F63005B58C8 /* Sources */,
+				4A2ADDB9261E9F63005B58C8 /* Frameworks */,
+				4A2ADDBA261E9F63005B58C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A2ADDC2261E9F63005B58C8 /* PBXTargetDependency */,
+			);
+			name = FestivalsAPITests;
+			productName = FestivalsAPITests;
+			productReference = 4A2ADDBC261E9F63005B58C8 /* FestivalsAPITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS" */;
-			buildPhases = (
-				4A45D5962441771100CF4E1B /* Headers */,
-				4A45D5972441771100CF4E1B /* Sources */,
-				4A45D5982441771100CF4E1B /* Frameworks */,
-				4A45D5992441771100CF4E1B /* Resources */,
-				4A2ADD36261E8AFF005B58C8 /* Update loaclized resources */,
-				4AC74045245DA10300679E39 /* Increase Build Number */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "FestivalsAPI iOS";
-			productName = "EventusAPI-Swift";
-			productReference = 4A45D59B2441771100CF4E1B /* FestivalsAPI.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		4A45D5A32441771100CF4E1B /* FestivalsAPI iOS Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS Tests" */;
-			buildPhases = (
-				4A45D5A02441771100CF4E1B /* Sources */,
-				4A45D5A12441771100CF4E1B /* Frameworks */,
-				4A45D5A22441771100CF4E1B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4A45D5A72441771100CF4E1B /* PBXTargetDependency */,
-			);
-			name = "FestivalsAPI iOS Tests";
-			productName = "EventusAPI-SwiftTests";
-			productReference = 4A45D5A42441771100CF4E1B /* FestivalsAPI iOS Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4AC74030245D9FA400679E39 /* FestivalsAPI macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS" */;
-			buildPhases = (
-				4AC7402C245D9FA400679E39 /* Headers */,
-				4AC7402D245D9FA400679E39 /* Sources */,
-				4AC7402E245D9FA400679E39 /* Frameworks */,
-				4AC7402F245D9FA400679E39 /* Resources */,
-				4AC74046245DA13F00679E39 /* Increase Build Number */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "FestivalsAPI macOS";
-			productName = "EventusAPI macOS";
-			productReference = 4AC74031245D9FA400679E39 /* FestivalsAPI.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -367,24 +265,18 @@
 		4A45D5922441771100CF4E1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Simon Gaus";
 				TargetAttributes = {
-					4A341EE82461F87400CF84E5 = {
-						CreatedOnToolsVersion = 11.4.1;
+					4A2ADDA4261E9F4B005B58C8 = {
+						CreatedOnToolsVersion = 12.4;
 					};
-					4A45D59A2441771100CF4E1B = {
-						CreatedOnToolsVersion = 11.4;
-						LastSwiftMigration = 1140;
-					};
-					4A45D5A32441771100CF4E1B = {
-						CreatedOnToolsVersion = 11.4;
+					4A2ADDBB261E9F63005B58C8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 4A2ADDA4261E9F4B005B58C8;
 					};
 					4AC7401D245D1FF900679E39 = {
-						CreatedOnToolsVersion = 11.4.1;
-					};
-					4AC74030245D9FA400679E39 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
@@ -403,69 +295,34 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */,
-				4AC74030245D9FA400679E39 /* FestivalsAPI macOS */,
-				4A45D5A32441771100CF4E1B /* FestivalsAPI iOS Tests */,
-				4A341EE82461F87400CF84E5 /* FestivalsAPI macOS Tests */,
+				4A2ADDA4261E9F4B005B58C8 /* FestivalsAPI */,
+				4A2ADDBB261E9F63005B58C8 /* FestivalsAPITests */,
 				4AC7401D245D1FF900679E39 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4A341EE72461F87400CF84E5 /* Resources */ = {
+		4A2ADDA3261E9F4B005B58C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */,
+				4A2ADDAC261E9F4E005B58C8 /* Assets.xcassets in Resources */,
+				4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A45D5992441771100CF4E1B /* Resources */ = {
+		4A2ADDBA261E9F63005B58C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1CFF2D246250C40082AF96 /* README.md in Resources */,
-				4A2ADD1A261E6FC0005B58C8 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A45D5A22441771100CF4E1B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC7402F245D9FA400679E39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A1CFF2C246250C30082AF96 /* README.md in Resources */,
-				4A2ADD1B261E6FC0005B58C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A2ADD36261E8AFF005B58C8 /* Update loaclized resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Update loaclized resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
-		};
 		4AC74023245D200900679E39 /* Build Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,130 +341,43 @@
 			shellPath = /bin/sh;
 			shellScript = "#jazzy Xcode script\nif which jazzy > /dev/null; then\n\njazzy \\\n--theme apple \\\n--min-acl internal\n\nelse\necho \"warning: jazzy not installed, download it from https://github.com/realm/jazzy\"\nfi\n";
 		};
-		4AC74045245DA10300679E39 /* Increase Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Increase Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
-		4AC74046245DA13F00679E39 /* Increase Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Increase Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4A341EE52461F87400CF84E5 /* Sources */ = {
+		4A2ADDA1261E9F4B005B58C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A341EFA2461F88200CF84E5 /* LinkHandlerTests.swift in Sources */,
-				4A341EFC2461F88200CF84E5 /* TagHandlerTests.swift in Sources */,
-				4A341EF92461F88200CF84E5 /* ImageRefHandlerTests.swift in Sources */,
-				4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */,
-				4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */,
-				4A341EF82461F88200CF84E5 /* EventHandlerTests.swift in Sources */,
-				4A341EF72461F88200CF84E5 /* LocationHandlerTests.swift in Sources */,
-				4A341EF62461F88200CF84E5 /* ArtistHandlerTests.swift in Sources */,
-				4A341EFB2461F88200CF84E5 /* PlaceHandlerTests.swift in Sources */,
+				4A2ADDF0261EA105005B58C8 /* FestivalsClient.swift in Sources */,
+				4A2ADDEC261EA105005B58C8 /* TagHandler.swift in Sources */,
+				4A2ADDEF261EA105005B58C8 /* EventHandler.swift in Sources */,
+				4A2ADDEB261EA105005B58C8 /* PlaceHandler.swift in Sources */,
+				4A2ADDE1261EA029005B58C8 /* FestivalsAPIApp.swift in Sources */,
+				4A2ADDF1261EA105005B58C8 /* LocationHandler.swift in Sources */,
+				4A2ADDDC261EA000005B58C8 /* BundleModuleFix.swift in Sources */,
+				4A2ADDAA261E9F4C005B58C8 /* ContentView.swift in Sources */,
+				4A2ADDEA261EA105005B58C8 /* LinkHandler.swift in Sources */,
+				4A2ADDED261EA105005B58C8 /* FestivalHandler.swift in Sources */,
+				4A2ADDE9261EA105005B58C8 /* ArtistHandler.swift in Sources */,
+				4A2ADDE8261EA105005B58C8 /* Webservice.swift in Sources */,
+				4A2ADDEE261EA105005B58C8 /* ImageRefHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A45D5972441771100CF4E1B /* Sources */ = {
+		4A2ADDB8261E9F63005B58C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A39765C244A953A006C934C /* PlaceHandler.swift in Sources */,
-				4A45D5B924417D9800CF4E1B /* Webservice.swift in Sources */,
-				4A397658244A9350006C934C /* EventHandler.swift in Sources */,
-				4A397662244A96CB006C934C /* FestivalsClient.swift in Sources */,
-				4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */,
-				4A45D5DF2448513100CF4E1B /* FestivalHandler.swift in Sources */,
-				4A2ADD2A261E8981005B58C8 /* BundleModuleFix.swift in Sources */,
-				4A397656244A921E006C934C /* LocationHandler.swift in Sources */,
-				4A39765A244A949C006C934C /* TagHandler.swift in Sources */,
-				4A39765E244A95E7006C934C /* LinkHandler.swift in Sources */,
-				4A397654244A8FB7006C934C /* ArtistHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A45D5A02441771100CF4E1B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AC7401A245D18D900679E39 /* PlaceHandlerTests.swift in Sources */,
-				4A397664244B9B1E006C934C /* FestivalHandlerTests.swift in Sources */,
-				4A45D5BF2442894E00CF4E1B /* WebserviceTests.swift in Sources */,
-				4AC7401C245D1D6300679E39 /* TagHandlerTests.swift in Sources */,
-				4ACBAF3F2459821D00140AA6 /* EventHandlerTests.swift in Sources */,
-				4AC74017245D0C6700679E39 /* LinkHandlerTests.swift in Sources */,
-				4AFE00AD2455827300996DD9 /* ArtistHandlerTests.swift in Sources */,
-				4AC74015245D043D00679E39 /* ImageRefHandlerTests.swift in Sources */,
-				4AFE00AF2455917B00996DD9 /* LocationHandlerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC7402D245D9FA400679E39 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AC7403B245DA00A00679E39 /* LocationHandler.swift in Sources */,
-				4AC74043245DA01600679E39 /* FestivalsClient.swift in Sources */,
-				4AC7403C245DA00A00679E39 /* EventHandler.swift in Sources */,
-				4AC74039245DA00A00679E39 /* FestivalHandler.swift in Sources */,
-				4AC7403D245DA00A00679E39 /* ImageRefHandler.swift in Sources */,
-				4AC7403E245DA00A00679E39 /* LinkHandler.swift in Sources */,
-				4A2ADD2B261E8981005B58C8 /* BundleModuleFix.swift in Sources */,
-				4AC74040245DA00A00679E39 /* TagHandler.swift in Sources */,
-				4AC7403F245DA00A00679E39 /* PlaceHandler.swift in Sources */,
-				4AC7403A245DA00A00679E39 /* ArtistHandler.swift in Sources */,
-				4AC74041245DA01300679E39 /* Webservice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4A341EF02461F87400CF84E5 /* PBXTargetDependency */ = {
+		4A2ADDC2261E9F63005B58C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AC74030245D9FA400679E39 /* FestivalsAPI macOS */;
-			targetProxy = 4A341EEF2461F87400CF84E5 /* PBXContainerItemProxy */;
-		};
-		4A45D5A72441771100CF4E1B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */;
-			targetProxy = 4A45D5A62441771100CF4E1B /* PBXContainerItemProxy */;
-		};
-		4AC74022245D200700679E39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4A45D59A2441771100CF4E1B /* FestivalsAPI iOS */;
-			targetProxy = 4AC74021245D200700679E39 /* PBXContainerItemProxy */;
+			target = 4A2ADDA4261E9F4B005B58C8 /* FestivalsAPI */;
+			targetProxy = 4A2ADDC1261E9F63005B58C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -624,46 +394,87 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4A341EF22461F87400CF84E5 /* Debug */ = {
+		4A2ADDB2261E9F4E005B58C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N67G6688LK;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4A341EF32461F87400CF84E5 /* Release */ = {
+		4A2ADDB3261E9F4E005B58C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N67G6688LK;
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4A2ADDC4261E9F63005B58C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N67G6688LK;
+				INFOPLIST_FILE = FestivalsAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FestivalsAPI.app/FestivalsAPI";
+			};
+			name = Debug;
+		};
+		4A2ADDC5261E9F63005B58C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N67G6688LK;
+				INFOPLIST_FILE = FestivalsAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FestivalsAPI.app/FestivalsAPI";
 			};
 			name = Release;
 		};
@@ -720,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -780,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -790,108 +601,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4A45D5B02441771100CF4E1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
-				PRODUCT_NAME = FestivalsAPI;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4A45D5B12441771100CF4E1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
-				PRODUCT_NAME = FestivalsAPI;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		4A45D5B32441771100CF4E1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4A45D5B42441771100CF4E1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = Tests/FestivalsAPI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.simonsserver.FestivalsAPI-SwiftTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -913,71 +622,23 @@
 			};
 			name = Release;
 		};
-		4AC74037245D9FA400679E39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
-				PRODUCT_NAME = FestivalsAPI;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		4AC74038245D9FA400679E39 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N67G6688LK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = Sources/FestivalsAPI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
-				PRODUCT_NAME = FestivalsAPI;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A341EF12461F87400CF84E5 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS Tests" */ = {
+		4A2ADDB1261E9F4E005B58C8 /* Build configuration list for PBXNativeTarget "FestivalsAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4A341EF22461F87400CF84E5 /* Debug */,
-				4A341EF32461F87400CF84E5 /* Release */,
+				4A2ADDB2261E9F4E005B58C8 /* Debug */,
+				4A2ADDB3261E9F4E005B58C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A2ADDC3261E9F63005B58C8 /* Build configuration list for PBXNativeTarget "FestivalsAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A2ADDC4261E9F63005B58C8 /* Debug */,
+				4A2ADDC5261E9F63005B58C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -991,38 +652,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A45D5AF2441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4A45D5B02441771100CF4E1B /* Debug */,
-				4A45D5B12441771100CF4E1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4A45D5B22441771100CF4E1B /* Build configuration list for PBXNativeTarget "FestivalsAPI iOS Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4A45D5B32441771100CF4E1B /* Debug */,
-				4A45D5B42441771100CF4E1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4AC7401E245D1FF900679E39 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AC7401F245D1FF900679E39 /* Debug */,
 				4AC74020245D1FF900679E39 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4AC74036245D9FA400679E39 /* Build configuration list for PBXNativeTarget "FestivalsAPI macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4AC74037245D9FA400679E39 /* Debug */,
-				4AC74038245D9FA400679E39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
