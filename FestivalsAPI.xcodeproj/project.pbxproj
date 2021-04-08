@@ -36,7 +36,6 @@
 		4A2ADDF0261EA105005B58C8 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
 		4A2ADDF1261EA105005B58C8 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
 		4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
-		4A2ADE10261EA2BB005B58C8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE0E261EA2BB005B58C8 /* Info.plist */; };
 		4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */; };
 		4A2ADE18261EA2FB005B58C8 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */; };
 		4A2ADE19261EA2FB005B58C8 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */; };
@@ -82,6 +81,7 @@
 		4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsAPIApp.swift; sourceTree = "<group>"; };
 		4A2ADE0E261EA2BB005B58C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A2ADE2B261EA48D005B58C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		4A397657244A9350006C934C /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -223,6 +223,7 @@
 		4A45D5A82441771100CF4E1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4A2ADE2B261EA48D005B58C8 /* Info.plist */,
 				4A2ADD90261E9DC1005B58C8 /* LinuxMain.swift */,
 				4A2ADD75261E9DB1005B58C8 /* FestivalsAPITests */,
 			);
@@ -318,7 +319,6 @@
 				4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */,
 				4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */,
 				4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */,
-				4A2ADE10261EA2BB005B58C8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +462,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = FestivalsAPITests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +482,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N67G6688LK;
-				INFOPLIST_FILE = FestivalsAPITests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

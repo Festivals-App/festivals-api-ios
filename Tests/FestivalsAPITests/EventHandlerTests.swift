@@ -246,9 +246,6 @@ class EventHandlerTests: XCTestCase {
     func testEventTypeLocalization() throws {
         
         print("EventType.music.localizedName: \(EventType.music.localizedName)")
-        
-        sleep(20)
-        
         XCTAssertTrue(EventType.music.localizedName == "Musik", "Localized name for music event is right.")
     }
     
