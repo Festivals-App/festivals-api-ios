@@ -42,7 +42,7 @@ public enum EventType: Int, Codable, CaseIterable, Identifiable {
         return rawValue
     }
     
-    var localizedName: String {
+    public var localizedName: String {
         switch self {
         case .other:
             return NSLocalizedString("Other", bundle: .module, comment: "UI String - Identity string - The event is a musical performance.")
