@@ -240,6 +240,7 @@
 				4A2ADDA1261E9F4B005B58C8 /* Sources */,
 				4A2ADDA2261E9F4B005B58C8 /* Frameworks */,
 				4A2ADDA3261E9F4B005B58C8 /* Resources */,
+				4A2ADE6C261EBAF1005B58C8 /* Update localized resources */,
 			);
 			buildRules = (
 			);
@@ -332,6 +333,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A2ADE6C261EBAF1005B58C8 /* Update localized resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update localized resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 		4AC74023245D200900679E39 /* Build Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

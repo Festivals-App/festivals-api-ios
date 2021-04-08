@@ -11,7 +11,7 @@ import Foundation
 // MARK: Link Type
 
 /// The LinkType enumeration defines a list of services a link can refer to.
-public enum LinkType: Int, Codable, CaseIterable {
+public enum LinkType: Int, Codable, CaseIterable, Identifiable {
     /// An unknown service.
     case unknown                    = -1
     /// A website URL. Example: https://simonsapps.de/
@@ -64,6 +64,67 @@ public enum LinkType: Int, Codable, CaseIterable {
     case tiktokProfileRef           = 23
     /// A Tripadvisor profile page URL. Example: https://www.tripadvisor.de/Restaurant_Review-g187323-d718338-Reviews-Schokoladen-Berlin.html).
     case tripadvisorURL              = 24
+    
+    public var id: Int {
+        return rawValue
+    }
+    
+    public var localizedName: String {
+        switch self {
+        case .unknown:
+            return NSLocalizedString("Unknown", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .websiteURL:
+            return NSLocalizedString("Website", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .mail:
+            return NSLocalizedString("Mail", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .phone:
+            return NSLocalizedString("Phone", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .youtubeVideoRef:
+            return NSLocalizedString("Youtube Video", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .youtubeUserRef:
+            return NSLocalizedString("Youtube User", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .youtubeChannelRef:
+            return NSLocalizedString("Youtube Channel", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .youtubePlaylistRef:
+            return NSLocalizedString("Youtube Playlist", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .youtubeMusicPlaylistRef:
+            return NSLocalizedString("Youtube Music Playlist", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .soundcloudProfileRef:
+            return NSLocalizedString("Soundcloud Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .bandcampProfileURL:
+            return NSLocalizedString("Bandcamp Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .bandcampTrackURL:
+            return NSLocalizedString("Bandcamp Track", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .hearthisProfileRef:
+            return NSLocalizedString("Hearthis Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .hearthisEmbededTrackRef:
+            return NSLocalizedString("Hearthis Embeded Track", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .facebookProfileRef:
+            return NSLocalizedString("Facebook Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .instagramProfileRef:
+            return NSLocalizedString("Instagram Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .spotifyArtistRef:
+            return NSLocalizedString("Spotify Artist", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .spotifyAlbumRef:
+            return NSLocalizedString("Spotify Album", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .spotifyTrackRef:
+            return NSLocalizedString("Spotify Track", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .appleMusicStoreURL:
+            return NSLocalizedString("Apple Music Store URL", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .shazamProfileRef:
+            return NSLocalizedString("Shazam Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .shazamTrackRef:
+            return NSLocalizedString("Shazam Track", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .deezerArtistRef:
+            return NSLocalizedString("Deeze Artist", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .twitterProfileRef:
+            return NSLocalizedString("Twitter Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .tiktokProfileRef:
+            return NSLocalizedString("TikTok Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .tripadvisorURL:
+            return NSLocalizedString("Tripadvisor", bundle: .module, comment: "UI String - Identity string - Link Type")
+        }
+    }
 }
 
 // MARK: Link Struct
