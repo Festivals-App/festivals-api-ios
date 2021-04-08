@@ -35,7 +35,7 @@ public class Location: ObservableObject, Hashable, Identifiable {
     
     /// Initializes a location with the given data.
     /// - Parameter objectDict: The dict containing the location values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["location_id"] as? Int else { return nil }
@@ -84,7 +84,7 @@ public class Location: ObservableObject, Hashable, Identifiable {
     
     /// Creates a JSON representation of the location.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
         
         let dict: [String: Any] = ["location_id": self.objectID, "location_version": self.version, "location_name": self.name, "location_description": self.description, "location_accessible": self.accessible, "location_openair": self.openair]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -125,7 +125,7 @@ public class LocationHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - locations: The fetched locations.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(locations completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
+    public func all(locations completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
         
         self.locations() { locations, error in
             
@@ -185,7 +185,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - location: The created location.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
+    public func create(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("location", with: location.JSON()) { (object, error) -> (Void) in
             
@@ -207,7 +207,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - location: The updated location.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
+    public func update(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("location", with: location.objectID, and: location.JSON()) { (object, error) -> (Void) in
             
@@ -229,7 +229,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(location: Location, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(location: Location, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("location", with: location.objectID) { (success, error) -> (Void) in
             
@@ -245,7 +245,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - links: The fetched links.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func links(for locationID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
+    public func links(for locationID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("links", for: "location", with: locationID) { (resources, error) -> (Void) in
             
@@ -268,7 +268,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(linkID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(linkID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("links", with: linkID, for: "location", with: locationID) { success, error in
             
@@ -283,7 +283,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(linkID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(linkID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("links", with: linkID, for: "location", with: locationID) { success, error in
             
@@ -299,7 +299,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - place: The fetched place.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func place(for locationID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
+    public func place(for locationID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("place", for: "location", with: locationID) { (resources, error) -> (Void) in
             
@@ -326,7 +326,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(placeID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(placeID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("place", with: placeID, for: "location", with: locationID) { success, error in
             
@@ -341,7 +341,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(placeID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(placeID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("place", with: placeID, for: "location", with: locationID) { success, error in
             
@@ -357,7 +357,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - image: The fetched image.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func image(for locationID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+    public func image(for locationID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("image", for: "location", with: locationID) { (resources, error) -> (Void) in
             
@@ -384,7 +384,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(imageID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(imageID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("image", with: imageID, for: "location", with: locationID) { success, error in
             
@@ -399,7 +399,7 @@ public class LocationHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(imageID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(imageID: Int, for locationID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("image", with: imageID, for: "location", with: locationID) { success, error in
             

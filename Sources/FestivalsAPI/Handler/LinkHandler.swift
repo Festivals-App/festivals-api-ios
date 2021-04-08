@@ -82,7 +82,7 @@ public struct Link: Codable, Hashable, Identifiable {
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict        = objectDict as? [String: Any] else { return nil }
         guard let object_id         = objectDict["link_id"] as? Int else { return nil }
@@ -111,7 +111,7 @@ public struct Link: Codable, Hashable, Identifiable {
     
     /// Creates a JSON representation of the link.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
 
         let dict: [String: Any] = ["link_id": self.objectID, "link_version": self.version, "link_url": self.referrer, "link_service": self.service.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -154,7 +154,7 @@ public class LinkHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - links: The fetched links.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(links completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
+    public func all(links completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
         self.links() { links, error in
             
@@ -168,7 +168,7 @@ public class LinkHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - links: The fetched links.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func links(with objectIDs: [Int]? = nil, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
+    public func links(with objectIDs: [Int]? = nil, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("link", with: objectIDs) { (objects, error) -> (Void) in
             
@@ -190,7 +190,7 @@ public class LinkHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - link: The fetched link.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func link(with objectID: Int, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
+    public func link(with objectID: Int, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
         
         self.links(with: [objectID]) { links, error in
             
@@ -214,7 +214,7 @@ public class LinkHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - link: The created link.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
+    public func create(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("link", with: link.JSON()) { (object, error) -> (Void) in
         
@@ -236,7 +236,7 @@ public class LinkHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - link: The updated link.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
+    public func update(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("link", with: link.objectID, and: link.JSON()) { (object, error) -> (Void) in
         
@@ -258,7 +258,7 @@ public class LinkHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(link: Link, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(link: Link, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("link", with: link.objectID) { (success, error) -> (Void) in
             

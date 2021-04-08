@@ -24,7 +24,7 @@ public struct ImageRef: Codable, Hashable, Identifiable {
     
     /// Initializes an image reference with the given data.
     /// - Parameter objectDict: The dict containing the image reference values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
        
         guard let objectDict        = objectDict as? [String: Any] else { return nil }
         guard let object_id         = objectDict["image_id"] as? Int else { return nil }
@@ -54,7 +54,7 @@ public struct ImageRef: Codable, Hashable, Identifiable {
     
     /// Creates a JSON representation of the image reference.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
         
         let dict: [String: Any] = ["image_id": self.objectID, "image_hash": self.hash, "image_comment": self.comment, "image_ref": self.referrerURL.absoluteString]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -95,7 +95,7 @@ public class ImageRefHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - images: The fetched images.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(images completion: @escaping (_ images: [ImageRef]?, _ error: Error?) -> (Void)) {
+    public func all(images completion: @escaping (_ images: [ImageRef]?, _ error: Error?) -> (Void)) {
         
         self.images() { festivals, error in
             
@@ -109,7 +109,7 @@ public class ImageRefHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - images: The fetched images.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func images(with objectIDs: [Int]? = nil, completion: @escaping (_ images: [ImageRef]?, _ error: Error?) -> (Void)) {
+    public func images(with objectIDs: [Int]? = nil, completion: @escaping (_ images: [ImageRef]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("image", with: objectIDs) { (objects, err) -> (Void) in
             
@@ -131,7 +131,7 @@ public class ImageRefHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - image: The fetched image.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func image(with objectID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+    public func image(with objectID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
         self.images(with: [objectID]) { (imageRefs, error) -> (Void) in
             
@@ -155,7 +155,7 @@ public class ImageRefHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - image: The created image.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+    public func create(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("image", with: image.JSON()) { (object, error) -> (Void) in
         
@@ -177,7 +177,7 @@ public class ImageRefHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - image: The updated image.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+    public func update(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("image", with: image.objectID, and: image.JSON()) { (object, error) -> (Void) in
         
@@ -199,7 +199,7 @@ public class ImageRefHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(image: ImageRef, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(image: ImageRef, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("image", with: image.objectID) { (success, error) -> (Void) in
             

@@ -20,7 +20,7 @@ public struct Tag: Codable, Hashable, Identifiable {
     
     /// Initializes a tag with the given data.
     /// - Parameter objectDict: The dict containing the tag values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict        = objectDict as? [String: Any] else { return nil }
         guard let object_id         = objectDict["tag_id"] as? Int else { return nil }
@@ -44,7 +44,7 @@ public struct Tag: Codable, Hashable, Identifiable {
     
     /// Creates a JSON representation of the tag.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
         
         let dict: [String: Any] = ["tag_id": self.objectID, "tag_name": self.name]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -84,7 +84,7 @@ public class TagHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - tags: The fetched tags.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(tags completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
+    public func all(tags completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
         self.tags() { tags, error in
             
@@ -98,7 +98,7 @@ public class TagHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - tags: The fetched tags.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func tags(with objectIDs: [Int]? = nil, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
+    public func tags(with objectIDs: [Int]? = nil, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("tag", with: objectIDs) { (objects, err) -> (Void) in
             
@@ -120,7 +120,7 @@ public class TagHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - tag: The fetched tag.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func tag(with objectID: Int, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
+    public func tag(with objectID: Int, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
         self.tags(with: [objectID]) { (tags, error) -> (Void) in
             
@@ -144,7 +144,7 @@ public class TagHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - tag: The created tag.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
+    public func create(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("tag", with: tag.JSON()) { (object, error) -> (Void) in
         
@@ -166,7 +166,7 @@ public class TagHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - tag: The updated tag.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
+    public func update(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("tag", with: tag.objectID, and: tag.JSON()) { (object, error) -> (Void) in
         
@@ -188,7 +188,7 @@ public class TagHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(tag: Tag, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(tag: Tag, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("tag", with: tag.objectID) { (success, error) -> (Void) in
             
@@ -205,7 +205,7 @@ public class TagHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - events: The fetched festivals.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func festivals(for tagID: Int, with includes: Bool, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
+    public func festivals(for tagID: Int, with includes: Bool, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image"]
         self.webservice.fetchResource("festivals", for: "tag", with: tagID, including: includeVals) { (resources, error) -> (Void) in

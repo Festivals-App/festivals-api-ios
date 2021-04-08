@@ -99,7 +99,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
     
     /// Initializes an event with the given data.
     /// - Parameter objectDict: The dict containing the event values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["event_id"] as? Int else { return nil }
@@ -155,7 +155,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
     
     /// Creates a JSON representation of the event.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
         
         let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -196,7 +196,7 @@ public class EventHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - events: The fetched events.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(events completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
+    public func all(events completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
         
         self.events() { events, error in
             
@@ -210,7 +210,7 @@ public class EventHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - events: The fetched events.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func events(with objectIDs: [Int]? = nil, completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
+    public func events(with objectIDs: [Int]? = nil, completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("event", with: objectIDs, including: ["artist", "location"]) { (objects, err) -> (Void) in
             
@@ -232,7 +232,7 @@ public class EventHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - event: The fetched event.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func event(with objectID: Int, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
+    public func event(with objectID: Int, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
         self.events(with: [objectID]) { events, error in
             
@@ -256,7 +256,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - event: The created event.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
+    public func create(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("event", with: event.JSON()) { (object, error) -> (Void) in
             
@@ -278,7 +278,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - event: The updated event.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
+    public func update(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("event", with: event.objectID, and: event.JSON()) { (object, error) -> (Void) in
             
@@ -300,7 +300,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(event: Event, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(event: Event, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("event", with: event.objectID) { (success, error) -> (Void) in
             
@@ -344,7 +344,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(artistID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(artistID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("artist", with: artistID, for: "event", with: eventID) { success, error in
             
@@ -359,7 +359,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(artistID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(artistID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("artist", with: artistID, for: "event", with: eventID) { success, error in
             
@@ -404,7 +404,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(locationID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(locationID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("location", with: locationID, for: "event", with: eventID) { success, error in
             
@@ -419,7 +419,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(locationID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(locationID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("location", with: locationID, for: "event", with: eventID) { success, error in
             

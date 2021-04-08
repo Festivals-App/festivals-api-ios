@@ -36,7 +36,7 @@ public struct Place: Codable, Hashable, Identifiable {
     
     /// Initializes a place with the given data.
     /// - Parameter objectDict: The dict containing the place values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict                = objectDict as? [String: Any] else { return nil }
         guard let object_id                 = objectDict["place_id"] as? Int else { return nil }
@@ -76,7 +76,7 @@ public struct Place: Codable, Hashable, Identifiable {
     
     /// Creates a JSON representation of the festival.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
 
         let dict: [String: Any] = ["place_id": self.objectID, "place_version": self.version, "place_street": self.street, "place_zip": self.zip, "place_town": self.town, "place_street_addition": self.streetAddition, "place_country": self.country, "place_lat": self.lat, "place_lon": self.lon, "place_description": self.description]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -119,7 +119,7 @@ public class PlaceHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - places: The fetched places.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(places completion: @escaping (_ places: [Place]?, _ error: Error?) -> (Void)) {
+    public func all(places completion: @escaping (_ places: [Place]?, _ error: Error?) -> (Void)) {
         
         self.places() { places, error in
             
@@ -133,7 +133,7 @@ public class PlaceHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - places: The fetched places.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func places(with objectIDs: [Int]? = nil, completion: @escaping (_ places: [Place]?, _ error: Error?) -> (Void)) {
+    public func places(with objectIDs: [Int]? = nil, completion: @escaping (_ places: [Place]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetch("place", with: objectIDs) { (objects, err) -> (Void) in
             
@@ -155,7 +155,7 @@ public class PlaceHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - place: The fetched place.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func place(with objectID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
+    public func place(with objectID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
         self.places(with: [objectID]) { (places, error) -> (Void) in
             
@@ -179,7 +179,7 @@ public class PlaceHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - place: The created place.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
+    public func create(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("place", with: place.JSON()) { (object, error) -> (Void) in
         
@@ -201,7 +201,7 @@ public class PlaceHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - place: The updated place.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
+    public func update(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("place", with: place.objectID, and: place.JSON()) { (object, error) -> (Void) in
         
@@ -223,7 +223,7 @@ public class PlaceHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(place: Place, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(place: Place, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("place", with: place.objectID) { (success, error) -> (Void) in
             

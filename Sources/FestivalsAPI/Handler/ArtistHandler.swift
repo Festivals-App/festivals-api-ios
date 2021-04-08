@@ -31,7 +31,7 @@ public class Artist: ObservableObject, Hashable, Identifiable {
     
     /// Initializes an artist with the given data.
     /// - Parameter objectDict: The dict containing the artist values.
-    init?(with objectDict: Any?) {
+    public init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["artist_id"] as? Int else { return nil }
@@ -74,7 +74,7 @@ public class Artist: ObservableObject, Hashable, Identifiable {
     
     /// Creates a JSON representation of the artist.
     /// - Returns: The JSON representation as data.
-    func JSON() -> Data {
+    public func JSON() -> Data {
 
         let dict: [String: Any] = ["artist_id": self.objectID, "artist_version": self.version, "artist_name": self.name, "artist_description": self.description]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
@@ -115,7 +115,7 @@ public class ArtistHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - artists: The fetched artists.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func all(artists completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
+    public func all(artists completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
         
         self.artists() { artists, error in
             
@@ -129,7 +129,7 @@ public class ArtistHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - artists: The fetched artists.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func artists(with objectIDs: [Int]? = nil, completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
+    public func artists(with objectIDs: [Int]? = nil, completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
  
         self.webservice.fetch("artist", with: objectIDs, including: ["image", "link", "tag"]) { (objects, error) -> (Void) in
             
@@ -151,7 +151,7 @@ public class ArtistHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - artist: The fetched artist.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func artist(with objectID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+    public func artist(with objectID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
         self.artists(with: [objectID]) { artists, error in
             
@@ -175,7 +175,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - artist: The created artist.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func create(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+    public func create(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("artist", with: artist.JSON()) { (object, error) -> (Void) in
         
@@ -197,7 +197,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - artist: The updated artist.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func update(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+    public func update(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("artist", with: artist.objectID, and: artist.JSON()) { (object, error) -> (Void) in
         
@@ -219,7 +219,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the deletion was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func delete(artist: Artist, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func delete(artist: Artist, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.delete("artist", with: artist.objectID) { (success, error) -> (Void) in
             
@@ -235,7 +235,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - links: The fetched links.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func links(for artistID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
+    public func links(for artistID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("links", for: "artist", with: artistID) { (resources, error) -> (Void) in
             
@@ -258,7 +258,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(linkID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(linkID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("links", with: linkID, for: "artist", with: artistID) { success, error in
             
@@ -273,7 +273,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(linkID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(linkID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("links", with: linkID, for: "artist", with: artistID) { success, error in
             
@@ -289,7 +289,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - links: The fetched tags.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func tags(for artistID: Int, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
+    public func tags(for artistID: Int, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("tags", for: "artist", with: artistID) { (resources, error) -> (Void) in
             
@@ -312,7 +312,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(tagID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(tagID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("tags", with: tagID, for: "artist", with: artistID) { success, error in
             
@@ -327,7 +327,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(tagID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(tagID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("tags", with: tagID, for: "artist", with: artistID) { success, error in
             
@@ -343,7 +343,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - links: The fetched image.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func image(for artistID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+    public func image(for artistID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
         self.webservice.fetchResource("image", for: "artist", with: artistID) { (resources, error) -> (Void) in
             
@@ -370,7 +370,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the set operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func set(imageID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func set(imageID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.setResource("image", with: imageID, for: "artist", with: artistID) { success, error in
             
@@ -385,7 +385,7 @@ public class ArtistHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - success: Boolean value indicating if the remove operation was successfull.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    func remove(imageID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+    public func remove(imageID: Int, for artistID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
         self.webservice.removeResource("image", with: imageID, for: "artist", with: artistID) { success, error in
             
