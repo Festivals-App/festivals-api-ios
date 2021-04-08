@@ -1,5 +1,5 @@
 <h1 align="center">
-Festivals API client library for iOS and macOS
+FestivalsAPI client library for iOS
 </h1>
 
 <p align="center">
@@ -26,9 +26,9 @@ TBA
 ### Requirements
 
 - iOS 13.1+
-- macOS 10.13+
-- Xcode 11.4.1+
-- [jazzy](https://github.com/realm/jazzy) 0.13.3+ (for building the documentation)
+- Xcode 12.4.1+
+- swift-tools-version:5.3+
+- [jazzy](https://github.com/realm/jazzy) 0.13.6+ (for building the documentation)
 
 ## Usage
 
@@ -36,12 +36,12 @@ TBA
 
 ```swift
 // Create the handler
-let handler = FestivalHandler.init(with: <#webservice#>)
+let client = FestivalsClient(apiKey: <#API Key#>, apiVersion: .v0_1, baseURL: <#API URL#>)
 
 // fetch all festivals
-handler.all { (festivals, error) -> (Void) in
+client.festivalHandler.all { (festivals, err) in
     guard let festivals = festivals else {
-        print(error)
+        print(err)
         return
     }
     
