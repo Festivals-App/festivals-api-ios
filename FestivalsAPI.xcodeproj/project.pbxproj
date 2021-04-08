@@ -35,7 +35,6 @@
 		4A2ADDEF261EA105005B58C8 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397657244A9350006C934C /* EventHandler.swift */; };
 		4A2ADDF0261EA105005B58C8 /* FestivalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397661244A96CB006C934C /* FestivalsClient.swift */; };
 		4A2ADDF1261EA105005B58C8 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397655244A921E006C934C /* LocationHandler.swift */; };
-		4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
 		4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */; };
 		4A2ADE18261EA2FB005B58C8 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7C261E9DB1005B58C8 /* FestivalHandlerTests.swift */; };
 		4A2ADE19261EA2FB005B58C8 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7D261E9DB1005B58C8 /* WebserviceTests.swift */; };
@@ -46,6 +45,7 @@
 		4A2ADE1E261EA2FB005B58C8 /* EventHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD78261E9DB1005B58C8 /* EventHandlerTests.swift */; };
 		4A2ADE1F261EA2FB005B58C8 /* LocationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD79261E9DB1005B58C8 /* LocationHandlerTests.swift */; };
 		4A2ADE20261EA2FB005B58C8 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */; };
+		4A2ADE52261EB06F005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE4F261EB06E005B58C8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,6 @@
 
 /* Begin PBXFileReference section */
 		4A1CFF30246254200082AF96 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		4A2ADD1C261E6FC0005B58C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A2ADD23261E6FD6005B58C8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleModuleFix.swift; sourceTree = "<group>"; };
 		4A2ADD3C261E8B4A005B58C8 /* .bartycrouch.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bartycrouch.toml; sourceTree = "<group>"; };
 		4A2ADD76261E9DB1005B58C8 /* TagHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHandlerTests.swift; sourceTree = "<group>"; };
@@ -82,7 +80,8 @@
 		4A2ADE0E261EA2BB005B58C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A2ADE2B261EA48D005B58C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A2ADE37261EA7A0005B58C8 /* FestivalsAPI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FestivalsAPI.entitlements; sourceTree = "<group>"; };
+		4A2ADE50261EB06F005B58C8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A2ADE51261EB06F005B58C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		4A397657244A9350006C934C /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -123,16 +122,9 @@
 				4A397661244A96CB006C934C /* FestivalsClient.swift */,
 				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
 				4A397652244A8F9A006C934C /* Handler */,
+				4A2ADE4E261EB06E005B58C8 /* Resources */,
 			);
 			path = FestivalsAPI;
-			sourceTree = "<group>";
-		};
-		4A2ADD07261E6781005B58C8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		4A2ADD75261E9DB1005B58C8 /* FestivalsAPITests */ = {
@@ -154,7 +146,6 @@
 		4A2ADD98261E9ED7005B58C8 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				4A2ADE37261EA7A0005B58C8 /* FestivalsAPI.entitlements */,
 				4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */,
 				4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */,
 				4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */,
@@ -171,6 +162,14 @@
 				4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A2ADE4E261EB06E005B58C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ADE4F261EB06E005B58C8 /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4A397652244A8F9A006C934C /* Handler */ = {
@@ -217,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				4A1CFF2E246251C40082AF96 /* FestivalsAPI */,
-				4A2ADD07261E6781005B58C8 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -318,8 +316,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A2ADDF5261EA10E005B58C8 /* Localizable.strings in Resources */,
 				4A2ADDD8261E9FF3005B58C8 /* Preview Assets.xcassets in Resources */,
+				4A2ADE52261EB06F005B58C8 /* Localizable.strings in Resources */,
 				4A2ADE11261EA2BB005B58C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,11 +400,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */ = {
+		4A2ADE4F261EB06E005B58C8 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4A2ADD1C261E6FC0005B58C8 /* en */,
-				4A2ADD23261E6FD6005B58C8 /* de */,
+				4A2ADE50261EB06F005B58C8 /* de */,
+				4A2ADE51261EB06F005B58C8 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -419,7 +417,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FestivalsAPI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ExampleApp/FestivalsAPI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N67G6688LK;
@@ -432,6 +432,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,7 +445,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FestivalsAPI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ExampleApp/FestivalsAPI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N67G6688LK;
@@ -456,6 +460,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.FestivalsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
