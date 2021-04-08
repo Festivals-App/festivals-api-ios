@@ -42,6 +42,7 @@ public enum EventType: Int, Codable, CaseIterable, Identifiable {
         return rawValue
     }
     
+    /// The localized name of the type.
     public var localizedName: String {
         switch self {
         case .other:
