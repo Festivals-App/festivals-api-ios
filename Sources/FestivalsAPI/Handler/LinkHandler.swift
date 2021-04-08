@@ -69,6 +69,7 @@ public enum LinkType: Int, Codable, CaseIterable, Identifiable {
         return rawValue
     }
     
+    /// The localized name of the type.
     public var localizedName: String {
         switch self {
         case .unknown:
@@ -76,7 +77,7 @@ public enum LinkType: Int, Codable, CaseIterable, Identifiable {
         case .websiteURL:
             return NSLocalizedString("Website", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .mail:
-            return NSLocalizedString("Mail", bundle: .module, comment: "UI String - Identity string - Link Type")
+            return NSLocalizedString("E-Mail", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .phone:
             return NSLocalizedString("Phone", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .youtubeVideoRef:
@@ -116,7 +117,7 @@ public enum LinkType: Int, Codable, CaseIterable, Identifiable {
         case .shazamTrackRef:
             return NSLocalizedString("Shazam Track", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .deezerArtistRef:
-            return NSLocalizedString("Deeze Artist", bundle: .module, comment: "UI String - Identity string - Link Type")
+            return NSLocalizedString("Deezer Artist", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .twitterProfileRef:
             return NSLocalizedString("Twitter Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .tiktokProfileRef:

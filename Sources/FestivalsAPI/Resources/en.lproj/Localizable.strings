@@ -1,11 +1,38 @@
+/* UI String - Identity string - Link Type */
+"Apple Music Store URL" = "Apple Music Store URL";
+
+/* UI String - Identity string - Link Type */
+"Bandcamp Profile" = "Bandcamp Profile";
+
+/* UI String - Identity string - Link Type */
+"Bandcamp Track" = "Bandcamp Track";
+
 /* UI String - Identity string - The event hosts a booth. */
 "Booth" = "Booth";
+
+/* UI String - Identity string - Link Type */
+"Deezer Artist" = "Deezer Artist";
+
+/* UI String - Identity string - Link Type */
+"E-Mail" = "E-Mail";
 
 /* UI String - Identity string - The event is an exhibition. */
 "Exhibition" = "Exhibition";
 
+/* UI String - Identity string - Link Type */
+"Facebook Profile" = "Facebook Profile";
+
 /* UI String - Identity string - The event represents a food store/restaurant. */
 "Food" = "Food";
+
+/* UI String - Identity string - Link Type */
+"Hearthis Embeded Track" = "Hearthis Embeded Track";
+
+/* UI String - Identity string - Link Type */
+"Hearthis Profile" = "Hearthis Profile";
+
+/* UI String - Identity string - Link Type */
+"Instagram Profile" = "Instagram Profile";
 
 /* UI String - Identity string - The event is a movie screening. */
 "Movie" = "Movie";
@@ -19,11 +46,32 @@
 /* UI String - Identity string - The event is a performance. */
 "Performance" = "Performance";
 
+/* UI String - Identity string - Link Type */
+"Phone" = "Phone";
+
 /* UI String - Identity string - The event hosts a radio play. */
 "Radio play" = "Radio play";
 
 /* UI String - Identity string - The event hosts a reading. */
 "Reading" = "Reading";
+
+/* UI String - Identity string - Link Type */
+"Shazam Profile" = "Shazam Profile";
+
+/* UI String - Identity string - Link Type */
+"Shazam Track" = "Shazam Track";
+
+/* UI String - Identity string - Link Type */
+"Soundcloud Profile" = "Soundcloud Profile";
+
+/* UI String - Identity string - Link Type */
+"Spotify Album" = "Spotify Album";
+
+/* UI String - Identity string - Link Type */
+"Spotify Artist" = "Spotify Artist";
+
+/* UI String - Identity string - Link Type */
+"Spotify Track" = "Spotify Track";
 
 /* UI String - Identity string - The event hosts a talk. */
 "Talk" = "Talk";
@@ -31,5 +79,35 @@
 /* UI String - Identity string - The event is a theatrical performance. */
 "Theater" = "Theater";
 
+/* UI String - Identity string - Link Type */
+"TikTok Profile" = "TikTok Profile";
+
+/* UI String - Identity string - Link Type */
+"Tripadvisor" = "Tripadvisor";
+
+/* UI String - Identity string - Link Type */
+"Twitter Profile" = "Twitter Profile";
+
+/* UI String - Identity string - Link Type */
+"Unknown" = "Unknown";
+
+/* UI String - Identity string - Link Type */
+"Website" = "Website";
+
 /* UI String - Identity string - The event hosts a workshop. */
 "Workshop" = "Workshop";
+
+/* UI String - Identity string - Link Type */
+"Youtube Channel" = "Youtube Channel";
+
+/* UI String - Identity string - Link Type */
+"Youtube Music Playlist" = "Youtube Music Playlist";
+
+/* UI String - Identity string - Link Type */
+"Youtube Playlist" = "Youtube Playlist";
+
+/* UI String - Identity string - Link Type */
+"Youtube User" = "Youtube User";
+
+/* UI String - Identity string - Link Type */
+"Youtube Video" = "Youtube Video";
