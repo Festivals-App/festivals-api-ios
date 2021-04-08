@@ -154,6 +154,7 @@
 		4A2ADD98261E9ED7005B58C8 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A2ADE37261EA7A0005B58C8 /* FestivalsAPI.entitlements */,
 				4A2ADDE0261EA029005B58C8 /* FestivalsAPIApp.swift */,
 				4A2ADDA9261E9F4C005B58C8 /* ContentView.swift */,
 				4A2ADE0F261EA2BB005B58C8 /* Assets.xcassets */,
@@ -190,7 +191,6 @@
 		4A45D5912441771100CF4E1B = {
 			isa = PBXGroup;
 			children = (
-				4A2ADE37261EA7A0005B58C8 /* FestivalsAPI.entitlements */,
 				4A1CFF30246254200082AF96 /* Package.swift */,
 				4AC74028245D258800679E39 /* README.md */,
 				4A2ADD98261E9ED7005B58C8 /* ExampleApp */,
