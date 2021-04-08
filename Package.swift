@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "FestivalsAPI",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v10_15), .iOS(.v13),
     ],
@@ -24,6 +25,7 @@ let package = Package(
         .target(
             name: "FestivalsAPI",
             dependencies: []),
+            resources: [.process("Resources")]),
         .testTarget(
             name: "FestivalsAPITests",
             dependencies: ["FestivalsAPI"]),

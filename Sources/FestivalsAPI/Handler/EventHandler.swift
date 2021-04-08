@@ -11,23 +11,65 @@ import Foundation
 // MARK: Event Type
 
 /// The EventType enumeration defines a list themes an event can be associated with.
-public enum EventType: Int, Codable, CaseIterable {
+public enum EventType: Int, Codable, CaseIterable, Identifiable {
+    
+    /// The event does not have a specific type.
+    case other          = 0
     /// The event is a musical performance.
-    case music          = 0
-    /// The event is a movie screening,
-    case movie          = 1
-    /// The event is an artistic performance.
-    case performance    = 2
+    case music          = 1
+    /// The event is a movie screening.
+    case movie          = 2
+    /// The event is a performance.
+    case performance    = 3
     /// The event is a theatrical performance.
-    case theater        = 3
+    case theater        = 4
     /// The event represents a food store/restaurant.
-    case food           = 4
+    case food           = 5
     /// The event is an exhibition.
-    case exhibition     = 5
+    case exhibition     = 6
     /// The event hosts a talk.
-    case talk           = 6
+    case talk           = 7
     /// The event hosts a workshop.
-    case workshop       = 7
+    case workshop       = 8
+    /// The event hosts a reading.
+    case reading        = 9
+    /// The event hosts a radio play.
+    case radioPlay      = 10
+    /// The event hosts a booth.
+    case booth          = 11
+    
+    public var id: Int {
+        return rawValue
+    }
+    
+    var localizedName: String {
+        switch self {
+        case .other:
+            return NSLocalizedString("Other", bundle: .module, comment: "UI String - Identity string - The event is a musical performance.")
+        case .music:
+            return NSLocalizedString("Music", bundle: .module, comment: "UI String - Identity string - The event is a musical performance.")
+        case .movie:
+            return NSLocalizedString("Movie", bundle: .module, comment: "UI String - Identity string - The event is a movie screening.")
+        case .performance:
+            return NSLocalizedString("Performance", bundle: .module, comment: "UI String - Identity string - The event is a performance.")
+        case .theater:
+            return NSLocalizedString("Theater", bundle: .module, comment: "UI String - Identity string - The event is a theatrical performance.")
+        case .food:
+            return NSLocalizedString("Food", bundle: .module, comment: "UI String - Identity string - The event represents a food store/restaurant.")
+        case .exhibition:
+            return NSLocalizedString("Exhibition", bundle: .module, comment: "UI String - Identity string - The event is an exhibition.")
+        case .talk:
+            return NSLocalizedString("Talk", bundle: .module, comment: "UI String - Identity string - The event hosts a talk.")
+        case .workshop:
+            return NSLocalizedString("Workshop", bundle: .module, comment: "UI String - Identity string - The event hosts a workshop.")
+        case .reading:
+            return NSLocalizedString("Reading", bundle: .module, comment: "UI String - Identity string - The event hosts a reading.")
+        case .radioPlay:
+            return NSLocalizedString("Radio play", bundle: .module, comment: "UI String - Identity string - The event hosts a radio play.")
+        case .booth:
+            return NSLocalizedString("Booth", bundle: .module, comment: "UI String - Identity string - The event hosts a booth.")
+        }
+    }
 }
 
 // MARK: Event Struct
@@ -114,7 +156,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
     /// Creates a JSON representation of the event.
     /// - Returns: The JSON representation as data.
     func JSON() -> Data {
-
+        
         let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
@@ -217,7 +259,7 @@ public class EventHandler {
     func create(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
         self.webservice.create("event", with: event.JSON()) { (object, error) -> (Void) in
-        
+            
             guard let object = object as? [String: Any] else {
                 completion(nil, error)
                 return
@@ -239,7 +281,7 @@ public class EventHandler {
     func update(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
         self.webservice.update("event", with: event.objectID, and: event.JSON()) { (object, error) -> (Void) in
-        
+            
             guard let object = object as? [String: Any] else {
                 completion(nil, error)
                 return

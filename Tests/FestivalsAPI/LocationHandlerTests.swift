@@ -116,7 +116,7 @@ class LocationHandlerTests: XCTestCase {
         
         self.handler.create(location: location) { (createdLocation, error) -> (Void) in
             
-            guard var createdLocation = createdLocation else {
+            guard let createdLocation = createdLocation else {
                 expectation.fulfill()
                 return
             }

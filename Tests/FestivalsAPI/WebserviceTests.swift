@@ -65,7 +65,7 @@ class WebserviceTests: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            guard var createdFestival = Festival.init(with: object) else {
+            guard let createdFestival = Festival.init(with: object) else {
                 created = false
                 expectation.fulfill()
                 return

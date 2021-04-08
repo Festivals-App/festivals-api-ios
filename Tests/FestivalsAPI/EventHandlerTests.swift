@@ -116,7 +116,7 @@ class EventHandlerTests: XCTestCase {
         
         self.handler.create(event: event) { (createdEvent, error) -> (Void) in
             
-            guard var createdEvent = createdEvent else {
+            guard let createdEvent = createdEvent else {
                 expectation.fulfill()
                 return
             }
@@ -242,5 +242,15 @@ class EventHandlerTests: XCTestCase {
         XCTAssert(didRemoveLocation, "Remove location successfull")
         XCTAssert(didSetOldLocation, "Set old location successfull")
     }
+    
+    func testEventTypeLocalization() throws {
+        
+        print("EventType.music.localizedName: \(EventType.music.localizedName)")
+        
+        sleep(20)
+        
+        XCTAssertTrue(EventType.music.localizedName == "Musik", "Localized name for music event is right.")
+    }
+    
 }
 

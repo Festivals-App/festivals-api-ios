@@ -24,6 +24,10 @@
 /* Begin PBXBuildFile section */
 		4A1CFF2C246250C30082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
 		4A1CFF2D246250C40082AF96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC74028245D258800679E39 /* README.md */; };
+		4A2ADD1A261E6FC0005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
+		4A2ADD1B261E6FC0005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */; };
+		4A2ADD2A261E8981005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
+		4A2ADD2B261E8981005B58C8 /* BundleModuleFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */; };
 		4A341EEE2461F87400CF84E5 /* FestivalsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC74031245D9FA400679E39 /* FestivalsAPI.framework */; };
 		4A341EF42461F88200CF84E5 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45D5BE2442894E00CF4E1B /* WebserviceTests.swift */; };
 		4A341EF52461F88200CF84E5 /* FestivalHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A397663244B9B1E006C934C /* FestivalHandlerTests.swift */; };
@@ -94,6 +98,10 @@
 
 /* Begin PBXFileReference section */
 		4A1CFF30246254200082AF96 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		4A2ADD1C261E6FC0005B58C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A2ADD23261E6FD6005B58C8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleModuleFix.swift; sourceTree = "<group>"; };
+		4A2ADD3C261E8B4A005B58C8 /* .bartycrouch.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bartycrouch.toml; sourceTree = "<group>"; };
 		4A341EE92461F87400CF84E5 /* FestivalsAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestivalsAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A397653244A8FB7006C934C /* ArtistHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHandler.swift; sourceTree = "<group>"; };
 		4A397655244A921E006C934C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
@@ -189,6 +197,15 @@
 			path = FestivalsAPI;
 			sourceTree = "<group>";
 		};
+		4A2ADD07261E6781005B58C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ADD29261E8981005B58C8 /* BundleModuleFix.swift */,
+				4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4A397652244A8F9A006C934C /* Handler */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +230,7 @@
 				4A45D5A82441771100CF4E1B /* Tests */,
 				4A45D59C2441771100CF4E1B /* Products */,
 				4AC74024245D20A300679E39 /* .jazzy.yaml */,
+				4A2ADD3C261E8B4A005B58C8 /* .bartycrouch.toml */,
 				4AC5145D2535153E00F24354 /* LICENSE */,
 				4AC74026245D255D00679E39 /* .gitignore */,
 			);
@@ -233,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1CFF2E246251C40082AF96 /* FestivalsAPI */,
+				4A2ADD07261E6781005B58C8 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -293,6 +312,7 @@
 				4A45D5972441771100CF4E1B /* Sources */,
 				4A45D5982441771100CF4E1B /* Frameworks */,
 				4A45D5992441771100CF4E1B /* Resources */,
+				4A2ADD36261E8AFF005B58C8 /* Update loaclized resources */,
 				4AC74045245DA10300679E39 /* Increase Build Number */,
 			);
 			buildRules = (
@@ -376,6 +396,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 4A45D5912441771100CF4E1B;
 			productRefGroup = 4A45D59C2441771100CF4E1B /* Products */;
@@ -404,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1CFF2D246250C40082AF96 /* README.md in Resources */,
+				4A2ADD1A261E6FC0005B58C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,12 +441,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1CFF2C246250C30082AF96 /* README.md in Resources */,
+				4A2ADD1B261E6FC0005B58C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A2ADD36261E8AFF005B58C8 /* Update loaclized resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update loaclized resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 		4AC74023245D200900679E39 /* Build Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,6 +549,7 @@
 				4A397662244A96CB006C934C /* FestivalsClient.swift in Sources */,
 				4A397660244A9620006C934C /* ImageRefHandler.swift in Sources */,
 				4A45D5DF2448513100CF4E1B /* FestivalHandler.swift in Sources */,
+				4A2ADD2A261E8981005B58C8 /* BundleModuleFix.swift in Sources */,
 				4A397656244A921E006C934C /* LocationHandler.swift in Sources */,
 				4A39765A244A949C006C934C /* TagHandler.swift in Sources */,
 				4A39765E244A95E7006C934C /* LinkHandler.swift in Sources */,
@@ -541,6 +583,7 @@
 				4AC74039245DA00A00679E39 /* FestivalHandler.swift in Sources */,
 				4AC7403D245DA00A00679E39 /* ImageRefHandler.swift in Sources */,
 				4AC7403E245DA00A00679E39 /* LinkHandler.swift in Sources */,
+				4A2ADD2B261E8981005B58C8 /* BundleModuleFix.swift in Sources */,
 				4AC74040245DA00A00679E39 /* TagHandler.swift in Sources */,
 				4AC7403F245DA00A00679E39 /* PlaceHandler.swift in Sources */,
 				4AC7403A245DA00A00679E39 /* ArtistHandler.swift in Sources */,
@@ -567,6 +610,18 @@
 			targetProxy = 4AC74021245D200700679E39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4A2ADD1D261E6FC0005B58C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A2ADD1C261E6FC0005B58C8 /* en */,
+				4A2ADD23261E6FD6005B58C8 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4A341EF22461F87400CF84E5 /* Debug */ = {
@@ -616,6 +671,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -681,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

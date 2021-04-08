@@ -114,7 +114,7 @@ class ArtistHandlerTests: XCTestCase {
         
         self.handler.create(artist: artist) { (createdArtist, error) -> (Void) in
             
-            guard var createdArtist = createdArtist else {
+            guard let createdArtist = createdArtist else {
                 expectation.fulfill()
                 return
             }

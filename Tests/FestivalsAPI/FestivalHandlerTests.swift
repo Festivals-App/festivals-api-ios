@@ -131,7 +131,7 @@ class FestivalHandlerTests: XCTestCase {
         
         self.handler.create(festival: festival) { (createdFestival, error) -> (Void) in
             
-            guard var createdFestival = createdFestival else {
+            guard let createdFestival = createdFestival else {
                 expectation.fulfill()
                 return
             }

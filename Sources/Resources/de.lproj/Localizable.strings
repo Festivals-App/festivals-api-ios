@@ -1,0 +1,35 @@
+/* UI String - Identity string - The event hosts a booth. */
+"Booth" = "Stand";
+
+/* UI String - Identity string - The event is an exhibition. */
+"Exhibition" = "Ausstellung";
+
+/* UI String - Identity string - The event represents a food store/restaurant. */
+"Food" = "Essen";
+
+/* UI String - Identity string - The event is a movie screening. */
+"Movie" = "Film";
+
+/* UI String - Identity string - The event is a musical performance. */
+"Music" = "Musik";
+
+/* UI String - Identity string - The event is a musical performance. */
+"Other" = "Anderes";
+
+/* UI String - Identity string - The event is a performance. */
+"Performance" = "Performance";
+
+/* UI String - Identity string - The event hosts a radio play. */
+"Radio play" = "Hörspiel";
+
+/* UI String - Identity string - The event hosts a reading. */
+"Reading" = "Lesung";
+
+/* UI String - Identity string - The event hosts a talk. */
+"Talk" = "Talk";
+
+/* UI String - Identity string - The event is a theatrical performance. */
+"Theater" = "Theater";
+
+/* UI String - Identity string - The event hosts a workshop. */
+"Workshop" = "Workshop";
