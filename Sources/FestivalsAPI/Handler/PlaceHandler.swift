@@ -49,16 +49,41 @@ public struct Place: Codable, Hashable, Identifiable {
         guard let object_lat                = objectDict["place_lat"] as? Double else { return nil }
         guard let object_lon                = objectDict["place_lon"] as? Double else { return nil }
         guard let object_description        = objectDict["place_description"] as? String else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.street = object_street
-        self.zip = object_zip
-        self.town = object_town
-        self.streetAddition = object_street_addition
-        self.country = object_country
-        self.lat = Decimal(object_lat)
-        self.lon = Decimal(object_lon)
-        self.description = object_description
+        
+        self.init(objectID: object_id, version: object_version, street: object_street, zip: object_zip, town: object_town, streetAddition: object_street_addition, country: object_country, lat: Decimal(object_lat), lon: Decimal(object_lon), description: object_description)
+    }
+    
+    /// Initializes a place with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the place. *Only applicable to places that come from the webservice. Locally created places do not have a distinct objectID.*
+    ///   - name: The name of the tag.
+    
+    
+    
+    
+    /// Initializes a place with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the place. *Only applicable to places that come from the webservice. Locally created places do not have a distinct objectID.*
+    ///   - version: The version of the place. *Only applicable to places that come from the webservice. Locally created places do not have a valid version.*
+    ///   - street: The street of the place.
+    ///   - zip: The zip of the place.
+    ///   - town: The town of the place.
+    ///   - streetAddition: The streetAddition of the place.
+    ///   - country: The country of the place.
+    ///   - lat: The lat of the place.
+    ///   - lon: The lon of the place.
+    ///   - description: The description of the place.
+    public init(objectID: Int = 0, version: String = "<unversioned>", street: String = "", zip: String = "", town: String = "", streetAddition: String = "", country: String = "", lat: Decimal = Decimal(), lon: Decimal = Decimal(), description: String = "") {
+        self.objectID = objectID
+        self.version = version
+        self.street = street
+        self.zip = zip
+        self.town = town
+        self.streetAddition = streetAddition
+        self.country = country
+        self.lat = lat
+        self.lon = lon
+        self.description = description
     }
     
     /// Creates places from an array of place dicts.

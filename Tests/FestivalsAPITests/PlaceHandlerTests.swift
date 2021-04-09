@@ -129,7 +129,7 @@ class PlaceHandlerTests: XCTestCase {
                     expectation.fulfill()
                     return
                 }
-                
+
                 updatedThePlace = (updatedPlace.street == "ANOTHERSTREET")
                 
                 self.handler.delete(place: updatedPlace) { (delted, error) -> (Void) in
