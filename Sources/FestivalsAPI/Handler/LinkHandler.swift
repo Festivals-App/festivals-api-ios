@@ -142,8 +142,8 @@ public struct Link: Codable, Hashable, Identifiable {
     /// The type of the link.
     public var service: LinkType
     
-    /// Initializes a festival with the given data.
-    /// - Parameter objectDict: The dict containing the festival values.
+    /// Initializes a link with the given data.
+    /// - Parameter objectDict: The dict containing the link values.
     public init?(with objectDict: Any?) {
         
         guard let objectDict        = objectDict as? [String: Any] else { return nil }
@@ -152,10 +152,21 @@ public struct Link: Codable, Hashable, Identifiable {
         guard let object_referrer   = objectDict["link_url"] as? String else { return nil }
         guard let object_service    = objectDict["link_service"] as? Int else { return nil }
         guard let linkType          = LinkType(rawValue: object_service) else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.referrer = object_referrer
-        self.service = linkType
+        
+        self.init(objectID: object_id, version: object_version, referrer: object_referrer, type: linkType)
+    }
+    
+    /// Initializes a link link with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the link. *Only applicable to links that come from the webservice. Locally created links do not have a distinct objectID.*
+    ///   - version: The version of the link. *Only applicable to links that come from the webservice. Locally created links do not have a distinct version.*
+    ///   - referrer: The referrer of the link.
+    ///   - type: The link type.
+    public init(objectID: Int = 0, version: String = "<unversioned>", referrer: String, type: LinkType) {
+        self.objectID = objectID
+        self.version = version
+        self.referrer = referrer
+        self.service = type
     }
     
     /// Creates links from an array of link dicts.
