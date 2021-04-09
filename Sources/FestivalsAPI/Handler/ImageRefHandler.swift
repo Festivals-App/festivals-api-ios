@@ -33,10 +33,20 @@ public struct ImageRef: Codable, Hashable, Identifiable {
         guard let object_ref_string = objectDict["image_ref"] as? String else { return nil }
         guard let urlFromString     = URL.init(string: object_ref_string) else { return nil }
         
-        self.objectID = object_id
-        self.hash = object_hash
-        self.comment = object_comment
-        self.referrerURL = urlFromString
+        self.init(objectID: object_id, hash: object_hash, comment: object_comment, referrerURL: urlFromString)
+    }
+    
+    /// Initializes an image with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the image. *Only applicable to images that come from the webservice. Locally created images do not have a distinct objectID.*
+    ///   - hash: The version of the image. *Only applicable to images that come from the webservice. Locally created images do not have a distinct version.*
+    ///   - comment: The comment of the image.
+    ///   - referrerURL: The referrerURL of the image.
+    public init(objectID: Int = 0, hash: String = "<unhashed>", comment: String = "", referrerURL: URL) {
+        self.objectID = objectID
+        self.hash = hash
+        self.comment = comment
+        self.referrerURL = referrerURL
     }
     
     /// Creates image refs from an array of image ref dicts.
