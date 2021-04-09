@@ -40,10 +40,21 @@ public class Festival: ObservableObject, Hashable, Identifiable {
     @Published public var tags: [Tag]?
     /// The events associated with the festival.
     @Published public var events: [Event]?
+
+    /*
+    /// Initializes a festival with the given json data.
+    /// - Parameter jsonData: The festival dict ecoded as json data.
+    public convenience init?(resolving jsonData: Data) {
+        
+        guard let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return nil }
+        self.init(with: dict)
+    }
+    
+    */
     
     /// Initializes a festival with the given data.
     /// - Parameter objectDict: The dict containing the festival values.
-    public init?(with objectDict: Any?) {
+    public convenience init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["festival_id"] as? Int else { return nil }
@@ -54,46 +65,76 @@ public class Festival: ObservableObject, Hashable, Identifiable {
         guard let object_end_int        = objectDict["festival_end"] as? Int else { return nil }
         guard let object_description    = objectDict["festival_description"] as? String else { return nil }
         guard let object_price          = objectDict["festival_price"] as? String else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.valid = object_is_valid
-        self.name = object_name
-        
-        #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
-        if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
-            self.start = Date(timeIntervalSince1970: 0)
-            self.end = Date(timeIntervalSince1970: 0)
+        if object_start_int > object_end_int {
+            print("Festival (\(object_name) start is before festival end. ")
+            return nil
         }
-        else {
-            self.start = Date(timeIntervalSince1970: Double(object_start_int))
-            self.end = Date(timeIntervalSince1970: Double(object_end_int))
-        }
-        
-        self.description = object_description
-        self.price = object_price
-        
+        let object_start = Date(timeIntervalSince1970: Double(object_start_int))
+        let object_end = Date(timeIntervalSince1970: Double(object_end_int))
+
+        var object_image: ImageRef? = nil
+        var object_links: [Link]? = nil
+        var object_place: Place? = nil
+        var object_tags: [Tag]? = nil
+        var object_events: [Event]? = nil
+     
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let images = includes["image"] as? [Any] {
                 if let imageDict = images.first {
-                    self.image = ImageRef.init(with: imageDict)
+                    object_image = ImageRef.init(with: imageDict)
                 }
             }
             if let links = includes["link"] as? [Any] {
-                self.links = Link.links(from: links)
+                object_links = Link.links(from: links)
             }
             if let places = includes["place"] as? [Any] {
                 if let placeDict = places.first {
-                    self.place = Place.init(with: placeDict)
+                    object_place = Place.init(with: placeDict)
                 }
             }
             if let tags = includes["tag"] as? [Any] {
-                self.tags = Tag.tags(from: tags)
+                object_tags = Tag.tags(from: tags)
             }
             if let events = includes["event"] as? [Any] {
-                self.events = Event.events(from: events)
+                object_events = Event.events(from: events)
             }
         }
+        
+        self.init(objectID: object_id, version: object_version, valid: object_is_valid, name: object_name, start: object_start, end: object_end, description: object_description, price: object_price, image: object_image, links: object_links, place: object_place, tags: object_tags, events: object_events)
+    }
+    
+    /// Initializes a link link with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the festival. *Only applicable to festivals that come from the webservice. Locally created festivals do not have a distinct objectID.*
+    ///   - version: The version of the festival. *Only applicable to festivals that come from the webservice. Locally created festivals do not have a distinct version.*
+    ///   - valid: The validity of the festival.
+    ///   - name: The name of the festival.
+    ///   - start: The start of the festival.
+    ///   - end: The end of the festival.
+    ///   - description: The description of the festival.
+    ///   - price: The price of the festival.
+    ///   - image: The image of the festival.
+    ///   - links: The links of the festival.
+    ///   - place: The place of the festival.
+    ///   - tags: The tags of the festival.
+    ///   - events: The events of the festival.
+    public init(objectID: Int = 0, version: String = "<unversioned>", valid: Bool = false, name: String, start: Date, end: Date, description: String, price: String, image: ImageRef? = nil, links: [Link]? = nil, place: Place? = nil, tags: [Tag]? = nil, events: [Event]? = nil) {
+        
+        self.objectID = objectID
+        self.version = version
+        self.valid = valid
+        self.name = name
+        self.start = start
+        self.end = end
+        self.description = description
+        self.price = price
+        
+        self.image = image
+        self.links = links
+        self.place = place
+        self.tags = tags
+        self.events = events
     }
     
     ///  Creates a mock festival with the given name and random values.
@@ -132,14 +173,6 @@ public class Festival: ObservableObject, Hashable, Identifiable {
         
         let dict: [String: Any] = ["festival_id": self.objectID, "festival_version": self.version, "festival_is_valid": self.valid, "festival_name": self.name, "festival_start": Int(self.start.timeIntervalSince1970), "festival_end": Int(self.end.timeIntervalSince1970), "festival_description": self.description, "festival_price": self.price]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
-    }
-
-    /// Initializes a festival with the given json data.
-    /// - Parameter jsonData: The festival dict ecoded as json data.
-    public convenience init?(resolving jsonData: Data) {
-        
-        guard let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return nil }
-        self.init(with: dict)
     }
     
     public func hash(into hasher: inout Hasher) {
