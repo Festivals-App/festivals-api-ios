@@ -25,8 +25,17 @@ public struct Tag: Codable, Hashable, Identifiable {
         guard let objectDict        = objectDict as? [String: Any] else { return nil }
         guard let object_id         = objectDict["tag_id"] as? Int else { return nil }
         guard let object_name       = objectDict["tag_name"] as? String else { return nil }
-        self.objectID = object_id
-        self.name = object_name
+        
+        self.init(objectID: object_id, name: object_name)
+    }
+    
+    /// Initializes a tag with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the tag. *Only applicable to tags that come from the webservice. Locally created tags do not have a distinct objectID.*
+    ///   - name: The name of the tag.
+    public init(objectID: Int = 0, name: String) {
+        self.objectID = objectID
+        self.name = name
     }
     
     /// Creates tags from an array of tag dicts.
