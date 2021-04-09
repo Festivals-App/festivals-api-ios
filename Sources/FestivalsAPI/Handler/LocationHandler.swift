@@ -35,7 +35,7 @@ public class Location: ObservableObject, Hashable, Identifiable {
     
     /// Initializes a location with the given data.
     /// - Parameter objectDict: The dict containing the location values.
-    public init?(with objectDict: Any?) {
+    public convenience init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["location_id"] as? Int else { return nil }
@@ -44,29 +44,52 @@ public class Location: ObservableObject, Hashable, Identifiable {
         guard let object_description    = objectDict["location_description"] as? String else { return nil }
         guard let object_accessible     = objectDict["location_accessible"] as? Bool else { return nil }
         guard let object_openair        = objectDict["location_openair"] as? Bool else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.name = object_name
-        self.description = object_description
-        self.accessible = object_accessible
-        self.openair = object_openair
+
+        var object_image :ImageRef? = nil
+        var object_links :[Link]? = nil
+        var object_place  :Place? = nil
         
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let images = includes["image"] as? [Any] {
                 if let imageDict = images.first {
-                    self.image = ImageRef.init(with: imageDict)
+                    object_image = ImageRef.init(with: imageDict)
                 }
             }
             if let links = includes["link"] as? [Any] {
-                self.links = Link.links(from: links)
+                object_links = Link.links(from: links)
             }
             if let places = includes["place"] as? [Any] {
                 if let placeDict = places.first {
-                    self.place = Place.init(with: placeDict)
+                    object_place = Place.init(with: placeDict)
                 }
             }
         }
+        
+        self.init(objectID: object_id, version: object_version, name: object_name, description: object_description, accessible: object_accessible, openair: object_openair, image: object_image, links: object_links, place: object_place)
+    }
+    
+    /// Initializes a location with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the location. *Only applicable to locations that come from the webservice. Locally created locations do not have a distinct objectID.*
+    ///   - version: The version of the location. *Only applicable to locations that come from the webservice. Locally created locations do not have a distinct version.*
+    ///   - name: The name of the location.
+    ///   - description: The description of the location.
+    ///   - image: The image of the location.
+    ///   - links: The links of the location.
+    ///   - place: The place of the location.
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, description: String, accessible: Bool = false, openair: Bool = false, image: ImageRef? = nil, links: [Link]? = nil, place: Place? = nil) {
+        
+        self.objectID = objectID
+        self.version = version
+        self.name = name
+        self.description = description
+        self.accessible = accessible
+        self.openair = openair
+        
+        self.image = image
+        self.links = links
+        self.place = place
     }
     
     /// Creates locations from an array of location dicts.
