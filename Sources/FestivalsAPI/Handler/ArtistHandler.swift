@@ -31,32 +31,55 @@ public class Artist: ObservableObject, Hashable, Identifiable {
     
     /// Initializes an artist with the given data.
     /// - Parameter objectDict: The dict containing the artist values.
-    public init?(with objectDict: Any?) {
+    public convenience init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["artist_id"] as? Int else { return nil }
         guard let object_version        = objectDict["artist_version"] as? String else { return nil }
         guard let object_name           = objectDict["artist_name"] as? String else { return nil }
         guard let object_description    = objectDict["artist_description"] as? String else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.name = object_name
-        self.description = object_description
+        
+        var object_image :ImageRef? = nil
+        var object_links :[Link]? = nil
+        var object_tags  :[Tag]? = nil
         
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let images = includes["image"] as? [Any] {
                 if let imageDict = images.first {
-                    self.image = ImageRef.init(with: imageDict)
+                    object_image = ImageRef.init(with: imageDict)
                 }
             }
             if let links = includes["link"] as? [Any] {
-                self.links = Link.links(from: links)
+                object_links = Link.links(from: links)
             }
             if let tags = includes["tag"] as? [Any] {
-                self.tags = Tag.tags(from: tags)
+                object_tags = Tag.tags(from: tags)
             }
         }
+        
+        self.init(objectID: object_id, version: object_version, name: object_name, description: object_description, image: object_image, links: object_links, tags: object_tags)
+    }
+    
+    /// Initializes an artist with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the artist. *Only applicable to artists that come from the webservice. Locally created artists do not have a distinct objectID.*
+    ///   - version: The version of the artist. *Only applicable to artists that come from the webservice. Locally created artists do not have a distinct version.*
+    ///   - name: The name of the artist.
+    ///   - description: The description of the artist.
+    ///   - image: The image of the artist.
+    ///   - links: The links of the artist.
+    ///   - tags: The tags of the artist.
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, description: String, image: ImageRef? = nil, links: [Link]? = nil, tags: [Tag]? = nil) {
+        
+        self.objectID = objectID
+        self.version = version
+        self.name = name
+        self.description = description
+        
+        self.image = image
+        self.links = links
+        self.tags = tags
     }
     
     /// Creates artists from an array of artist dicts.

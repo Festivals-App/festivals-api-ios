@@ -52,7 +52,7 @@ public class Festival: ObservableObject, Hashable, Identifiable {
     
     */
     
-    /// Initializes a festival with the given data.
+    /// Initializes a festival with the given dictionary.
     /// - Parameter objectDict: The dict containing the festival values.
     public convenience init?(with objectDict: Any?) {
         
