@@ -66,7 +66,7 @@ public class Festival: ObservableObject, Hashable, Identifiable {
         guard let object_description    = objectDict["festival_description"] as? String else { return nil }
         guard let object_price          = objectDict["festival_price"] as? String else { return nil }
         if object_start_int > object_end_int {
-            print("Festival (\(object_name) start is before festival end. ")
+            print("Festival (\(object_name) start is before festival end.")
             return nil
         }
         let object_start = Date(timeIntervalSince1970: Double(object_start_int))
