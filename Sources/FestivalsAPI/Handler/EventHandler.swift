@@ -100,7 +100,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
     
     /// Initializes an event with the given data.
     /// - Parameter objectDict: The dict containing the event values.
-    public init?(with objectDict: Any?) {
+    public convenience init?(with objectDict: Any?) {
         
         guard let objectDict            = objectDict as? [String: Any] else { return nil }
         guard let object_id             = objectDict["event_id"] as? Int else { return nil }
@@ -111,34 +111,56 @@ public class Event: ObservableObject, Hashable, Identifiable {
         guard let object_description    = objectDict["event_description"] as? String else { return nil }
         guard let object_type           = objectDict["event_type"] as? Int else { return nil }
         guard let eventType             = EventType(rawValue: object_type) else { return nil }
-        self.objectID = object_id
-        self.version = object_version
-        self.name = object_name
-        #warning("We should gurantee object_start_int > object_end_int in some other place, maybe API or database?")
-        if object_start_int == 0 || object_end_int == 0 || object_start_int > object_end_int {
-            self.start = Date(timeIntervalSince1970: 0)
-            self.end = Date(timeIntervalSince1970: 0)
+        if object_start_int > object_end_int {
+            print("Event (\(object_name) - \(object_id) start is before event end.")
+            return nil
         }
-        else {
-            self.start = Date(timeIntervalSince1970: Double(object_start_int))
-            self.end = Date(timeIntervalSince1970: Double(object_end_int))
-        }
-        self.description = object_description
-        self.type = eventType
+        let object_start = Date(timeIntervalSince1970: Double(object_start_int))
+        let object_end = Date(timeIntervalSince1970: Double(object_end_int))
+        
+        var object_artist: Artist? = nil
+        var object_location: Location? = nil
         
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let artists = includes["artist"] as? [Any] {
                 if let artistDict = artists.first {
-                    self.artist = Artist.init(with: artistDict)
+                    object_artist = Artist.init(with: artistDict)
                 }
             }
             if let locations = includes["location"] as? [Any] {
                 if let locationDict = locations.first {
-                    self.location = Location.init(with: locationDict)
+                    object_location = Location.init(with: locationDict)
                 }
             }
         }
+        
+        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, artist: object_artist, location: object_location)
+    }
+
+    /// Initializes an event with the given values.
+    /// - Parameters:
+    ///   - objectID: The objectID of the event. *Only applicable to events that come from the webservice. Locally created events do not have a distinct objectID.*
+    ///   - version: The version of the event. *Only applicable to events that come from the webservice. Locally created events do not have a distinct version.*
+    ///   - name: The name of the event.
+    ///   - start: The start of the event.
+    ///   - end: The end of the event.
+    ///   - description: The description of the event.
+    ///   - type: The type of the event.
+    ///   - artist: The artist of the event.
+    ///   - location: The location of the event.
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, artist: Artist? = nil, location: Location? = nil) {
+            
+            self.objectID = objectID
+            self.version = version
+            self.name = name
+            self.start = start
+            self.end = end
+            self.description = description
+            self.type = type
+            
+            self.artist = artist
+            self.location = location
     }
     
     /// Creates events from an array of event dicts.
