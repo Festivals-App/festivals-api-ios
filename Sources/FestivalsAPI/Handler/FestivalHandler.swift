@@ -104,7 +104,7 @@ public class Festival: ObservableObject, Hashable, Identifiable {
         self.init(objectID: object_id, version: object_version, valid: object_is_valid, name: object_name, start: object_start, end: object_end, description: object_description, price: object_price, image: object_image, links: object_links, place: object_place, tags: object_tags, events: object_events)
     }
     
-    /// Initializes a link link with the given values.
+    /// Initializes a festival with the given values.
     /// - Parameters:
     ///   - objectID: The objectID of the festival. *Only applicable to festivals that come from the webservice. Locally created festivals do not have a distinct objectID.*
     ///   - version: The version of the festival. *Only applicable to festivals that come from the webservice. Locally created festivals do not have a distinct version.*

@@ -156,7 +156,7 @@ public struct Link: Codable, Hashable, Identifiable {
         self.init(objectID: object_id, version: object_version, referrer: object_referrer, type: linkType)
     }
     
-    /// Initializes a link link with the given values.
+    /// Initializes a link with the given values.
     /// - Parameters:
     ///   - objectID: The objectID of the link. *Only applicable to links that come from the webservice. Locally created links do not have a distinct objectID.*
     ///   - version: The version of the link. *Only applicable to links that come from the webservice. Locally created links do not have a distinct version.*
