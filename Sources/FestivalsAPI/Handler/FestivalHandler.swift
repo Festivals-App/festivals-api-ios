@@ -41,16 +41,13 @@ public class Festival: ObservableObject, Hashable, Identifiable {
     /// The events associated with the festival.
     @Published public var events: [Event]?
 
-    /*
     /// Initializes a festival with the given json data.
-    /// - Parameter jsonData: The festival dict ecoded as json data.
+    /// - Parameter jsonData: The festival dict encoded as json data.
     public convenience init?(resolving jsonData: Data) {
         
         guard let dict = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return nil }
         self.init(with: dict)
     }
-    
-    */
     
     /// Initializes a festival with the given dictionary.
     /// - Parameter objectDict: The dict containing the festival values.
