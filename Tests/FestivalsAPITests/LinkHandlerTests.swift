@@ -33,7 +33,7 @@ class LinkHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all links")
         var testResult: Bool = false
         
-        self.handler.all { (links, error) -> (Void) in
+        self.handler.all { (links, error) in
             testResult = (links != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class LinkHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some links")
         var testResult: Bool = false
         
-        self.handler.links(with: [1,2]) { (links, error) -> (Void) in
+        self.handler.links(with: [1,2]) { (links, error) in
             testResult = (links?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class LinkHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a event")
         var testResult: Bool = false
         
-        self.handler.link(with: 1) { (event, error) -> (Void) in
+        self.handler.link(with: 1) { (event, error) in
             testResult = (event != nil)
             expectation.fulfill()
         }
@@ -81,7 +81,7 @@ class LinkHandlerTests: XCTestCase {
         let linkDict: [String: Any] = ["link_id": 0, "link_version": "", "link_url": "https://www.test.de", "link_service": LinkType.websiteURL.rawValue]
         let link = Link.init(with: linkDict)!
 
-        self.handler.create(link: link) { (createdLink, error) -> (Void) in
+        self.handler.create(link: link) { (createdLink, error) in
             
             guard let createdLink = createdLink else {
                 expectation.fulfill()
@@ -90,7 +90,7 @@ class LinkHandlerTests: XCTestCase {
             
             createdTheLink = true
             
-            self.handler.delete(link: createdLink) { (delted, error) -> (Void) in
+            self.handler.delete(link: createdLink) { (delted, error) in
                 
                 deltedTheLink = delted
                 expectation.fulfill()
@@ -112,7 +112,7 @@ class LinkHandlerTests: XCTestCase {
         let linkDict: [String: Any] = ["link_id": 0, "link_version": "", "link_url": "https://www.test.de", "link_service": LinkType.websiteURL.rawValue]
         let link = Link.init(with: linkDict)!
         
-        self.handler.create(link: link) { (createdLink, error) -> (Void) in
+        self.handler.create(link: link) { (createdLink, error) in
             
             guard var createdLink = createdLink else {
                 expectation.fulfill()
@@ -124,7 +124,7 @@ class LinkHandlerTests: XCTestCase {
             createdLink.referrer = "ANOTHERURL"
             createdLink.service = LinkType.unknown
             
-            self.handler.update(link: createdLink) { (updatedLink, error) -> (Void) in
+            self.handler.update(link: createdLink) { (updatedLink, error) in
                 
                 guard let updatedLink = updatedLink else {
                     expectation.fulfill()
@@ -133,7 +133,7 @@ class LinkHandlerTests: XCTestCase {
                 
                 updatedTheLink = (updatedLink.referrer == "ANOTHERURL" && updatedLink.service == LinkType.unknown)
                 
-                self.handler.delete(link: updatedLink) { (delted, error) -> (Void) in
+                self.handler.delete(link: updatedLink) { (delted, error) in
                     
                     deltedTheLink = delted
                     expectation.fulfill()

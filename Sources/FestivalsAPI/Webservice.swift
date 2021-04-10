@@ -83,7 +83,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             completion(data, err)
         }
@@ -102,7 +102,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: data)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             guard let objects = data else {
                 completion(nil, err)
@@ -129,7 +129,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .PATCH, and: data)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             guard let objects = data else {
                 completion(nil, err)
@@ -156,7 +156,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)
@@ -181,7 +181,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             completion(data, err)
         }
@@ -204,7 +204,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
 
             completion(data, err)
         }
@@ -225,7 +225,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)
@@ -250,7 +250,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
         
-        self.perfrom(request) { (data, err) -> (Void) in
+        self.perfrom(request) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)

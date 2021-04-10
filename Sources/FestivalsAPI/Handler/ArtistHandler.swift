@@ -154,7 +154,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func artists(with objectIDs: [Int]? = nil, completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
  
-        self.webservice.fetch("artist", with: objectIDs, including: ["image", "link", "tag"]) { (objects, error) -> (Void) in
+        self.webservice.fetch("artist", with: objectIDs, including: ["image", "link", "tag"]) { (objects, error) in
             
             guard let objects = objects else {
                 completion(nil, error)
@@ -200,7 +200,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("artist", with: artist.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("artist", with: artist.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -222,7 +222,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(artist: Artist, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("artist", with: artist.objectID, and: artist.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("artist", with: artist.objectID, and: artist.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -244,7 +244,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(artist: Artist, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("artist", with: artist.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("artist", with: artist.objectID) { (success, error) in
             
             completion(success, error)
         }
@@ -260,7 +260,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func links(for artistID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("links", for: "artist", with: artistID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("links", for: "artist", with: artistID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -314,7 +314,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func tags(for artistID: Int, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("tags", for: "artist", with: artistID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("tags", for: "artist", with: artistID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -368,7 +368,7 @@ public class ArtistHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func image(for artistID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("image", for: "artist", with: artistID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("image", for: "artist", with: artistID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)

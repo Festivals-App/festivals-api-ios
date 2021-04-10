@@ -243,7 +243,7 @@ public class LinkHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func links(with objectIDs: [Int]? = nil, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("link", with: objectIDs) { (objects, error) -> (Void) in
+        self.webservice.fetch("link", with: objectIDs) { (objects, error) in
             
             guard let objects = objects else {
                 completion(nil, error)
@@ -289,7 +289,7 @@ public class LinkHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("link", with: link.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("link", with: link.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -311,7 +311,7 @@ public class LinkHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(link: Link, completion: @escaping (_ link: Link?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("link", with: link.objectID, and: link.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("link", with: link.objectID, and: link.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -333,7 +333,7 @@ public class LinkHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(link: Link, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("link", with: link.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("link", with: link.objectID) { (success, error) in
             
             completion(success, error)
         }

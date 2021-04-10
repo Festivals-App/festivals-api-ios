@@ -109,7 +109,7 @@ public class TagHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func tags(with objectIDs: [Int]? = nil, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("tag", with: objectIDs) { (objects, err) -> (Void) in
+        self.webservice.fetch("tag", with: objectIDs) { (objects, err) in
             
             guard let objects = objects else {
                 completion(nil, err)
@@ -131,7 +131,7 @@ public class TagHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func tag(with objectID: Int, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
-        self.tags(with: [objectID]) { (tags, error) -> (Void) in
+        self.tags(with: [objectID]) { (tags, error) in
             
             guard let tags = tags else {
                 completion(nil, error)
@@ -155,7 +155,7 @@ public class TagHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("tag", with: tag.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("tag", with: tag.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -177,7 +177,7 @@ public class TagHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(tag: Tag, completion: @escaping (_ tag: Tag?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("tag", with: tag.objectID, and: tag.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("tag", with: tag.objectID, and: tag.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -199,7 +199,7 @@ public class TagHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(tag: Tag, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("tag", with: tag.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("tag", with: tag.objectID) { (success, error) in
             
             completion(success, error)
         }
@@ -217,7 +217,7 @@ public class TagHandler {
     public func festivals(for tagID: Int, with includes: Bool, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image"]
-        self.webservice.fetchResource("festivals", for: "tag", with: tagID, including: includeVals) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("festivals", for: "tag", with: tagID, including: includeVals) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)

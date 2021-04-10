@@ -160,7 +160,7 @@ public class PlaceHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func places(with objectIDs: [Int]? = nil, completion: @escaping (_ places: [Place]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("place", with: objectIDs) { (objects, err) -> (Void) in
+        self.webservice.fetch("place", with: objectIDs) { (objects, err) in
             
             guard let objects = objects else {
                 completion(nil, err)
@@ -182,7 +182,7 @@ public class PlaceHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func place(with objectID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
-        self.places(with: [objectID]) { (places, error) -> (Void) in
+        self.places(with: [objectID]) { (places, error) in
             
             guard let places = places else {
                 completion(nil, error)
@@ -206,7 +206,7 @@ public class PlaceHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("place", with: place.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("place", with: place.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -228,7 +228,7 @@ public class PlaceHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(place: Place, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("place", with: place.objectID, and: place.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("place", with: place.objectID, and: place.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -250,7 +250,7 @@ public class PlaceHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(place: Place, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("place", with: place.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("place", with: place.objectID) { (success, error) in
             
             completion(success, error)
         }

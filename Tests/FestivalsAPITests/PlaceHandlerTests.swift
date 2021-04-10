@@ -33,7 +33,7 @@ class PlaceHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all places")
         var testResult: Bool = false
         
-        self.handler.all { (places, error) -> (Void) in
+        self.handler.all { (places, error) in
             testResult = (places != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class PlaceHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some places")
         var testResult: Bool = false
         
-        self.handler.places(with: [1,2]) { (places, error) -> (Void) in
+        self.handler.places(with: [1,2]) { (places, error) in
             testResult = (places?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class PlaceHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a event")
         var testResult: Bool = false
         
-        self.handler.place(with: 1) { (event, error) -> (Void) in
+        self.handler.place(with: 1) { (event, error) in
             testResult = (event != nil)
             expectation.fulfill()
         }
@@ -81,7 +81,7 @@ class PlaceHandlerTests: XCTestCase {
         let placeDict: [String: Any] = ["place_id": 0, "place_version": "", "place_street": "TESTPLACESTREET", "place_zip": "111111", "place_town": "TESTPLACETOWN", "place_street_addition": "TESTPLACEADDITION", "place_country": "TESTPLACECOUNTRY", "place_lat": 30.120101, "place_lon": 30.652101, "place_description": "TESTPLACEDESCRIPTION"]
         let place = Place.init(with: placeDict)!
 
-        self.handler.create(place: place) { (createdPlace, error) -> (Void) in
+        self.handler.create(place: place) { (createdPlace, error) in
             
             guard let createdPlace = createdPlace else {
                 expectation.fulfill()
@@ -90,7 +90,7 @@ class PlaceHandlerTests: XCTestCase {
             
             createdThePlace = true
             
-            self.handler.delete(place: createdPlace) { (delted, error) -> (Void) in
+            self.handler.delete(place: createdPlace) { (delted, error) in
                 
                 deltedThePlace = delted
                 expectation.fulfill()
@@ -112,7 +112,7 @@ class PlaceHandlerTests: XCTestCase {
         let placeDict: [String: Any] = ["place_id": 0, "place_version": "", "place_street": "TESTPLACESTREET", "place_zip": "111111", "place_town": "TESTPLACETOWN", "place_street_addition": "TESTPLACEADDITION", "place_country": "TESTPLACECOUNTRY", "place_lat": 30.120101, "place_lon": 30.652101, "place_description": "TESTPLACEDESCRIPTION"]
         let place = Place.init(with: placeDict)!
         
-        self.handler.create(place: place) { (createdPlace, error) -> (Void) in
+        self.handler.create(place: place) { (createdPlace, error) in
             
             guard var createdPlace = createdPlace else {
                 expectation.fulfill()
@@ -123,7 +123,7 @@ class PlaceHandlerTests: XCTestCase {
             
             createdPlace.street = "ANOTHERSTREET"
             
-            self.handler.update(place: createdPlace) { (updatedPlace, error) -> (Void) in
+            self.handler.update(place: createdPlace) { (updatedPlace, error) in
                 
                 guard let updatedPlace = updatedPlace else {
                     expectation.fulfill()
@@ -132,7 +132,7 @@ class PlaceHandlerTests: XCTestCase {
 
                 updatedThePlace = (updatedPlace.street == "ANOTHERSTREET")
                 
-                self.handler.delete(place: updatedPlace) { (delted, error) -> (Void) in
+                self.handler.delete(place: updatedPlace) { (delted, error) in
                     
                     deltedThePlace = delted
                     expectation.fulfill()

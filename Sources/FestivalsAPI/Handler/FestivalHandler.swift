@@ -225,7 +225,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func festivals(with objectIDs: [Int]? = nil, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("festival", with: objectIDs, including: ["image", "link", "place", "tag"]) { (objects, error) -> (Void) in
+        self.webservice.fetch("festival", with: objectIDs, including: ["image", "link", "place", "tag"]) { (objects, error) in
             
             guard let objects = objects else {
                 completion(nil, error)
@@ -269,7 +269,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func search(with name: String, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.search("festival", with: name) { (objects, err) -> (Void) in
+        self.webservice.search("festival", with: name) { (objects, err) in
             
             guard let objects = objects else {
                 completion(nil, err)
@@ -293,7 +293,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(festival: Festival, completion: @escaping (_ festival: Festival?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("festival", with: festival.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("festival", with: festival.JSON()) { (object, error) in
             
             guard let object = object else {
                 completion(nil, error)
@@ -315,7 +315,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(festival: Festival, completion: @escaping (_ festival: Festival?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("festival", with: festival.objectID, and: festival.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("festival", with: festival.objectID, and: festival.JSON()) { (object, error) in
             
             guard let object = object as? [String: Any] else {
                 completion(nil, error)
@@ -337,7 +337,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(festival: Festival, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("festival", with: festival.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("festival", with: festival.objectID) { (success, error) in
             
             completion(success, error)
         }
@@ -355,7 +355,7 @@ public class FestivalHandler {
     public func events(for festivalID: Int, with includes: Bool, completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
         
         let includeVals = (includes) ? ["artist","location"] : []
-        self.webservice.fetchResource("events", for: "festival", with: festivalID, including: includeVals) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("events", for: "festival", with: festivalID, including: includeVals) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -395,7 +395,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func links(for festivalID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("links", for: "festival", with: festivalID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("links", for: "festival", with: festivalID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -449,7 +449,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func place(for festivalID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("place", for: "festival", with: festivalID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("place", for: "festival", with: festivalID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -507,7 +507,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func tags(for festivalID: Int, completion: @escaping (_ tags: [Tag]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("tags", for: "festival", with: festivalID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("tags", for: "festival", with: festivalID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -561,7 +561,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func image(for festivalID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("image", for: "festival", with: festivalID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("image", for: "festival", with: festivalID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)

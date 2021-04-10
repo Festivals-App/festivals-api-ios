@@ -33,7 +33,7 @@ class TagHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all tags")
         var testResult: Bool = false
         
-        self.handler.all { (tags, error) -> (Void) in
+        self.handler.all { (tags, error) in
             testResult = (tags != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class TagHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some tags")
         var testResult: Bool = false
         
-        self.handler.tags(with: [1,2]) { (tags, error) -> (Void) in
+        self.handler.tags(with: [1,2]) { (tags, error) in
             testResult = (tags?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class TagHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a event")
         var testResult: Bool = false
         
-        self.handler.tag(with: 1) { (event, error) -> (Void) in
+        self.handler.tag(with: 1) { (event, error) in
             testResult = (event != nil)
             expectation.fulfill()
         }
@@ -81,7 +81,7 @@ class TagHandlerTests: XCTestCase {
         let tagDict: [String: Any] = ["tag_id": 0, "tag_name": "TESTTAG"]
         let tag = Tag.init(with: tagDict)!
 
-        self.handler.create(tag: tag) { (createdTag, error) -> (Void) in
+        self.handler.create(tag: tag) { (createdTag, error) in
             
             guard let createdTag = createdTag else {
                 expectation.fulfill()
@@ -90,7 +90,7 @@ class TagHandlerTests: XCTestCase {
             
             createdTheTag = true
             
-            self.handler.delete(tag: createdTag) { (delted, error) -> (Void) in
+            self.handler.delete(tag: createdTag) { (delted, error) in
                 
                 deltedTheTag = delted
                 expectation.fulfill()
@@ -112,7 +112,7 @@ class TagHandlerTests: XCTestCase {
         let tagDict: [String: Any] = ["tag_id": 0, "tag_name": "TESTTAG"]
         let tag = Tag.init(with: tagDict)!
         
-        self.handler.create(tag: tag) { (createdTag, error) -> (Void) in
+        self.handler.create(tag: tag) { (createdTag, error) in
             
             guard var createdTag = createdTag else {
                 expectation.fulfill()
@@ -123,7 +123,7 @@ class TagHandlerTests: XCTestCase {
             
             createdTag.name = "ANOTHERNAME"
             
-            self.handler.update(tag: createdTag) { (updatedTag, error) -> (Void) in
+            self.handler.update(tag: createdTag) { (updatedTag, error) in
                 
                 guard let updatedTag = updatedTag else {
                     expectation.fulfill()
@@ -132,7 +132,7 @@ class TagHandlerTests: XCTestCase {
                 
                 updatedTheTag = (updatedTag.name == "ANOTHERNAME")
                 
-                self.handler.delete(tag: updatedTag) { (delted, error) -> (Void) in
+                self.handler.delete(tag: updatedTag) { (delted, error) in
                     
                     deltedTheTag = delted
                     expectation.fulfill()
@@ -153,7 +153,7 @@ class TagHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festivals for tag")
         var testResult: Bool = false
         
-        self.handler.festivals(for: 1, with: true) { (festivals, error) -> (Void) in
+        self.handler.festivals(for: 1, with: true) { (festivals, error) in
             
             testResult = (festivals?.count == 1)
             expectation.fulfill()

@@ -33,7 +33,7 @@ class ImageRefHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all images")
         var testResult: Bool = false
         
-        self.handler.all { (images, error) -> (Void) in
+        self.handler.all { (images, error) in
             testResult = (images != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class ImageRefHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some images")
         var testResult: Bool = false
         
-        self.handler.images(with: [1,2]) { (images, error) -> (Void) in
+        self.handler.images(with: [1,2]) { (images, error) in
             testResult = (images?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class ImageRefHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a event")
         var testResult: Bool = false
         
-        self.handler.image(with: 1) { (event, error) -> (Void) in
+        self.handler.image(with: 1) { (event, error) in
             testResult = (event != nil)
             expectation.fulfill()
         }
@@ -81,7 +81,7 @@ class ImageRefHandlerTests: XCTestCase {
         let imageDict: [String: Any] = ["image_id": 0, "image_hash": "a8f5f167f44f4964e6c998dee827110c", "image_comment": "TESTCOMMENT", "image_ref": "image.jpg"]
         let image = ImageRef.init(with: imageDict)!
 
-        self.handler.create(image: image) { (createdImageRef, error) -> (Void) in
+        self.handler.create(image: image) { (createdImageRef, error) in
             
             guard let createdImageRef = createdImageRef else {
                 expectation.fulfill()
@@ -90,7 +90,7 @@ class ImageRefHandlerTests: XCTestCase {
             
             createdTheImageRef = true
             
-            self.handler.delete(image: createdImageRef) { (delted, error) -> (Void) in
+            self.handler.delete(image: createdImageRef) { (delted, error) in
                 
                 deltedTheImageRef = delted
                 expectation.fulfill()
@@ -112,7 +112,7 @@ class ImageRefHandlerTests: XCTestCase {
         let imageDict: [String: Any] = ["image_id": 0, "image_hash": "a8f5f167f44f4964e6c998dee827110c", "image_comment": "TESTCOMMENT", "image_ref": "image.jpg"]
         let image = ImageRef.init(with: imageDict)!
         
-        self.handler.create(image: image) { (createdImageRef, error) -> (Void) in
+        self.handler.create(image: image) { (createdImageRef, error) in
             
             guard var createdImageRef = createdImageRef else {
                 expectation.fulfill()
@@ -124,7 +124,7 @@ class ImageRefHandlerTests: XCTestCase {
             createdImageRef.hash = "a3dcb4d229de6fde0db5686dee47145d"
             createdImageRef.comment = "ANOTHERCOMMENT"
             
-            self.handler.update(image: createdImageRef) { (updatedImageRef, error) -> (Void) in
+            self.handler.update(image: createdImageRef) { (updatedImageRef, error) in
                 
                 guard let updatedImageRef = updatedImageRef else {
                     expectation.fulfill()
@@ -133,7 +133,7 @@ class ImageRefHandlerTests: XCTestCase {
                 
                 updatedTheImageRef = (updatedImageRef.hash == "a3dcb4d229de6fde0db5686dee47145d" && updatedImageRef.comment == "ANOTHERCOMMENT")
                 
-                self.handler.delete(image: updatedImageRef) { (delted, error) -> (Void) in
+                self.handler.delete(image: updatedImageRef) { (delted, error) in
                     
                     deltedTheImageRef = delted
                     expectation.fulfill()

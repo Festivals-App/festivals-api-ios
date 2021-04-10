@@ -164,7 +164,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func locations(with objectIDs: [Int]? = nil, completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("location", with: objectIDs, including: ["image", "link", "place"]) { (objects, error) -> (Void) in
+        self.webservice.fetch("location", with: objectIDs, including: ["image", "link", "place"]) { (objects, error) in
             
             guard let objects = objects else {
                 completion(nil, error)
@@ -210,7 +210,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("location", with: location.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("location", with: location.JSON()) { (object, error) in
             
             guard let object = object else {
                 completion(nil, error)
@@ -232,7 +232,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(location: Location, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("location", with: location.objectID, and: location.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("location", with: location.objectID, and: location.JSON()) { (object, error) in
             
             guard let object = object else {
                 completion(nil, error)
@@ -254,7 +254,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(location: Location, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("location", with: location.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("location", with: location.objectID) { (success, error) in
             
             completion(success, error)
         }
@@ -270,7 +270,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func links(for locationID: Int, completion: @escaping (_ links: [Link]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("links", for: "location", with: locationID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("links", for: "location", with: locationID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -324,7 +324,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func place(for locationID: Int, completion: @escaping (_ place: Place?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("place", for: "location", with: locationID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("place", for: "location", with: locationID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -382,7 +382,7 @@ public class LocationHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func image(for locationID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetchResource("image", for: "location", with: locationID) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("image", for: "location", with: locationID) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)

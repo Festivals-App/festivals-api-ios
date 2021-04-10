@@ -121,7 +121,7 @@ public class ImageRefHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func images(with objectIDs: [Int]? = nil, completion: @escaping (_ images: [ImageRef]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("image", with: objectIDs) { (objects, err) -> (Void) in
+        self.webservice.fetch("image", with: objectIDs) { (objects, err) in
             
             guard let objects = objects else {
                 completion(nil, err)
@@ -143,7 +143,7 @@ public class ImageRefHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func image(with objectID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.images(with: [objectID]) { (imageRefs, error) -> (Void) in
+        self.images(with: [objectID]) { (imageRefs, error) in
             
             guard let imageRefs = imageRefs else {
                 completion(nil, error)
@@ -167,7 +167,7 @@ public class ImageRefHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("image", with: image.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("image", with: image.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -189,7 +189,7 @@ public class ImageRefHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(image: ImageRef, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("image", with: image.objectID, and: image.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("image", with: image.objectID, and: image.JSON()) { (object, error) in
         
             guard let object = object else {
                 completion(nil, error)
@@ -211,7 +211,7 @@ public class ImageRefHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(image: ImageRef, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("image", with: image.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("image", with: image.objectID) { (success, error) in
             
             completion(success, error)
         }

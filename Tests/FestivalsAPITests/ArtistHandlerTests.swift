@@ -33,7 +33,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all artists")
         var testResult: Bool = false
         
-        self.handler.all { (artists, error) -> (Void) in
+        self.handler.all { (artists, error) in
             testResult = (artists != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some artists")
         var testResult: Bool = false
         
-        self.handler.artists(with: [1,2]) { (artists, error) -> (Void) in
+        self.handler.artists(with: [1,2]) { (artists, error) in
             testResult = (artists?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch an artist")
         var testResult: Bool = false
         
-        self.handler.artist(with: 1) { (artist, error) -> (Void) in
+        self.handler.artist(with: 1) { (artist, error) in
             testResult = (artist != nil)
             expectation.fulfill()
         }
@@ -81,7 +81,7 @@ class ArtistHandlerTests: XCTestCase {
         let artistDict: [String: Any] = ["artist_id": 0, "artist_version": "", "artist_name": "TESTARTIST", "artist_description": "TESTARTISTDESCRIPTION"]
         let artist = Artist.init(with: artistDict)!
         
-        self.handler.create(artist: artist) { (createdArtist, error) -> (Void) in
+        self.handler.create(artist: artist) { (createdArtist, error) in
             
             guard let createdArtist = createdArtist else {
                 expectation.fulfill()
@@ -90,7 +90,7 @@ class ArtistHandlerTests: XCTestCase {
             
             createdTheArtist = true
             
-            self.handler.delete(artist: createdArtist) { (delted, error) -> (Void) in
+            self.handler.delete(artist: createdArtist) { (delted, error) in
                 
                 deltedTheArtist = delted
                 expectation.fulfill()
@@ -112,7 +112,7 @@ class ArtistHandlerTests: XCTestCase {
         let artistDict: [String: Any] = ["artist_id": 0, "artist_version": "", "artist_name": "TESTARTIST", "artist_description": "TESTARTISTDESCRIPTION"]
         let artist = Artist.init(with: artistDict)!
         
-        self.handler.create(artist: artist) { (createdArtist, error) -> (Void) in
+        self.handler.create(artist: artist) { (createdArtist, error) in
             
             guard let createdArtist = createdArtist else {
                 expectation.fulfill()
@@ -124,7 +124,7 @@ class ArtistHandlerTests: XCTestCase {
             createdArtist.name = "ANOTHERNAME"
             createdArtist.description = "ANOTHERTESTARTISTDESCRIPTION"
             
-            self.handler.update(artist: createdArtist) { (updatedArtist, error) -> (Void) in
+            self.handler.update(artist: createdArtist) { (updatedArtist, error) in
                 
                 guard let updatedArtist = updatedArtist else {
                     expectation.fulfill()
@@ -133,7 +133,7 @@ class ArtistHandlerTests: XCTestCase {
                 
                 updatedTheArtist = (updatedArtist.name == "ANOTHERNAME") && (updatedArtist.description == "ANOTHERTESTARTISTDESCRIPTION")
                 
-                self.handler.delete(artist: updatedArtist) { (delted, error) -> (Void) in
+                self.handler.delete(artist: updatedArtist) { (delted, error) in
                     
                     deltedTheArtist = delted
                     expectation.fulfill()
@@ -154,7 +154,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch artist links")
         var testResult: Bool = false
         
-        self.handler.links(for: 1) { (links, error) -> (Void) in
+        self.handler.links(for: 1) { (links, error) in
             
             testResult = (links != nil)
             expectation.fulfill()
@@ -170,11 +170,11 @@ class ArtistHandlerTests: XCTestCase {
         var didSetLink: Bool = false
         var didRemoveLink: Bool = false
         
-        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetLink = setSuccessfully
      
-            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemoveLink = removedSuccessfully
                 
@@ -194,7 +194,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch artist tags")
         var testResult: Bool = false
         
-        self.handler.tags(for: 1) { (tags, error) -> (Void) in
+        self.handler.tags(for: 1) { (tags, error) in
             
             testResult = (tags != nil)
             expectation.fulfill()
@@ -210,11 +210,11 @@ class ArtistHandlerTests: XCTestCase {
         var didSetTag: Bool = false
         var didRemoveTag: Bool = false
         
-        self.handler.set(tagID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(tagID: 2, for: 2) { (setSuccessfully, error) in
               
               didSetTag = setSuccessfully
         
-              self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+              self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) in
                   
                   didRemoveTag = removedSuccessfully
                   
@@ -233,7 +233,7 @@ class ArtistHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch artist image")
         var testResult: Bool = false
         
-        self.handler.image(for: 1) { (imageRef, error) -> (Void) in
+        self.handler.image(for: 1) { (imageRef, error) in
             
             testResult = (imageRef != nil)
             expectation.fulfill()
@@ -249,11 +249,11 @@ class ArtistHandlerTests: XCTestCase {
         var didSetTag: Bool = false
         var didRemoveTag: Bool = false
         
-        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) in
               
               didSetTag = setSuccessfully
         
-              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
                   
                   didRemoveTag = removedSuccessfully
                   

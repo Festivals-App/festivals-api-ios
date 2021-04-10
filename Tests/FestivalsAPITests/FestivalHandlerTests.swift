@@ -33,7 +33,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all festivals")
         var testResult: Bool = false
         
-        self.handler.all { (festivals, error) -> (Void) in
+        self.handler.all { (festivals, error) in
             testResult = (festivals != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some festivals")
         var testResult: Bool = false
         
-        self.handler.festivals(with: [1,2]) { (festivals, error) -> (Void) in
+        self.handler.festivals(with: [1,2]) { (festivals, error) in
             testResult = (festivals?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a festival")
         var testResult: Bool = false
         
-        self.handler.festival(with: 1) { (festival, error) -> (Void) in
+        self.handler.festival(with: 1) { (festival, error) in
             testResult = (festival != nil)
             expectation.fulfill()
         }
@@ -97,7 +97,7 @@ class FestivalHandlerTests: XCTestCase {
                                            "festival_start": 100, "festival_end": 200, "festival_description": "TESTFESTIVALDESCRIPTION", "festival_price": "1.000.000 Euro"]
         let festival = Festival.init(with: festivalDict)!
         
-        self.handler.create(festival: festival) { (createdFestival, error) -> (Void) in
+        self.handler.create(festival: festival) { (createdFestival, error) in
             
             guard let createdFestival = createdFestival else {
                 expectation.fulfill()
@@ -106,7 +106,7 @@ class FestivalHandlerTests: XCTestCase {
             
             createdTheFestival = true
             
-            self.handler.delete(festival: createdFestival) { (delted, error) -> (Void) in
+            self.handler.delete(festival: createdFestival) { (delted, error) in
                 
                 deltedTheFestival = delted
                 expectation.fulfill()
@@ -129,7 +129,7 @@ class FestivalHandlerTests: XCTestCase {
                                            "festival_start": 100, "festival_end": 200, "festival_description": "TESTFESTIVALDESCRIPTION", "festival_price": "1.000.000 Euro"]
         let festival = Festival.init(with: festivalDict)!
         
-        self.handler.create(festival: festival) { (createdFestival, error) -> (Void) in
+        self.handler.create(festival: festival) { (createdFestival, error) in
             
             guard let createdFestival = createdFestival else {
                 expectation.fulfill()
@@ -140,7 +140,7 @@ class FestivalHandlerTests: XCTestCase {
             
             createdFestival.name = "ANOTHERNAME"
             
-            self.handler.update(festival: createdFestival) { (updatedFestival, error) -> (Void) in
+            self.handler.update(festival: createdFestival) { (updatedFestival, error) in
                 
                 guard let updatedFestival = updatedFestival else {
                     expectation.fulfill()
@@ -149,7 +149,7 @@ class FestivalHandlerTests: XCTestCase {
                 
                 updatedTheFestival = (updatedFestival.name == "ANOTHERNAME")
                 
-                self.handler.delete(festival: updatedFestival) { (delted, error) -> (Void) in
+                self.handler.delete(festival: updatedFestival) { (delted, error) in
                     
                     deltedTheFestival = delted
                     expectation.fulfill()
@@ -170,7 +170,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festival events")
         var testResult: Bool = false
         
-        self.handler.events(for: 1, with: false) { (events, error) -> (Void) in
+        self.handler.events(for: 1, with: false) { (events, error) in
             
             testResult = (events != nil)
             expectation.fulfill()
@@ -185,7 +185,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch zero festival events")
         var testResult: Bool = false
         
-        self.handler.events(for: 73, with: false) { (events, error) -> (Void) in
+        self.handler.events(for: 73, with: false) { (events, error) in
             
             testResult = (events != nil)
             if testResult {
@@ -210,15 +210,15 @@ class FestivalHandlerTests: XCTestCase {
         let eventDict: [String: Any] = ["event_id": 75, "event_version": "", "event_name": "TESTEVENT", "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": 0]
         let event = Event(with: eventDict)!
         
-        eventHandler.create(event: event) { (createdEvent, error) -> (Void) in
+        eventHandler.create(event: event) { (createdEvent, error) in
     
             didCreateEvent = (createdEvent != nil)
             
-            self.handler.set(eventID: createdEvent!.objectID, for: 2) { (setSuccessfully, error) -> (Void) in
+            self.handler.set(eventID: createdEvent!.objectID, for: 2) { (setSuccessfully, error) in
                 
                 didSetEvent = setSuccessfully
                 
-                eventHandler.delete(event: createdEvent!) { (deletedSuccessfully, error) -> (Void) in
+                eventHandler.delete(event: createdEvent!) { (deletedSuccessfully, error) in
                     
                     didDeleteEvent = deletedSuccessfully
                     expectation.fulfill()
@@ -239,7 +239,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festival links")
         var testResult: Bool = false
         
-        self.handler.links(for: 1) { (links, error) -> (Void) in
+        self.handler.links(for: 1) { (links, error) in
             
             testResult = (links != nil)
             expectation.fulfill()
@@ -255,11 +255,11 @@ class FestivalHandlerTests: XCTestCase {
         var didSetLink: Bool = false
         var didRemoveLink: Bool = false
         
-        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetLink = setSuccessfully
      
-            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemoveLink = removedSuccessfully
                 
@@ -279,7 +279,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festival place")
         var testResult: Bool = false
         
-        self.handler.place(for: 1) { (place, error) -> (Void) in
+        self.handler.place(for: 1) { (place, error) in
             
             testResult = (place != nil)
             expectation.fulfill()
@@ -295,11 +295,11 @@ class FestivalHandlerTests: XCTestCase {
         var didSetPlace: Bool = false
         var didRemovePlace: Bool = false
         
-        self.handler.set(placeID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(placeID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetPlace = setSuccessfully
       
-            self.handler.remove(placeID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+            self.handler.remove(placeID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemovePlace = removedSuccessfully
                 
@@ -319,7 +319,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festival tags")
         var testResult: Bool = false
         
-        self.handler.tags(for: 1) { (tags, error) -> (Void) in
+        self.handler.tags(for: 1) { (tags, error) in
             
             testResult = (tags != nil)
             expectation.fulfill()
@@ -335,11 +335,11 @@ class FestivalHandlerTests: XCTestCase {
         var didSetTag: Bool = false
         var didRemoveTag: Bool = false
         
-        self.handler.set(tagID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(tagID: 2, for: 2) { (setSuccessfully, error) in
               
               didSetTag = setSuccessfully
         
-              self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+              self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) in
                   
                   didRemoveTag = removedSuccessfully
                   
@@ -358,7 +358,7 @@ class FestivalHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch festival image")
         var testResult: Bool = false
         
-        self.handler.image(for: 1) { (imageRef, error) -> (Void) in
+        self.handler.image(for: 1) { (imageRef, error) in
             
             testResult = (imageRef != nil)
             expectation.fulfill()
@@ -374,11 +374,11 @@ class FestivalHandlerTests: XCTestCase {
         var didSetTag: Bool = false
         var didRemoveTag: Bool = false
         
-        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) in
               
               didSetTag = setSuccessfully
         
-              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
                   
                   didRemoveTag = removedSuccessfully
                   

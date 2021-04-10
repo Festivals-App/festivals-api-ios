@@ -33,7 +33,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all locations")
         var testResult: Bool = false
         
-        self.handler.all { (locations, error) -> (Void) in
+        self.handler.all { (locations, error) in
             testResult = (locations != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some locations")
         var testResult: Bool = false
         
-        self.handler.locations(with: [1,2]) { (locations, error) -> (Void) in
+        self.handler.locations(with: [1,2]) { (locations, error) in
             testResult = (locations?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a location")
         var testResult: Bool = false
         
-        self.handler.location(with: 1) { (location, error) -> (Void) in
+        self.handler.location(with: 1) { (location, error) in
             testResult = (location != nil)
             expectation.fulfill()
         }
@@ -82,7 +82,7 @@ class LocationHandlerTests: XCTestCase {
                                            "location_accessible": true, "location_openair": true]
         let location = Location.init(with: locationDict)!
         
-        self.handler.create(location: location) { (createdLocation, error) -> (Void) in
+        self.handler.create(location: location) { (createdLocation, error) in
             
             guard let createdLocation = createdLocation else {
                 expectation.fulfill()
@@ -91,7 +91,7 @@ class LocationHandlerTests: XCTestCase {
             
             createdTheLocation = true
             
-            self.handler.delete(location: createdLocation) { (delted, error) -> (Void) in
+            self.handler.delete(location: createdLocation) { (delted, error) in
                 
                 deltedTheLocation = delted
                 expectation.fulfill()
@@ -114,7 +114,7 @@ class LocationHandlerTests: XCTestCase {
                                            "location_accessible": true, "location_openair": true]
         let location = Location.init(with: locationDict)!
         
-        self.handler.create(location: location) { (createdLocation, error) -> (Void) in
+        self.handler.create(location: location) { (createdLocation, error) in
             
             guard let createdLocation = createdLocation else {
                 expectation.fulfill()
@@ -128,7 +128,7 @@ class LocationHandlerTests: XCTestCase {
             createdLocation.accessible = false
             createdLocation.openair = false
             
-            self.handler.update(location: createdLocation) { (updatedLocation, error) -> (Void) in
+            self.handler.update(location: createdLocation) { (updatedLocation, error) in
                 
                 guard let updatedLocation = updatedLocation else {
                     expectation.fulfill()
@@ -137,7 +137,7 @@ class LocationHandlerTests: XCTestCase {
                 
                 updatedTheLocation = (updatedLocation.name == "CHANGEDTESTLOCATION") && (updatedLocation.description == "CHANGEDTESTLOCATIONDESCRIPTION") && (updatedLocation.accessible == false) && (updatedLocation.openair == false)
                 
-                self.handler.delete(location: updatedLocation) { (delted, error) -> (Void) in
+                self.handler.delete(location: updatedLocation) { (delted, error) in
                     
                     deltedTheLocation = delted
                     expectation.fulfill()
@@ -158,7 +158,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch location links")
         var testResult: Bool = false
         
-        self.handler.links(for: 1) { (links, error) -> (Void) in
+        self.handler.links(for: 1) { (links, error) in
             
             testResult = (links != nil)
             expectation.fulfill()
@@ -174,11 +174,11 @@ class LocationHandlerTests: XCTestCase {
         var didSetLink: Bool = false
         var didRemoveLink: Bool = false
         
-        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetLink = setSuccessfully
      
-            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+            self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemoveLink = removedSuccessfully
                 
@@ -198,7 +198,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch location place")
         var testResult: Bool = false
         
-        self.handler.place(for: 1) { (place, error) -> (Void) in
+        self.handler.place(for: 1) { (place, error) in
             
             testResult = (place != nil)
             expectation.fulfill()
@@ -214,11 +214,11 @@ class LocationHandlerTests: XCTestCase {
         var didSetPlace: Bool = false
         var didRemovePlace: Bool = false
         
-        self.handler.set(placeID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(placeID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetPlace = setSuccessfully
       
-            self.handler.remove(placeID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+            self.handler.remove(placeID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemovePlace = removedSuccessfully
                 
@@ -238,7 +238,7 @@ class LocationHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch location image")
         var testResult: Bool = false
         
-        self.handler.image(for: 1) { (imageRef, error) -> (Void) in
+        self.handler.image(for: 1) { (imageRef, error) in
             
             testResult = (imageRef != nil)
             expectation.fulfill()
@@ -254,11 +254,11 @@ class LocationHandlerTests: XCTestCase {
         var didSetTag: Bool = false
         var didRemoveTag: Bool = false
         
-        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) in
               
               didSetTag = setSuccessfully
         
-              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) -> (Void) in
+              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
                   
                   didRemoveTag = removedSuccessfully
                   

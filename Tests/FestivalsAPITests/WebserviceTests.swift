@@ -32,7 +32,7 @@ class WebserviceTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch request")
         var testResult: Bool = false
         
-        self.service.fetch("festival", with: [1,2], including: ["image"]) { (objects, err) -> (Void) in
+        self.service.fetch("festival", with: [1,2], including: ["image"]) { (objects, err) in
             
             testResult = (objects != nil)
             expectation.fulfill()
@@ -58,7 +58,7 @@ class WebserviceTests: XCTestCase {
             return
         }
         
-        self.service.create("festival", with: jsonData) { (object, error) -> (Void) in
+        self.service.create("festival", with: jsonData) { (object, error) in
             
             guard let object = object as? [String: Any] else {
                 created = false
@@ -75,7 +75,7 @@ class WebserviceTests: XCTestCase {
             createdFestival.name = "ANOTHERNAME"
             let updatedJsonData = createdFestival.JSON()
             
-            self.service.update("festival", with: createdFestival.objectID, and: updatedJsonData) { (object, error) -> (Void) in
+            self.service.update("festival", with: createdFestival.objectID, and: updatedJsonData) { (object, error) in
                 
                 guard let object = object as? [String: Any] else {
                     updated = false
@@ -90,7 +90,7 @@ class WebserviceTests: XCTestCase {
                 
                 updated = updatedFestival.name == "ANOTHERNAME"
                 
-                self.service.delete("festival", with: updatedFestival.objectID) { (success, error) -> (Void) in
+                self.service.delete("festival", with: updatedFestival.objectID) { (success, error) in
                     
                     deleted = success
                     expectation.fulfill()
@@ -111,7 +111,7 @@ class WebserviceTests: XCTestCase {
         let expectation = self.expectation(description: "Search request")
         var testResult: Bool = false
         
-        self.service.search("festival", with: "krach") { (objects, err) -> (Void) in
+        self.service.search("festival", with: "krach") { (objects, err) in
             
             testResult = (objects != nil)
             expectation.fulfill()
@@ -128,7 +128,7 @@ class WebserviceTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch request")
         var testResult: Bool = false
         
-        self.service.fetchResource("events", for: "festival", with: 1, including: ["artist,location"]) { (resources, err) -> (Void) in
+        self.service.fetchResource("events", for: "festival", with: 1, including: ["artist,location"]) { (resources, err) in
             
             testResult = (resources != nil)
             expectation.fulfill()
@@ -167,7 +167,7 @@ class WebserviceTests: XCTestCase {
         let request = URLRequest.init(url: URL.init(string: host + "/festivals?ids=1,2")!)
         var testResult: Bool = false
         
-        self.service.perfrom(request) { (data, err) -> (Void) in
+        self.service.perfrom(request) { (data, err) in
             
             testResult = (data != nil)
             expectation.fulfill()
