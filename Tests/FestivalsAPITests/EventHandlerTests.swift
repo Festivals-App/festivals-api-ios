@@ -33,7 +33,7 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch all events")
         var testResult: Bool = false
         
-        self.handler.all { (events, error) -> (Void) in
+        self.handler.all { (events, error) in
             testResult = (events != nil)
             expectation.fulfill()
         }
@@ -47,7 +47,7 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch some events")
         var testResult: Bool = false
         
-        self.handler.events(with: [1,2]) { (events, error) -> (Void) in
+        self.handler.events(with: [1,2]) { (events, error) in
             testResult = (events?.count == 2)
             expectation.fulfill()
         }
@@ -61,7 +61,7 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch a event")
         var testResult: Bool = false
         
-        self.handler.event(with: 1) { (event, error) -> (Void) in
+        self.handler.event(with: 1) { (event, error) in
             testResult = (event != nil)
             expectation.fulfill()
         }
@@ -77,12 +77,12 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Create and delete an event")
         var createdTheEvent: Bool = false
         var deltedTheEvent: Bool = false
-
+        
         let eventDict: [String: Any] = ["event_id": 0, "event_version": "", "event_name": "TESTEVENT",
                                         "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.talk.rawValue]
         let event = Event(with: eventDict)!
-
-        self.handler.create(event: event) { (createdEvent, error) -> (Void) in
+        
+        self.handler.create(event: event) { (createdEvent, error) in
             
             guard let createdEvent = createdEvent else {
                 expectation.fulfill()
@@ -91,7 +91,7 @@ class EventHandlerTests: XCTestCase {
             
             createdTheEvent = true
             
-            self.handler.delete(event: createdEvent) { (delted, error) -> (Void) in
+            self.handler.delete(event: createdEvent) { (delted, error) in
                 
                 deltedTheEvent = delted
                 expectation.fulfill()
@@ -114,7 +114,7 @@ class EventHandlerTests: XCTestCase {
                                         "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.food.rawValue]
         let event = Event(with: eventDict)!
         
-        self.handler.create(event: event) { (createdEvent, error) -> (Void) in
+        self.handler.create(event: event) { (createdEvent, error) in
             
             guard let createdEvent = createdEvent else {
                 expectation.fulfill()
@@ -126,7 +126,7 @@ class EventHandlerTests: XCTestCase {
             createdEvent.name = "ANOTHERNAME"
             createdEvent.type = .music
             
-            self.handler.update(event: createdEvent) { (updatedEvent, error) -> (Void) in
+            self.handler.update(event: createdEvent) { (updatedEvent, error) in
                 
                 guard let updatedEvent = updatedEvent else {
                     expectation.fulfill()
@@ -135,7 +135,7 @@ class EventHandlerTests: XCTestCase {
                 
                 updatedTheEvent = (updatedEvent.name == "ANOTHERNAME" && updatedEvent.type == .music)
                 
-                self.handler.delete(event: updatedEvent) { (delted, error) -> (Void) in
+                self.handler.delete(event: updatedEvent) { (delted, error) in
                     
                     deltedTheEvent = delted
                     expectation.fulfill()
@@ -156,7 +156,7 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch event artist")
         var testResult: Bool = false
         
-        self.handler.artist(for: 1) { (artist, error) -> (Void) in
+        self.handler.artist(for: 1) { (artist, error) in
             
             testResult = (artist != nil)
             expectation.fulfill()
@@ -173,15 +173,15 @@ class EventHandlerTests: XCTestCase {
         var didRemoveArtist: Bool = false
         var didSetOldArtist: Bool = false
         
-        self.handler.set(artistID: 2, for: 1) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(artistID: 2, for: 1) { (setSuccessfully, error) in
             
             didSetArtist = setSuccessfully
-     
-            self.handler.remove(artistID: 2, for: 1) { (removedSuccessfully, error) -> (Void) in
+            
+            self.handler.remove(artistID: 2, for: 1) { (removedSuccessfully, error) in
                 
                 didRemoveArtist = removedSuccessfully
                 
-                self.handler.set(artistID: 2, for: 1) { (setOldSuccessfully, error) -> (Void) in
+                self.handler.set(artistID: 2, for: 1) { (setOldSuccessfully, error) in
                     
                     didSetOldArtist = setOldSuccessfully
                     
@@ -203,7 +203,7 @@ class EventHandlerTests: XCTestCase {
         let expectation = self.expectation(description: "Fetch event location")
         var testResult: Bool = false
         
-        self.handler.location(for: 1) { (location, error) -> (Void) in
+        self.handler.location(for: 1) { (location, error) in
             
             testResult = (location != nil)
             expectation.fulfill()
@@ -220,15 +220,15 @@ class EventHandlerTests: XCTestCase {
         var didRemoveLocation: Bool = false
         var didSetOldLocation: Bool = false
         
-        self.handler.set(locationID: 2, for: 1) { (setSuccessfully, error) -> (Void) in
+        self.handler.set(locationID: 2, for: 1) { (setSuccessfully, error) in
             
             didSetLocation = setSuccessfully
-      
-            self.handler.remove(locationID: 2, for: 1) { (removedSuccessfully, error) -> (Void) in
+            
+            self.handler.remove(locationID: 2, for: 1) { (removedSuccessfully, error) in
                 
                 didRemoveLocation = removedSuccessfully
                 
-                self.handler.set(locationID: 2, for: 1) { (setOldSuccessfully, error) -> (Void) in
+                self.handler.set(locationID: 2, for: 1) { (setOldSuccessfully, error) in
                     
                     didSetOldLocation = setOldSuccessfully
                     
@@ -243,11 +243,49 @@ class EventHandlerTests: XCTestCase {
         XCTAssert(didSetOldLocation, "Set old location successfull")
     }
     
+    // MARK: Manage Image Testing
+    
+    func testFetchEventImageRef() throws {
+        
+        let expectation = self.expectation(description: "Fetch event image")
+        var testResult: Bool = false
+        
+        self.handler.image(for: 1) { (imageRef, error) in
+            
+            testResult = (imageRef != nil)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 15, handler: nil)
+        XCTAssert(testResult, "Fetch image successfull")
+    }
+    
+    func testSetAndRemoveEventImageRef() throws {
+        
+        let expectation = self.expectation(description: "Set and remove an event image")
+        var didSetImage: Bool = false
+        var didRemoveImage: Bool = false
+        
+        self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) in
+            
+            didSetImage = setSuccessfully
+            
+            self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
+                
+                didRemoveImage = removedSuccessfully
+                
+                expectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 15, handler: nil)
+        XCTAssert(didSetImage, "Set image successfull")
+        XCTAssert(didRemoveImage, "Remove image successfull")
+    }
+    
     func testEventTypeLocalization() throws {
         
         print("EventType.music.localizedName: \(EventType.music.localizedName)")
         XCTAssertTrue(EventType.music.localizedName == "Music", "The localized name for the music event type is wrong.")
     }
-    
 }
 

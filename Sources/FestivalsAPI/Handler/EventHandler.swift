@@ -93,6 +93,8 @@ public class Event: ObservableObject, Hashable, Identifiable {
     /// The type of the event.
     public var type: EventType
     
+    /// The image associated with the event.
+    @Published public var image: ImageRef?
     /// The artist associated with the event.
     @Published public var artist: Artist?
     /// The location associated with the event.
@@ -118,11 +120,17 @@ public class Event: ObservableObject, Hashable, Identifiable {
         let object_start = Date(timeIntervalSince1970: Double(object_start_int))
         let object_end = Date(timeIntervalSince1970: Double(object_end_int))
         
+        var object_image: ImageRef? = nil
         var object_artist: Artist? = nil
         var object_location: Location? = nil
         
         if let includes = objectDict["include"] as? [String: Any] {
             
+            if let images = includes["image"] as? [Any] {
+                if let imageDict = images.first {
+                    object_image = ImageRef(with: imageDict)
+                }
+            }
             if let artists = includes["artist"] as? [Any] {
                 if let artistDict = artists.first {
                     object_artist = Artist.init(with: artistDict)
@@ -135,9 +143,9 @@ public class Event: ObservableObject, Hashable, Identifiable {
             }
         }
         
-        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, artist: object_artist, location: object_location)
+        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, image: object_image, artist: object_artist, location: object_location)
     }
-
+    
     /// Initializes an event with the given values.
     /// - Parameters:
     ///   - objectID: The objectID of the event. *Only applicable to events that come from the webservice. Locally created events do not have a distinct objectID.*
@@ -149,18 +157,19 @@ public class Event: ObservableObject, Hashable, Identifiable {
     ///   - type: The type of the event.
     ///   - artist: The artist of the event.
     ///   - location: The location of the event.
-    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, artist: Artist? = nil, location: Location? = nil) {
-            
-            self.objectID = objectID
-            self.version = version
-            self.name = name
-            self.start = start
-            self.end = end
-            self.description = description
-            self.type = type
-            
-            self.artist = artist
-            self.location = location
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, image: ImageRef? = nil, artist: Artist? = nil, location: Location? = nil) {
+        
+        self.objectID = objectID
+        self.version = version
+        self.name = name
+        self.start = start
+        self.end = end
+        self.description = description
+        self.type = type
+        
+        self.image = image
+        self.artist = artist
+        self.location = location
     }
     
     /// Creates events from an array of event dicts.
@@ -235,7 +244,7 @@ public class EventHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func events(with objectIDs: [Int]? = nil, completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
         
-        self.webservice.fetch("event", with: objectIDs, including: ["artist", "location"]) { (objects, err) -> (Void) in
+        self.webservice.fetch("event", with: objectIDs, including: ["image", "artist", "location"]) { (objects, err) in
             
             guard let objects = objects else {
                 completion(nil, err)
@@ -281,7 +290,7 @@ public class EventHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func create(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
-        self.webservice.create("event", with: event.JSON()) { (object, error) -> (Void) in
+        self.webservice.create("event", with: event.JSON()) { (object, error) in
             
             guard let object = object as? [String: Any] else {
                 completion(nil, error)
@@ -303,7 +312,7 @@ public class EventHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func update(event: Event, completion: @escaping (_ event: Event?, _ error: Error?) -> (Void)) {
         
-        self.webservice.update("event", with: event.objectID, and: event.JSON()) { (object, error) -> (Void) in
+        self.webservice.update("event", with: event.objectID, and: event.JSON()) { (object, error) in
             
             guard let object = object as? [String: Any] else {
                 completion(nil, error)
@@ -325,7 +334,65 @@ public class EventHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func delete(event: Event, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
         
-        self.webservice.delete("event", with: event.objectID) { (success, error) -> (Void) in
+        self.webservice.delete("event", with: event.objectID) { (success, error) in
+            
+            completion(success, error)
+        }
+    }
+    
+    // MARK: Manage images
+    
+    /// Fetches the image for the given event.
+    /// - Parameters:
+    ///     - eventID: The ID of the event you want to fetch the image for.
+    ///     - completion: The result closure will be called when the request is done.
+    ///     - image: The fetched image.
+    ///     - error: If the request failed the error can provide more information about the failure reason.
+    public func image(for eventID: Int, completion: @escaping (_ image: ImageRef?, _ error: Error?) -> (Void)) {
+        
+        self.webservice.fetchResource("image", for: "event", with: eventID) { (resources, error) in
+            
+            guard let resources = resources else {
+                completion(nil, error)
+                return
+            }
+            guard let images = ImageRef.imageRefs(from: resources) else {
+                completion(nil, APIError.parsingFailed)
+                return
+            }
+            guard let image = images.first else {
+                completion(nil, APIError.recordDoesNotExist)
+                return
+            }
+            completion(image, nil)
+        }
+    }
+    
+    /// Associates the image with the given event.
+    /// - Parameters:
+    ///     - imageID: The ID of the image you want to set.
+    ///     - eventID: The ID of the event you want to set the image for.
+    ///     - completion: The result closure will be called when the request is done.
+    ///     - success: Boolean value indicating if the set operation was successfull.
+    ///     - error: If the request failed the error can provide more information about the failure reason.
+    public func set(imageID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+        
+        self.webservice.setResource("image", with: imageID, for: "event", with: eventID) { success, error in
+            
+            completion(success, error)
+        }
+    }
+    
+    /// Removes the association between the image with the given ID and the event with the given ID.
+    /// - Parameters:
+    ///     - imageID: The ID of the image for which you want to remove the association.
+    ///     - eventID: The ID of the event for which you want to remove the association.
+    ///     - completion: The result closure will be called when the request is done.
+    ///     - success: Boolean value indicating if the remove operation was successfull.
+    ///     - error: If the request failed the error can provide more information about the failure reason.
+    public func remove(imageID: Int, for eventID: Int, completion: @escaping (_ success: Bool, _ error: Error?) -> (Void)) {
+        
+        self.webservice.removeResource("image", with: imageID, for: "event", with: eventID) { success, error in
             
             completion(success, error)
         }
@@ -342,7 +409,7 @@ public class EventHandler {
     public func artist(for eventID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image", "link", "tag"]
-        self.webservice.fetchResource("artist", for: "event", with: eventID, including: includeVals) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("artist", for: "event", with: eventID, including: includeVals) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
@@ -401,7 +468,7 @@ public class EventHandler {
     public func location(for eventID: Int, completion: @escaping (_ location: Location?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image", "link", "place"]
-        self.webservice.fetchResource("location", for: "event", with: eventID, including: includeVals) { (resources, error) -> (Void) in
+        self.webservice.fetchResource("location", for: "event", with: eventID, including: includeVals) { (resources, error) in
             
             guard let resources = resources else {
                 completion(nil, error)
