@@ -72,11 +72,11 @@ public struct ImageRef: Codable, Hashable, Identifiable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
-        hasher.combine(hashValue)
+        hasher.combine(hash)
     }
     
     public static func == (lhs: ImageRef, rhs: ImageRef) -> Bool {
-        return lhs.objectID == rhs.objectID && lhs.hashValue == rhs.hashValue
+        return lhs.hashValue == rhs.hashValue
     }
     
     public var id: Int {
