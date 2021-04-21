@@ -173,12 +173,12 @@ class ArtistHandlerTests: XCTestCase {
         self.handler.set(linkID: 2, for: 2) { (setSuccessfully, error) in
             
             didSetLink = setSuccessfully
-     
+            
             self.handler.remove(linkID: 2, for: 2) { (removedSuccessfully, error) in
                 
                 didRemoveLink = removedSuccessfully
                 
-                 expectation.fulfill()
+                expectation.fulfill()
             }
         }
         
@@ -211,16 +211,16 @@ class ArtistHandlerTests: XCTestCase {
         var didRemoveTag: Bool = false
         
         self.handler.set(tagID: 2, for: 2) { (setSuccessfully, error) in
-              
-              didSetTag = setSuccessfully
-        
-              self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) in
-                  
-                  didRemoveTag = removedSuccessfully
-                  
-                   expectation.fulfill()
-              }
-          }
+            
+            didSetTag = setSuccessfully
+            
+            self.handler.remove(tagID: 2, for: 2) { (removedSuccessfully, error) in
+                
+                didRemoveTag = removedSuccessfully
+                
+                expectation.fulfill()
+            }
+        }
         waitForExpectations(timeout: 15, handler: nil)
         XCTAssert(didSetTag, "Set tag successfull")
         XCTAssert(didRemoveTag, "Remove tag successfull")
@@ -250,16 +250,16 @@ class ArtistHandlerTests: XCTestCase {
         var didRemoveTag: Bool = false
         
         self.handler.set(imageID: 2, for: 2) { (setSuccessfully, error) in
-              
-              didSetTag = setSuccessfully
-        
-              self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
-                  
-                  didRemoveTag = removedSuccessfully
-                  
-                   expectation.fulfill()
-              }
-          }
+            
+            didSetTag = setSuccessfully
+            
+            self.handler.remove(imageID: 2, for: 2) { (removedSuccessfully, error) in
+                
+                didRemoveTag = removedSuccessfully
+                
+                expectation.fulfill()
+            }
+        }
         waitForExpectations(timeout: 15, handler: nil)
         XCTAssert(didSetTag, "Set image successfull")
         XCTAssert(didRemoveTag, "Remove image successfull")
