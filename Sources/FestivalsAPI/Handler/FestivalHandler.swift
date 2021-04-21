@@ -173,11 +173,12 @@ public class Festival: ObservableObject, Hashable, Identifiable {
     }
     
     public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectID)
         hasher.combine(name)
     }
     
     public static func == (lhs: Festival, rhs: Festival) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.hashValue == rhs.hashValue
     }
     
     public var id: Int {
