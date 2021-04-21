@@ -61,10 +61,11 @@ public struct Tag: Codable, Hashable, Identifiable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectID)
+        hasher.combine(name)
     }
     
     public static func == (lhs: Tag, rhs: Tag) -> Bool {
-        return lhs.objectID == rhs.objectID
+        return lhs.hashValue == rhs.hashValue
     }
     
     public var id: Int {
