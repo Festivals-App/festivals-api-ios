@@ -352,7 +352,7 @@ public class FestivalHandler {
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func events(for festivalID: Int, with includes: Bool, completion: @escaping (_ events: [Event]?, _ error: Error?) -> (Void)) {
         
-        let includeVals = (includes) ? ["artist","location"] : []
+        let includeVals = (includes) ? ["image","artist","location"] : []
         self.webservice.fetchResource("events", for: "festival", with: festivalID, including: includeVals) { (resources, error) in
             
             guard let resources = resources else {
