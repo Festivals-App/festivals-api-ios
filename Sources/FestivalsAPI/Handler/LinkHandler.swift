@@ -14,7 +14,7 @@ import Foundation
 public enum LinkType: Int, Codable, CaseIterable, Identifiable {
     /// An unknown service.
     case unknown                    = -1
-    /// A website URL. Example: https://simonsapps.de/
+    /// A website URL. Example: https://festivalsapp.org/
     case websiteURL                 = 0
     /// An email address. Example: simon.cay.gaus@gmail.com
     case mail                       = 1
