@@ -63,7 +63,9 @@ public enum LinkType: Int, Codable, CaseIterable, Identifiable {
     /// A tiktook profile referer. Example: https://www.tiktok.com/**@rosalia**
     case tiktokProfileRef           = 23
     /// A Tripadvisor profile page URL. Example: https://www.tripadvisor.de/Restaurant_Review-g187323-d718338-Reviews-Schokoladen-Berlin.html).
-    case tripadvisorURL              = 24
+    case tripadvisorURL             = 24
+    /// A linkt to a festival plan. Example: https://files.festivalsapp.org/upload-053194861.pdf
+    case festivalPlanURL            = 25
     
     public var id: Int {
         return rawValue
@@ -124,6 +126,8 @@ public enum LinkType: Int, Codable, CaseIterable, Identifiable {
             return NSLocalizedString("TikTok Profile", bundle: .module, comment: "UI String - Identity string - Link Type")
         case .tripadvisorURL:
             return NSLocalizedString("Tripadvisor", bundle: .module, comment: "UI String - Identity string - Link Type")
+        case .festivalPlanURL:
+            return NSLocalizedString("Festival-Plan", bundle: .module, comment: "UI String - Identity string - Link Type")
         }
     }
 }
