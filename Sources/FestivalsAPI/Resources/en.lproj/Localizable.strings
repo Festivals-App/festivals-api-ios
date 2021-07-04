@@ -22,6 +22,9 @@
 /* UI String - Identity string - Link Type */
 "Facebook Profile" = "Facebook Profile";
 
+/* UI String - Identity string - Link Type */
+"Festival-Plan" = "Festival plan";
+
 /* UI String - Identity string - The event represents a food store/restaurant. */
 "Food" = "Food";
 
@@ -111,6 +114,3 @@
 
 /* UI String - Identity string - Link Type */
 "Youtube Video" = "Youtube Video";
-
-/* UI String - Identity string - Link Type */
-"Festival-Plan" = "Festival plan";

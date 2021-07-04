@@ -97,6 +97,8 @@ public class Event: ObservableObject, Hashable, Identifiable {
     @Published public var image: ImageRef?
     /// The artist associated with the event.
     @Published public var artist: Artist?
+    /// The artists associated with the event.
+    @Published public var artists: [Artist]
     /// The location associated with the event.
     @Published public var location: Location?
     
@@ -121,7 +123,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
         let object_end = Date(timeIntervalSince1970: Double(object_end_int))
         
         var object_image: ImageRef? = nil
-        var object_artist: Artist? = nil
+        var object_artists: [Artist] = []
         var object_location: Location? = nil
         
         if let includes = objectDict["include"] as? [String: Any] {
@@ -132,9 +134,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
                 }
             }
             if let artists = includes["artist"] as? [Any] {
-                if let artistDict = artists.first {
-                    object_artist = Artist.init(with: artistDict)
-                }
+                object_artists = artists.compactMap { Artist.init(with: $0) }
             }
             if let locations = includes["location"] as? [Any] {
                 if let locationDict = locations.first {
@@ -143,7 +143,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
             }
         }
         
-        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, image: object_image, artist: object_artist, location: object_location)
+        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, image: object_image, artists: object_artists, location: object_location)
     }
     
     /// Initializes an event with the given values.
@@ -155,9 +155,9 @@ public class Event: ObservableObject, Hashable, Identifiable {
     ///   - end: The end of the event.
     ///   - description: The description of the event.
     ///   - type: The type of the event.
-    ///   - artist: The artist of the event.
+    ///   - artists: The artists of the event.
     ///   - location: The location of the event.
-    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, image: ImageRef? = nil, artist: Artist? = nil, location: Location? = nil) {
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, image: ImageRef? = nil, artists: [Artist] = [], location: Location? = nil) {
         
         self.objectID = objectID
         self.version = version
@@ -168,7 +168,8 @@ public class Event: ObservableObject, Hashable, Identifiable {
         self.type = type
         
         self.image = image
-        self.artist = artist
+        self.artist = artists.first
+        self.artists = artists
         self.location = location
     }
     
