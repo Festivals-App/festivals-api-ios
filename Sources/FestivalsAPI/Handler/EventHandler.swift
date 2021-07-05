@@ -407,7 +407,7 @@ public class EventHandler {
     ///     - completion: The result closure will be called when the request is done.
     ///     - artist: The fetched artist.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    public func artist(for eventID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+    public func artists(for eventID: Int, completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
         
         let includeVals = ["image", "link", "tag"]
         self.webservice.fetchResource("artist", for: "event", with: eventID, including: includeVals) { (resources, error) in
@@ -420,11 +420,28 @@ public class EventHandler {
                 completion(nil, APIError.parsingFailed)
                 return
             }
-            guard let artist = artists.first else {
+            guard artists.count > 0 else {
                 completion(nil, APIError.recordDoesNotExist)
                 return
             }
-            completion(artist, nil)
+            completion(artists, nil)
+        }
+    }
+    
+    /// Fetches the artist for the given event.
+    /// - Parameters:
+    ///     - eventID: The ID of the event you want to fetch the artist for.
+    ///     - completion: The result closure will be called when the request is done.
+    ///     - artist: The fetched artist.
+    ///     - error: If the request failed the error can provide more information about the failure reason.
+    public func artist(for eventID: Int, completion: @escaping (_ artist: Artist?, _ error: Error?) -> (Void)) {
+        
+        artists(for: eventID) { artists, err in
+            guard let artist = artists?.first else {
+                completion(nil, err)
+                return
+            }
+            return completion(artist, nil)
         }
     }
     
