@@ -37,6 +37,9 @@
 /* UI String - Identity string - Link Type */
 "Instagram Profile" = "Instagram Profile";
 
+/* UI String - Identity string - The event hosts a matinee. */
+"Matinee" = "Matinee";
+
 /* UI String - Identity string - The event is a movie screening. */
 "Movie" = "Movie";
 

@@ -37,6 +37,8 @@ public enum EventType: Int, Codable, CaseIterable, Identifiable {
     case radioPlay      = 10
     /// The event hosts a booth.
     case booth          = 11
+    /// The event hosts a matinee.
+    case matinee        = 12
     
     public var id: Int {
         return rawValue
@@ -69,6 +71,8 @@ public enum EventType: Int, Codable, CaseIterable, Identifiable {
             return NSLocalizedString("Radio play", bundle: .module, comment: "UI String - Identity string - The event hosts a radio play.")
         case .booth:
             return NSLocalizedString("Booth", bundle: .module, comment: "UI String - Identity string - The event hosts a booth.")
+        case .matinee:
+            return NSLocalizedString("Matinee", bundle: .module, comment: "UI String - Identity string - The event hosts a matinee.")
         }
     }
 }
