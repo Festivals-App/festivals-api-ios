@@ -118,7 +118,10 @@ public class Event: ObservableObject, Hashable, Identifiable {
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
         guard let object_description    = objectDict["event_description"] as? String else { return nil }
         guard let object_type           = objectDict["event_type"] as? Int else { return nil }
-        guard let eventType             = EventType(rawValue: object_type) else { return nil }
+        
+        let validEventType             = EventType(rawValue: object_type)
+        let eventType = validEventType != nil ? validEventType! : EventType.other
+        
         if object_start_int > object_end_int {
             print("Event (\(object_name) - \(object_id) start is before event end.")
             return nil
