@@ -3,10 +3,10 @@ FestivalsAPI client library for iOS
 </h1>
 
 <p align="center">
+    <a href="https://github.com/festivals-app/festivals-api-ios/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/festivals-app/festivals-api-ios?style=flat"></a>
+    <a href="https://github.com/festivals-app/festivals-api-ios/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/festivals-app/festivals-api-ios?style=flat"></a>
     <a href="https://github.com/Carthage/Carthage" title="License"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
-   <a href="https://github.com/festivals-app/festivals-api-ios/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/festivals-app/festivals-api-ios?style=flat"></a>
-   <a href="https://github.com/festivals-app/festivals-api-ios/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/festivals-app/festivals-api-ios?style=flat"></a>
-   <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/festivals-app/festivals-api-ios.svg"></a>
+    <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/festivals-app/festivals-api-ios.svg"></a>
 </p>
 
 <p align="center">
@@ -21,7 +21,8 @@ The framework is designed to make interacting with the Festivals API seamless an
 
 ## Development
 
-TBA
+
+![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
 
 ### Requirements
 

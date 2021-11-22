@@ -4,10 +4,11 @@ output: Documentation
 clean: true
 sdk: macosx
 author: Simon Gaus
-author_url: http://simonsapps.de
+author_url: https://festivalsapp.org
 module: FestivalsAPI
 github_url: https://github.com/Festivals-App/festivals-api-ios
 github_file_prefix: https://github.com/Festivals-App/festivals-api-ios/tree/master/
 skip_undocumented: false
 hide_documentation_coverage: false
 use_safe_filenames: true
+exclude: ExampleApp/*
