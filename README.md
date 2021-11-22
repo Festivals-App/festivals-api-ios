@@ -21,15 +21,39 @@ The framework is designed to make interacting with the Festivals API seamless an
 
 ## Development
 
+### Setup
+
+1. Install and setup Xcode 13.1 or higher
+2. Install jazzy
+   ```console
+   brew install jazzy
+   ```
+3. Install bartycrouch
+   ```console
+   brew install bartycrouch
+   ```
+   
+### Build
+    
+There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/blob/main/ExampleApp) for developing and testing which you can build using Xcode.
+    
+### Requirements
+
+-  iOS 13.0+
+-  Xcode 13.1+
+-  swift-tools-version:5.3+
+-  [jazzy](https://github.com/realm/jazzy) 0.13.6+ for building the documentation
+-  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.8.0+ for string localization
+
+### Architecture
+
+The FestivalsAPI client library is obviously tightly coupled with the [festivals-server](https://github.com/Festivals-App/festivals-server) which provides the implementation of the FestivalsAPI and is also coupled with the [festivals-identity-server](https://github.com/Festivals-App/festivals-identity-server) which provides means to authenticate and authorize against the FestivalsAPI. It is used by the [festivals-app-ios](https://github.com/Festivals-App/festivals-app-ios) and the [festivals-creator-app](https://github.com/Festivals-App/festivals-creator-app) and should be consumable by any of apples major device platforms.
+
+The client library is the optimal starting point to implement new festival behaviour. 
 
 ![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
 
-### Requirements
-
-- iOS 13.1+
-- Xcode 12.4.1+
-- swift-tools-version:5.3+
-- [jazzy](https://github.com/realm/jazzy) 0.13.6+ (for building the documentation)
+The full documentation for the FestivalsApp is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
 
 ## Usage
 
@@ -49,10 +73,6 @@ client.festivalHandler.all { (festivals, err) in
     // use festivals
 }
 ```
-
-### Documentation
-
-The full documentation for the Festivals App is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
 
 ## Installation
 
