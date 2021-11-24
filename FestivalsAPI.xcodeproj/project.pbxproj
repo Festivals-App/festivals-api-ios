@@ -93,6 +93,7 @@
 		4A45D5B824417D9800CF4E1B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandler.swift; sourceTree = "<group>"; };
 		4AC5145D2535153E00F24354 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4AC530A7274DC2FB008B803A /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ARCHITECTURE.md; sourceTree = "<group>"; };
 		4AC74024245D20A300679E39 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = "<group>"; };
 		4AC74026245D255D00679E39 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4AC74028245D258800679E39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -196,9 +197,10 @@
 				4A45D59D2441771100CF4E1B /* Sources */,
 				4A45D5A82441771100CF4E1B /* Tests */,
 				4A45D59C2441771100CF4E1B /* Products */,
+				4AC530A7274DC2FB008B803A /* ARCHITECTURE.md */,
+				4AC5145D2535153E00F24354 /* LICENSE */,
 				4AC74024245D20A300679E39 /* .jazzy.yaml */,
 				4A2ADD3C261E8B4A005B58C8 /* .bartycrouch.toml */,
-				4AC5145D2535153E00F24354 /* LICENSE */,
 				4AC74026245D255D00679E39 /* .gitignore */,
 			);
 			sourceTree = "<group>";

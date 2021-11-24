@@ -17,7 +17,7 @@ FestivalsAPI client library for iOS
   <a href="#licensing">Licensing</a>
 </p>
 
-The framework is designed to make interacting with the Festivals API seamless and efficient. Downloading festivals, artists and other objects to your app is all made easy with FestivalsAPI's components. 
+The library is designed to make interacting with the FestivalsAPI seamless and efficient. Downloading festivals, artists and other objects to your app is all made easy with its components.
 
 ## Development
 
@@ -45,19 +45,9 @@ There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/blob
 -  [jazzy](https://github.com/realm/jazzy) 0.13.6+ for building the documentation
 -  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.8.0+ for string localization
 
-### Architecture
-
-The FestivalsAPI client library is obviously tightly coupled with the [festivals-server](https://github.com/Festivals-App/festivals-server) which provides the implementation of the FestivalsAPI and is also coupled with the [festivals-identity-server](https://github.com/Festivals-App/festivals-identity-server) which provides means to authenticate and authorize against the FestivalsAPI. It is used by the [festivals-app-ios](https://github.com/Festivals-App/festivals-app-ios) and the [festivals-creator-app](https://github.com/Festivals-App/festivals-creator-app) and should be consumable by any of apples major device platforms.
-
-The client library is the optimal starting point to implement new festival behaviour. 
-
-![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
-
-The full documentation for the FestivalsApp is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
-
 ## Usage
 
-TBA
+To use the 
 
 ```swift
 // Create the handler
@@ -96,22 +86,26 @@ dependencies: [
 ]
 ```
 
-### Manually
+## Architecture
 
-If you prefer not to use Carthage, you can integrate FestivalsAPI into your project manually.
-You only need to build and add the FestivalsAPI framework (FestivalsAPI.framework) to your project. 
+![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
+
+The FestivalsAPI client library is tightly coupled with the [festivals-server](https://github.com/Festivals-App/festivals-server) which provides the implementation of the FestivalsAPI and is also coupled with the [festivals-identity-server](https://github.com/Festivals-App/festivals-identity-server) which provides means to authenticate and authorize against the FestivalsAPI. It is used by the [festivals-app-ios](https://github.com/Festivals-App/festivals-app-ios) and the [festivals-creator-app](https://github.com/Festivals-App/festivals-creator-app) and should be consumable by any of apples major device platforms. To find out more about architecture and technical information see the [ARCHITECTURE](./ARCHITECTURE.md) document.
+
+The client library is the optimal starting point to implement new festival behaviour.
+
+The full documentation for the FestivalsApp is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
 
 ## Engage
 
-TBA
+I welcome every contribution, whether it is a pull request or a fixed typo. The best place to discuss questions and suggestions regarding the FestivalsAPI iOS client library is the projects [issues](https://github.com/Festivals-App/festivals-api-ios/issues) section. More general information and a good starting point if you want to get involved is the [festival-documentation](https://github.com/Festivals-App/festivals-documentation) repository.
 
 The following channels are available for discussions, feedback, and support requests:
 
 | Type                     | Channel                                                |
 | ------------------------ | ------------------------------------------------------ |
 | **General Discussion**   | <a href="https://github.com/festivals-app/festivals-documentation/issues/new/choose" title="General Discussion"><img src="https://img.shields.io/github/issues/festivals-app/festivals-documentation/question.svg?style=flat-square"></a> </a>   |
-| **Concept Feedback**    | <a href="https://github.com/festivals-app/festivals-documentation/issues/new/choose" title="Open Concept Feedback"><img src="https://img.shields.io/github/issues/festivals-app/festivals-documentation/architecture.svg?style=flat-square"></a>  |
-| **Other Requests**    | <a href="mailto:phisto05@gmail.com" title="Email Festivals Team"><img src="https://img.shields.io/badge/email-Festivals%20team-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
+| **Other Requests**    | <a href="mailto:simon.cay.gaus@gmail.com" title="Email me"><img src="https://img.shields.io/badge/email-Simon-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
 
 ## Licensing
 
