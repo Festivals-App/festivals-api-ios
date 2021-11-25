@@ -21,7 +21,7 @@ With this library, you can retrieve FestivalsAPI objects, such as festivals and 
 
 ## Overview
 
-To use this library, create an `FestivalsClient` object by calling the `init(apiKey:apiVersion:baseURL:)` function. The client object provides you with a handler for each object type provided by the FestivalsAPI, through which you can fetch, create and delete those objects.
+The library consists of the `FestivalsClient` class, the handler classes and their corresponding objects. 
 
 * **Objects**: Festival, Event, Artist, Location, ImageRef, Link, Place, Tag
 
@@ -55,7 +55,7 @@ There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/blob
 
 ## Usage
 
-To use the 
+To use this library, create an `FestivalsClient` object by calling the `init(apiKey:apiVersion:baseURL:)` function. The client object provides you with a handler for each object type provided by the FestivalsAPI, through which you can fetch, create and delete those objects.
 
 ```swift
 // Create the handler
