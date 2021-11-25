@@ -43,8 +43,12 @@ The library consists of the `FestivalsClient` class, the handler classes and the
    
 ### Build
     
-There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/blob/main/ExampleApp) for developing and testing which you can build using Xcode.
+There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree/master/ExampleApp) for developing and testing which you can build using Xcode.
     
+### Testing
+
+TBA
+
 ### Requirements
 
 -  iOS 13.0+
