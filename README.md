@@ -17,7 +17,15 @@ FestivalsAPI client library for iOS
   <a href="#licensing">Licensing</a>
 </p>
 
-The library is designed to make interacting with the FestivalsAPI seamless and efficient. Downloading festivals, artists and other objects to your app is all made easy with its components.
+With this library, you can retrieve FestivalsAPI objects, such as festivals and artists.
+
+## Overview
+
+To use this library, create an `FestivalsClient` object by calling the `init(apiKey:apiVersion:baseURL:)` function. The client object provides you with a handler for each object type provided by the FestivalsAPI, through which you can fetch, create and delete those objects.
+
+* **Objects**: Festival, Event, Artist, Location, ImageRef, Link, Place, Tag
+
+* **Handler**: FestivalHandler, EventHandler, ArtistHandler, LocationHandler, ImageRefHandler, LinkHandler, PlaceHandler and TagHandler
 
 ## Development
 
