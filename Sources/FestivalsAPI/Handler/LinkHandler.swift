@@ -214,7 +214,7 @@ public struct Link: Codable, Hashable, Identifiable {
 public class LinkHandler {
     
     /// The webservice to make requests to.
-    var webservice: Webservice
+    private let webservice: Webservice
     
     // MARK: Initialization
     

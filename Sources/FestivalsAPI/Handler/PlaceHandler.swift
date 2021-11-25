@@ -127,7 +127,7 @@ public struct Place: Codable, Hashable, Identifiable {
 public class PlaceHandler {
     
     /// The webservice to make requests to.
-    var webservice: Webservice
+    private let webservice: Webservice
     
     // MARK: Initialization
     

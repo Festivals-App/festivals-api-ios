@@ -90,7 +90,7 @@ public struct ImageRef: Codable, Hashable, Identifiable {
 public class ImageRefHandler {
     
     /// The webservice to make requests to.
-    var webservice: Webservice
+    private let webservice: Webservice
     
     /// Initilizes the handler object.
     /// - Parameter webservice: The webservice object for makeing calls to the FestivalsAPI web service.

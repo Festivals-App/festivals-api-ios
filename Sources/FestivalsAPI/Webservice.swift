@@ -42,13 +42,13 @@ enum HTTPContentType: String {
 class Webservice: NSObject {
     
     /// The base url to send the requests to .
-    var baseURL: URL
+    private let baseURL: URL
     /// The session to use for requests.
-    var session: URLSession
+    private let session: URLSession
     /// The version of the web api to use.
-    var apiVersion: String
+    private let apiVersion: String
     /// The timeout for making requests.
-    var requestTimeout = 60.0
+    private let requestTimeout: Double
     
     // MARK: Initialization
     
@@ -57,13 +57,14 @@ class Webservice: NSObject {
     ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, apiKey: String, apiVersion: APIVersion) {
+    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 60.0) {
         
         self.baseURL = baseURL
-        //session.configuration.httpAdditionalHeaders = ["Api-Key": apiKey]
+        self.requestTimeout = requestTimeout
+        
         let config = URLSessionConfiguration.ephemeral
         config.httpAdditionalHeaders = ["Api-Key": apiKey]
-        self.session = URLSession.init(configuration: config)
+        self.session = URLSession(configuration: config)
         self.apiVersion = apiVersion.rawValue
     }
     

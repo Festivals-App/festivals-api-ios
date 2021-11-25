@@ -53,21 +53,21 @@ To ease code organisation and structuring the FestivalsAPI framework is split in
 public class FestivalsClient {
     
     /// The object handler to access festival objects.
-    public lazy var festivalHandler = FestivalHandler.init(with: self.webservice)
+    public lazy var festivalHandler = FestivalHandler(with: self.webservice)
     /// The object handler to access artist objects.
-    public lazy var artistHandler = ArtistHandler.init(with: self.webservice)
+    public lazy var artistHandler = ArtistHandler(with: self.webservice)
     /// The object handler to access location objects.
-    public lazy var locationHandler = LocationHandler.init(with: self.webservice)
+    public lazy var locationHandler = LocationHandler(with: self.webservice)
     /// The object handler to access event objects.
-    public lazy var eventHandler = EventHandler.init(with: self.webservice)
+    public lazy var eventHandler = EventHandler(with: self.webservice)
     /// The object handler to access image objects.
-    public lazy var imageHandler = ImageRefHandler.init(with: self.webservice)
+    public lazy var imageHandler = ImageRefHandler(with: self.webservice)
     /// The object handler to access tag objects.
-    public lazy var tagHandler = TagHandler.init(with: self.webservice)
+    public lazy var tagHandler = TagHandler(with: self.webservice)
     /// The object handler to access place objects.
-    public lazy var placeHandler = PlaceHandler.init(with: self.webservice)
+    public lazy var placeHandler = PlaceHandler(with: self.webservice)
     /// The object handler to access link objects.
-    public lazy var linkHandler = LinkHandler.init(with: self.webservice)
+    public lazy var linkHandler = LinkHandler(with: self.webservice)
     
     /// The webservice to use.
     private var webservice: Webservice
@@ -79,6 +79,6 @@ public class FestivalsClient {
     ///     - baseURL: The base URL used for making request.
     public init(apiKey: String, apiVersion: APIVersion, baseURL: URL) {
         
-        self.webservice =  Webservice.init(baseURL: baseURL, apiKey: apiKey, apiVersion: .v0_1)
+        self.webservice =  Webservice(baseURL: baseURL, apiKey: apiKey, apiVersion: .v0_1)
     }
 }
