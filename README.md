@@ -17,11 +17,11 @@ FestivalsAPI client library for iOS
   <a href="#licensing">Licensing</a>
 </p>
 
-With this library, you can retrieve FestivalsAPI objects, such as festivals and artists.
+With this library, you can retrieve and edit FestivalsAPI objects, such as festivals and artists.
 
 ## Overview
 
-The library consists of the `FestivalsClient` class, the handler classes and their corresponding objects. 
+The library consists of the `FestivalsClient` class, the handler classes and their corresponding objects.
 
 * **Objects**: Festival, Event, Artist, Location, ImageRef, Link, Place, Tag
 
@@ -47,7 +47,7 @@ There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree
     
 ### Testing
 
-TBA
+The unit tests are implemented via the XCTest framework and can be run using Xcode. To run the tests successfully you need to provide a valid address to a testable FestivalsAPI instance in the Info.plist under the `FestivalsAPI_URL` key. To setup the FestivalsAPI see the [festivlas-server](https://github.com/Festivals-App/festivals-server) repository.
 
 ### Requirements
 
