@@ -47,7 +47,9 @@ There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree
     
 ### Testing
 
-The unit tests are implemented via the XCTest framework and can be run using Xcode. To run the tests successfully you need to provide a valid address to a testable FestivalsAPI instance in the Info.plist under the `FestivalsAPI_URL` key. To setup the FestivalsAPI see the [festivlas-server](https://github.com/Festivals-App/festivals-server) repository.
+The unit tests are implemented via the XCTest framework and can be run using Xcode. To run the tests successfully you need to provide a valid address to a testable FestivalsAPI instance in the Info.plist under the `FestivalsAPI_URL` key. To setup the FestivalsAPI see the [festivals-server](https://github.com/Festivals-App/festivals-server) repository.
+
+At the moment the tests are run manually, there are plans to automate the tests as soon as it is decided on the automation/CI which should be used. 
 
 ### Requirements
 
