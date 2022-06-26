@@ -40,7 +40,7 @@ public class Festival: ObservableObject, Hashable, Identifiable {
     @Published public var tags: [Tag]?
     /// The events associated with the festival.
     @Published public var events: [Event]?
-
+    
     /// Initializes a festival with the given json data.
     /// - Parameter jsonData: The festival dict encoded as json data.
     public convenience init?(resolving jsonData: Data) {
@@ -68,13 +68,13 @@ public class Festival: ObservableObject, Hashable, Identifiable {
         }
         let object_start = Date(timeIntervalSince1970: Double(object_start_int))
         let object_end = Date(timeIntervalSince1970: Double(object_end_int))
-
+        
         var object_image: ImageRef? = nil
         var object_links: [Link]? = nil
         var object_place: Place? = nil
         var object_tags: [Tag]? = nil
         var object_events: [Event]? = nil
-     
+        
         if let includes = objectDict["include"] as? [String: Any] {
             
             if let images = includes["image"] as? [Any] {
@@ -193,6 +193,8 @@ public class FestivalHandler {
     
     /// The webservice to make requests to.
     private let webservice: Webservice
+    // The cache for festivals
+    private let cache = Cache<Festival.ID, Festival>()
     
     /// Initilizes the handler object.
     /// - Parameter  webservice: The webservice object for makeing calls to the FestivalsAPI web service.
@@ -221,7 +223,17 @@ public class FestivalHandler {
     ///     - completion: The completion will be called when the loading is done.
     ///     - festivals: The fetched festivals.
     ///     - error: If the request failed the error can provide more information about the failure reason.
-    public func festivals(with objectIDs: [Int]? = nil, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void)) {
+    public func festivals(with objectIDs: [Int]? = nil, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void), _ useCache: Bool = true ) {
+        
+        if useCache {
+            if let objectIDs = objectIDs {
+                let cachedFestivals = objectIDs.compactMap({ cache.value(forKey:$0 ) })
+                if objectIDs.allSatisfy({ cachedFestivals.map { $0.id }.contains($0) }) {
+                    completion(cachedFestivals, nil)
+                    return
+                }
+            }
+        }
         
         self.webservice.fetch("festival", with: objectIDs, including: ["image", "link", "place", "tag"]) { (objects, error) in
             
@@ -233,6 +245,7 @@ public class FestivalHandler {
                 completion(nil, APIError.parsingFailed)
                 return
             }
+            
             completion(festivals, nil)
         }
     }
@@ -359,7 +372,7 @@ public class FestivalHandler {
                 completion(nil, error)
                 return
             }
-        
+            
             guard let events = Event.events(from: resources) else {
                 completion(nil, APIError.parsingFailed)
                 return

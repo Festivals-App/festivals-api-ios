@@ -17,7 +17,7 @@ final class Cache<Key: Hashable, Value> {
     
     init(dateProvider: @escaping () -> Date = Date.init,
          entryLifetime: TimeInterval = 12 * 60 * 60,
-         maximumEntryCount: Int = 1000) {
+         maximumEntryCount: Int = 0) {
         self.dateProvider = dateProvider
         self.entryLifetime = entryLifetime
         wrapped.countLimit = maximumEntryCount

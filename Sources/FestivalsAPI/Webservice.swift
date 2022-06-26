@@ -36,6 +36,12 @@ enum HTTPContentType: String {
     case ContentTypeJSON = "application/json"
 }
 
+/*
+enum CacheMode {
+    case cachedOrUncached, onlyUncached, onlyCached
+}
+*/
+
 // MARK: Implementation
 
 /// This class is responsible for consuming the FestivalsAPI web service's REST API and provides methodes for all available API requests.
@@ -49,6 +55,8 @@ class Webservice: NSObject {
     private let apiVersion: String
     /// The timeout for making requests.
     private let requestTimeout: Double
+    // The request cache
+    private let cache = RequestCache()
     
     // MARK: Initialization
     
@@ -270,32 +278,77 @@ class Webservice: NSObject {
     ///     - result: The result closure will be called when the request is done.
     ///     - data: The data object if the request was successful.
     ///     - error: The error if the request failed.
-    func perfrom(_ request: URLRequest, result: @escaping (_ data: [Any]?, _ error: Error?) -> (Void)) {
+    func perfrom(_ request: URLRequest, _ usingCache: Bool = true, result: @escaping (_ data: [Any]?, _ error: Error?) -> (Void)) {
+        
+        if usingCache, request.httpMethod == HTTPMethode.GET.rawValue, let key = request.url?.absoluteString {
+            if let cachedData = cache.fetch(.hot, valueFor: key) {
+                DispatchQueue.main.async {
+                    // retrieve data array if possible
+                    guard let dataArray = self.dataArrayFrom(cachedData) else {
+                        // perform request without cache
+                        self.perfrom(request, false) { data, error in
+                            result(data, error)
+                        }
+                        return
+                    }
+                    result(dataArray, nil)
+                }
+                return
+            }
+        }
         
         self.session.dataTask(with: request) { (data, response, err) in
            
             DispatchQueue.main.async {
                 // no response is bad
-                guard  let _ = response as? HTTPURLResponse else{
+                guard  let _ = response as? HTTPURLResponse else {
                     result(nil, APIError.requestFailed)
+                    if usingCache { self.cached(request: request) { data, error in result(data, error) } }
+                    else { result(nil, APIError.requestFailed) }
                     return
                 }
+                
                 // no data is bad, as the FestivalsAPI service always returns data
                 guard let jsonData = data else {
-                    if let err = err {
-                        print(err)
-                    }
-                    result(nil, APIError.requestFailed)
+                    #warning("IMPLEMENT errror handling please throw/error??")
+                    if let err = err { print(err) }
+                    if usingCache { self.cached(request: request) { data, error in result(data, error) } }
+                    else { result(nil, APIError.requestFailed) }
                     return
                 }
+                
                 // retrieve data array if possible
                 guard let dataArray = self.dataArrayFrom(jsonData) else {
                     result(nil, APIError.serviceError)
                     return
                 }
+                // save response data to cache
+                if let requestURL = request.url?.absoluteString {
+                    self.cache.insert(jsonData, forKey: requestURL)
+                }
+                
                 result(dataArray, nil)
             }
         }.resume()
+    }
+    
+    func cached(request: URLRequest, result: @escaping (_ data: [Any]?, _ error: Error?) -> (Void)) {
+        
+        if request.httpMethod == HTTPMethode.GET.rawValue, let key = request.url?.absoluteString {
+            if let cachedData = cache.fetch(.cold, valueFor: key) {
+                DispatchQueue.main.async {
+                    // retrieve data array if possible
+                    guard let dataArray = self.dataArrayFrom(cachedData) else {
+                        result(nil, APIError.unknownError)
+                        self.cache.removeValue(forKey: key)
+                        return
+                    }
+                    result(dataArray, nil)
+                }
+                return
+            }
+        }
+        result(nil, APIError.unknownError)
     }
     
     // MARK: Result Parsing
