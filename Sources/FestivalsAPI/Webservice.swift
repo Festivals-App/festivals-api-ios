@@ -281,10 +281,11 @@ class Webservice: NSObject {
     func perfrom(_ request: URLRequest, _ usingCache: Bool = true, result: @escaping (_ data: [Any]?, _ error: Error?) -> (Void)) {
         
         if usingCache, request.httpMethod == HTTPMethode.GET.rawValue, let key = request.url?.absoluteString {
-            if let cachedData = cache.fetch(.hot, valueFor: key) {
+            if let cachedData = cache[key, .hot] {
                 DispatchQueue.main.async {
-                    // retrieve data array if possible
                     guard let dataArray = self.dataArrayFrom(cachedData) else {
+                        // delete cached data as it failed to resolve to array
+                        self.cache[key] = nil
                         // perform request without cache
                         self.perfrom(request, false) { data, error in
                             result(data, error)
@@ -324,7 +325,7 @@ class Webservice: NSObject {
                 }
                 // save response data to cache
                 if let requestURL = request.url?.absoluteString {
-                    self.cache.insert(jsonData, forKey: requestURL)
+                    self.cache[requestURL] = jsonData
                 }
                 
                 result(dataArray, nil)
@@ -335,7 +336,7 @@ class Webservice: NSObject {
     func cached(request: URLRequest, result: @escaping (_ data: [Any]?, _ error: Error?) -> (Void)) {
         
         if request.httpMethod == HTTPMethode.GET.rawValue, let key = request.url?.absoluteString {
-            if let cachedData = cache.fetch(.cold, valueFor: key) {
+            if let cachedData = cache[key, .cold] {
                 DispatchQueue.main.async {
                     // retrieve data array if possible
                     guard let dataArray = self.dataArrayFrom(cachedData) else {
