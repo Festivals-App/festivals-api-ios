@@ -8,6 +8,9 @@
 
 import Foundation
 
+fileprivate let MINUTE = TimeInterval(60)
+fileprivate let HOUR = TimeInterval(MINUTE*60)
+
 final class RequestCache {
         
     private let dateProvider: () -> Date
@@ -17,9 +20,9 @@ final class RequestCache {
     private let cache = NSCache<NSString, NSData>()
     
     init(dateProvider: @escaping () -> Date = Date.init,
-         hotCacheLifetime: TimeInterval = 10 * 60, // 10 minutes
-         coldCacheLifetime: TimeInterval = 60 * 60 * 24 * 7 // 7 days
-    ) {
+         hotCacheLifetime: TimeInterval = MINUTE * 10,
+         coldCacheLifetime: TimeInterval = HOUR * 24 * 7) {
+        
         self.dateProvider = dateProvider
         self.hotCacheLifetime = hotCacheLifetime
         self.coldCacheLifetime = coldCacheLifetime
@@ -50,4 +53,21 @@ final class RequestCache {
 extension RequestCache {
     
     enum RequestCacheType { case hot, cold }
+}
+
+extension RequestCache {
+    
+    subscript(key: String, cacheType: RequestCacheType = .hot) -> Data? {
+        get { return self.fetch(cacheType, valueFor: key) }
+        set {
+            guard let value = newValue else {
+                // If nil was assigned using our subscript,
+                // then we remove any value for that key:
+                self.removeValue(forKey: key)
+                return
+            }
+            
+            self.insert(value, forKey: key)
+        }
+    }
 }
