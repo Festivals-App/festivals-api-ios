@@ -285,7 +285,14 @@ class EventHandlerTests: XCTestCase {
     func testEventTypeLocalization() throws {
         
         print("EventType.music.localizedName: \(EventType.music.localizedName)")
-        XCTAssertTrue(EventType.music.localizedName == "Musik", "The localized name for the music event type is wrong.")
+         
+        if NSLocale.current.languageCode == "de" {
+            XCTAssertTrue(EventType.music.localizedName == "Musik", "The localized name for the music event type is wrong.")
+        }
+        else {
+            XCTAssertTrue(EventType.music.localizedName == "Music", "The localized name for the music event type is wrong.")
+        }
+    
     }
 }
 
