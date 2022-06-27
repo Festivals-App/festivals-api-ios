@@ -20,6 +20,7 @@ final class RequestCache {
     private let cache = NSCache<NSString, Entry>()
     
     private let fileManager = FileManager.default
+    private let ioQueue: DispatchQueue
     
     init(dateProvider: @escaping () -> Date = Date.init,
          hotCacheLifetime: TimeInterval = MINUTE * 10,
@@ -28,6 +29,8 @@ final class RequestCache {
         self.dateProvider = dateProvider
         self.hotCacheLifetime = hotCacheLifetime
         self.coldCacheLifetime = coldCacheLifetime
+        let ioQueueName = "de.simonsserver.FestivalsAPI.RequestCache.ioQueue.\(UUID().uuidString)"
+        self.ioQueue = DispatchQueue(label: ioQueueName)
     }
     
     func fetch(_ cacheType: RequestCacheType, valueFor key: String) -> Data? {
@@ -66,19 +69,46 @@ final class RequestCache {
         let entry = Entry(key: key, value: value, expirationDate: hotExpiration)
         cache.setObject(entry, forKey: key as NSString)
         
-        DispatchQueue.main.async {
-            try? self.fileManager.createDirectory(at: self.fileManager.cacheDirectoryURL(), withIntermediateDirectories: true)
-            let fileURL = self.fileManager.cacheFileURL(for: key)
+        try? self.fileManager.createDirectory(at: self.fileManager.cacheDirectoryURL(), withIntermediateDirectories: true)
+        let fileURL = self.fileManager.cacheFileURL(for: key)
+        ioQueue.async {
             try? value.write(to: fileURL, options: .noFileProtection)
-            print("did write cache file to \(fileURL)")
         }
     }
     
     func removeValue(forKey key: String) {
         cache.removeObject(forKey: key as NSString)
-        DispatchQueue.main.async {
-            let fileURL = self.fileManager.cacheFileURL(for: key)
+        let fileURL = self.fileManager.cacheFileURL(for: key)
+        ioQueue.async {
             try? self.fileManager.removeItem(at: fileURL)
+        }
+    }
+    
+    func calculateDiskStorageSize(completion handler: @escaping ((Result<UInt, Error>) -> Void)) {
+        
+        let cacheDir = fileManager.cacheDirectoryURL()
+        ioQueue.async {
+            let size = cacheDir.sizeOnDisk() ?? UInt(0)
+            DispatchQueue.main.async {
+                return handler(.success(size))
+            }
+        }
+    }
+    
+    func clearDiskCache(completion handler: (() -> Void)? = nil) {
+        
+        let cacheDir = fileManager.cacheDirectoryURL()
+        let fileURLs = try? FileManager.default.contentsOfDirectory(at: cacheDir,
+                                                                    includingPropertiesForKeys: nil,
+                                                                    options: .skipsHiddenFiles)
+        for fileURL in fileURLs ?? [] {
+            try? FileManager.default.removeItem(at: fileURL)
+        }
+        
+        if let handler = handler {
+            DispatchQueue.main.async {
+                handler()
+            }
         }
     }
 }
@@ -86,6 +116,20 @@ final class RequestCache {
 extension RequestCache {
     
     enum RequestCacheType { case hot, cold }
+    
+    subscript(key: String, cacheType: RequestCacheType = .hot) -> Data? {
+        get { return self.fetch(cacheType, valueFor: key) }
+        set {
+            guard let value = newValue else {
+                // If nil was assigned using our subscript,
+                // then we remove any value for that key:
+                self.removeValue(forKey: key)
+                return
+            }
+            
+            self.insert(value, forKey: key)
+        }
+    }
 }
 
 private extension RequestCache {
@@ -100,23 +144,6 @@ private extension RequestCache {
             self.key = key
             self.value = value
             self.expirationDate = expirationDate
-        }
-    }
-}
-
-extension RequestCache {
-    
-    subscript(key: String, cacheType: RequestCacheType = .hot) -> Data? {
-        get { return self.fetch(cacheType, valueFor: key) }
-        set {
-            guard let value = newValue else {
-                // If nil was assigned using our subscript,
-                // then we remove any value for that key:
-                self.removeValue(forKey: key)
-                return
-            }
-            
-            self.insert(value, forKey: key)
         }
     }
 }
@@ -147,4 +174,11 @@ fileprivate extension URL {
     func fileCreationDate() -> Date? {
         return (try? FileManager.default.attributesOfItem(atPath: path))?[.creationDate] as? Date
     }
+    
+    func sizeOnDisk() -> UInt? {
+        return try? FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil).lazy.reduce(0) {
+            UInt((try $1.resourceValues(forKeys: [.totalFileAllocatedSizeKey]).totalFileAllocatedSize ?? 0)) + $0
+        }
+    }
+    
 }
