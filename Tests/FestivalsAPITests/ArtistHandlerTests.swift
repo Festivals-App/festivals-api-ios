@@ -35,7 +35,9 @@ class ArtistHandlerTests: XCTestCase {
         
         self.handler.all { (artists, error) in
             testResult = (artists != nil)
-            expectation.fulfill()
+            self.handler.all { (artists, error) in
+                expectation.fulfill()
+            }
         }
         
         waitForExpectations(timeout: 15, handler: nil)
