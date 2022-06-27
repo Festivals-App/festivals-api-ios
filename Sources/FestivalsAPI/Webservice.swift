@@ -59,7 +59,7 @@ class Webservice: NSObject {
     ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 60.0) {
+    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 10.0) {
         
         self.baseURL = baseURL
         self.requestTimeout = requestTimeout
@@ -297,7 +297,6 @@ class Webservice: NSObject {
             DispatchQueue.main.async {
                 // no response is bad
                 guard  let _ = response as? HTTPURLResponse else {
-                    result(nil, APIError.requestFailed)
                     if usingCache { self.cached(request: request) { data, error in result(data, error) } }
                     else { result(nil, APIError.requestFailed) }
                     return
@@ -305,7 +304,6 @@ class Webservice: NSObject {
                 
                 // no data is bad, as the FestivalsAPI service always returns data
                 guard let jsonData = data else {
-                    #warning("IMPLEMENT errror handling please throw/error??")
                     if let err = err { print(err) }
                     if usingCache { self.cached(request: request) { data, error in result(data, error) } }
                     else { result(nil, APIError.requestFailed) }
