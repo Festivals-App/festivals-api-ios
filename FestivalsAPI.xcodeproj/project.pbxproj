@@ -47,7 +47,6 @@
 		4A2ADE20261EA2FB005B58C8 /* PlaceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ADD7F261E9DB1005B58C8 /* PlaceHandlerTests.swift */; };
 		4A2ADE52261EB06F005B58C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ADE4F261EB06E005B58C8 /* Localizable.strings */; };
 		4A30FC9A285FB43C00A1DD86 /* RequestCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30FC99285FB43C00A1DD86 /* RequestCache.swift */; };
-		4AA093272858EB9F0040BD08 /* ObjectCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA093262858EB9F0040BD08 /* ObjectCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +94,6 @@
 		4A397661244A96CB006C934C /* FestivalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsClient.swift; sourceTree = "<group>"; };
 		4A45D5B824417D9800CF4E1B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		4A45D5DE2448513100CF4E1B /* FestivalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalHandler.swift; sourceTree = "<group>"; };
-		4AA093262858EB9F0040BD08 /* ObjectCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCache.swift; sourceTree = "<group>"; };
 		4AC5145D2535153E00F24354 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AC530A7274DC2FB008B803A /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ARCHITECTURE.md; sourceTree = "<group>"; };
 		4AC74024245D20A300679E39 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			children = (
 				4A397661244A96CB006C934C /* FestivalsClient.swift */,
 				4A45D5B824417D9800CF4E1B /* Webservice.swift */,
-				4AA093262858EB9F0040BD08 /* ObjectCache.swift */,
 				4A30FC99285FB43C00A1DD86 /* RequestCache.swift */,
 				4A397652244A8F9A006C934C /* Handler */,
 				4A2ADE4E261EB06E005B58C8 /* Resources */,
@@ -393,7 +390,6 @@
 				4A30FC9A285FB43C00A1DD86 /* RequestCache.swift in Sources */,
 				4A2ADDDC261EA000005B58C8 /* BundleModuleFix.swift in Sources */,
 				4A2ADDAA261E9F4C005B58C8 /* ContentView.swift in Sources */,
-				4AA093272858EB9F0040BD08 /* ObjectCache.swift in Sources */,
 				4A2ADDEA261EA105005B58C8 /* LinkHandler.swift in Sources */,
 				4A2ADDED261EA105005B58C8 /* FestivalHandler.swift in Sources */,
 				4A2ADDE9261EA105005B58C8 /* ArtistHandler.swift in Sources */,

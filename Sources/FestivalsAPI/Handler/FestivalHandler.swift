@@ -193,8 +193,6 @@ public class FestivalHandler {
     
     /// The webservice to make requests to.
     private let webservice: Webservice
-    // The cache for festivals
-    private let cache = Cache<Festival.ID, Festival>()
     
     /// Initilizes the handler object.
     /// - Parameter  webservice: The webservice object for makeing calls to the FestivalsAPI web service.
@@ -224,16 +222,6 @@ public class FestivalHandler {
     ///     - festivals: The fetched festivals.
     ///     - error: If the request failed the error can provide more information about the failure reason.
     public func festivals(with objectIDs: [Int]? = nil, completion: @escaping (_ festivals: [Festival]?, _ error: Error?) -> (Void), _ useCache: Bool = true ) {
-        
-        if useCache {
-            if let objectIDs = objectIDs {
-                let cachedFestivals = objectIDs.compactMap({ cache.value(forKey:$0 ) })
-                if objectIDs.allSatisfy({ cachedFestivals.map { $0.id }.contains($0) }) {
-                    completion(cachedFestivals, nil)
-                    return
-                }
-            }
-        }
         
         self.webservice.fetch("festival", with: objectIDs, including: ["image", "link", "place", "tag"]) { (objects, error) in
             

@@ -36,12 +36,6 @@ enum HTTPContentType: String {
     case ContentTypeJSON = "application/json"
 }
 
-/*
-enum CacheMode {
-    case cachedOrUncached, onlyUncached, onlyCached
-}
-*/
-
 // MARK: Implementation
 
 /// This class is responsible for consuming the FestivalsAPI web service's REST API and provides methodes for all available API requests.
