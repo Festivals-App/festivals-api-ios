@@ -518,4 +518,12 @@ class Webservice: NSObject {
     
         return "/\(objectType)s/\(objectID)/\(resourceName)/\(resourceID)"
     }
+    
+    public func calculateDiskStorageSize(completion handler: @escaping ((Result<UInt, Error>) -> Void)) {
+        cache.calculateDiskStorageSize(completion: handler)
+    }
+    
+    public func clearDiskCache(completion handler: (() -> Void)? = nil) {
+        cache.clearDiskCache(completion: handler)
+    }
 }

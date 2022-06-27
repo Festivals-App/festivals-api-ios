@@ -30,6 +30,14 @@ class ArtistHandlerTests: XCTestCase {
     
     func testFetchAllArtists() throws {
         
+        self.webservice.calculateDiskStorageSize { result in
+            
+            guard let size = try? result.get() else { return }
+            
+            let byteCountFormatter = ByteCountFormatter()
+            print("on disc: \(byteCountFormatter.string(fromByteCount: Int64(size)))")
+        }
+        
         let expectation = self.expectation(description: "Fetch all artists")
         var testResult: Bool = false
         

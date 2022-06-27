@@ -50,7 +50,7 @@ To ease code organisation and structuring the FestivalsAPI framework is split in
 * `LinkHandler` for accessing link objects.
 
 */
-public class FestivalsClient {
+public final class FestivalsClient {
     
     /// The object handler to access festival objects.
     public lazy var festivalHandler = FestivalHandler(with: self.webservice)
@@ -80,5 +80,17 @@ public class FestivalsClient {
     public init(apiKey: String, apiVersion: APIVersion, baseURL: URL) {
         
         self.webservice =  Webservice(baseURL: baseURL, apiKey: apiKey, apiVersion: .v0_1)
+    }
+    
+    /// Calculates and returns the currently used disc space for cached webservice responses.
+    /// - Parameter handler: The handler will be called when the result was calculated.
+    public func calculateDiskStorageSize(completion handler: @escaping ((Result<UInt, Error>) -> Void)) {
+        webservice.calculateDiskStorageSize(completion: handler)
+    }
+    
+    /// Deletes the on-disc cache.
+    /// - Parameter handler: The handler will be called after the on-disc cache was deleted.
+    public func clearDiskCache(completion handler: (() -> Void)? = nil) {
+        webservice.clearDiskCache(completion: handler)
     }
 }
