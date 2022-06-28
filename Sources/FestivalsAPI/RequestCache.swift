@@ -168,7 +168,7 @@ fileprivate extension URL {
     func isExpired(using date: Date, lifetime: TimeInterval) -> Bool {
         guard let created = self.fileCreationDate() else { return true }
         let maxAge = created.addingTimeInterval(lifetime)
-        return date < maxAge
+        return date > maxAge
     }
     
     func fileCreationDate() -> Date? {
