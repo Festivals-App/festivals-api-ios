@@ -78,9 +78,9 @@ public final class FestivalsClient {
     ///     - apiVersion: The API version used for making requests.
     ///     - baseURL: The base URL used for making request.
     ///     - timeout: The timeout for making request.
-    public init(apiKey: String, apiVersion: APIVersion, baseURL: URL, timeout: Double = 10.0) {
+    public init(apiKey: String, apiVersion: APIVersion, baseURL: URL, timeout: Double = 10.0, _ usingCache: Bool = true) {
         
-        self.webservice =  Webservice(baseURL: baseURL, apiKey: apiKey, apiVersion: apiVersion, requestTimeout: timeout)
+        self.webservice =  Webservice(baseURL: baseURL, apiKey: apiKey, apiVersion: apiVersion, requestTimeout: timeout, cached: usingCache)
     }
     
     /// Calculates and returns the currently used disc space for cached webservice responses.
