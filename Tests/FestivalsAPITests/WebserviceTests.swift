@@ -18,7 +18,7 @@ class WebserviceTests: XCTestCase {
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         guard let urlValue = Bundle(for: Self.self).object(forInfoDictionaryKey: "FestivalsAPI_URL") as? String else { return }
-        self.service = Webservice.init(baseURL: URL.init(string: urlValue)!, apiKey: "TEST_API_KEY_001", apiVersion: .v0_1)
+        self.service = Webservice.init(baseURL: URL.init(string: urlValue)!, apiKey: "TEST_API_KEY_001", apiVersion: .v0_1, cached: false)
     }
     
     override func tearDownWithError() throws {
