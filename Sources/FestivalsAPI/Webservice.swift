@@ -49,6 +49,8 @@ class Webservice: NSObject {
     private let apiVersion: String
     /// The timeout for making requests.
     private let requestTimeout: Double
+    /// Boolean value indiating if the request cache should be used.
+    private let cached: Bool
     // The request cache
     private let cache = RequestCache()
     
@@ -59,15 +61,15 @@ class Webservice: NSObject {
     ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
     ///     - session: The session used for requests.
     ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 10.0) {
+    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 10.0, cached: Bool = true) {
         
         self.baseURL = baseURL
         self.requestTimeout = requestTimeout
-        
         let config = URLSessionConfiguration.ephemeral
         config.httpAdditionalHeaders = ["Api-Key": apiKey]
         self.session = URLSession(configuration: config)
         self.apiVersion = apiVersion.rawValue
+        self.cached = cached
     }
     
     // MARK: Manage Objects
@@ -86,7 +88,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             completion(data, err)
         }
@@ -105,7 +107,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: data)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             guard let objects = data else {
                 completion(nil, err)
@@ -132,7 +134,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .PATCH, and: data)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             guard let objects = data else {
                 completion(nil, err)
@@ -159,7 +161,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)
@@ -184,7 +186,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             completion(data, err)
         }
@@ -207,7 +209,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
 
             completion(data, err)
         }
@@ -228,7 +230,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)
@@ -253,7 +255,7 @@ class Webservice: NSObject {
         let queryURL = self.baseURL.absoluteString.appending(query)
         let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
         
-        self.perfrom(request) { (data, err) in
+        self.perfrom(request, self.cached) { (data, err) in
             
             guard let _ = data else {
                 completion(false, err)
