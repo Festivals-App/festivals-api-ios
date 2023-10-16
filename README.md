@@ -54,7 +54,7 @@ At the moment the tests are run manually, there are plans to automate the tests 
 ### Requirements
 
 -  iOS 13.0+
--  Xcode 13.1+
+-  Xcode 15.0+
 -  swift-tools-version:5.3+
 -  [jazzy](https://github.com/realm/jazzy) 0.13.6+ for building the documentation
 -  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.8.0+ for string localization
