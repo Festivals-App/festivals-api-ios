@@ -1,7 +1,3 @@
-<h1 align="center">
-FestivalsAPI client library for iOS
-</h1>
-
 <p align="center">
     <a href="https://github.com/festivals-app/festivals-api-ios/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/festivals-app/festivals-api-ios?style=flat"></a>
     <a href="https://github.com/festivals-app/festivals-api-ios/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/festivals-app/festivals-api-ios?style=flat"></a>
@@ -9,6 +5,17 @@ FestivalsAPI client library for iOS
     <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/festivals-app/festivals-api-ios.svg"></a>
 </p>
 
+<h1 align="center">
+    <br/><br/>
+    FestivalsAPI client library
+    <br/><br/>
+</h1>
+
+A client library that implements the complete FestivalsAPI feature set and makes coding against it super easy.
+
+![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
+
+<hr/>
 <p align="center">
   <a href="#development">Development</a> •
   <a href="#usage">Usage</a> •
@@ -16,8 +23,7 @@ FestivalsAPI client library for iOS
   <a href="#engage">Engage</a> •
   <a href="#licensing">Licensing</a>
 </p>
-
-With this library, you can retrieve and edit FestivalsAPI objects, such as festivals and artists.
+<hr/>
 
 ## Overview
 
@@ -123,7 +129,7 @@ The following channels are available for discussions, feedback, and support requ
 
 ## Licensing
 
-Copyright (c) 2020 Simon Gaus.
+Copyright (c) 2020-2023 Simon Gaus.
 
 Licensed under the **GNU Lesser General Public License v3.0** (the "License"); you may not use this file except in compliance with the License.
 
