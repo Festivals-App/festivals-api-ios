@@ -1,6 +1,10 @@
 # Created by https://www.gitignore.io/api/xcode,macos,swift,objective-c
 # Edit at https://www.gitignore.io/?templates=xcode,macos,swift,objective-c
 
+### Ignore mTLS certificates for security reasons ###
+api-client.p12
+ca.der
+
 ### macOS ###
 # General
 .DS_Store
