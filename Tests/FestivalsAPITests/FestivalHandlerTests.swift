@@ -18,7 +18,12 @@ class FestivalHandlerTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         guard let urlValue = Bundle(for: Self.self).object(forInfoDictionaryKey: "FestivalsAPI_URL") as? String else { return }
-        self.webservice = Webservice.init(baseURL: URL.init(string: urlValue)!, apiKey: "TEST_API_KEY_001", apiVersion: .v0_1, cached: false)
+        guard let localCAPath = Bundle(for: Self.self).url(forResource: "ca", withExtension: "der") else { return }
+        guard let caData = try? Data(contentsOf: localCAPath) else { return }
+        guard let localCertPath = Bundle(for: Self.self).url(forResource: "api-client", withExtension: "p12") else { return }
+        guard let certData = try? Data(contentsOf: localCertPath) else { return }
+        guard let clientAuth = IdentityAndTrust(certData: certData  as NSData, CAData: caData as NSData, certPassword: "we4711", apiKey: "TEST_API_KEY_001") else { return }
+        self.webservice = Webservice(baseURL: URL(string: urlValue)!, clientAuth: clientAuth, apiVersion: .v0_1, cached: false)
         self.handler = FestivalHandler.init(with: self.webservice)
     }
     

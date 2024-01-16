@@ -74,13 +74,20 @@ public final class FestivalsClient {
     
     /// Initilizes the FestivalsAPI client object.
     /// - Parameters:
-    ///     - apiKey: The API key used for making requests.
-    ///     - apiVersion: The API version used for making requests.
     ///     - baseURL: The base URL used for making request.
+    ///     - clientAuth: The client authentication obejct to use for making request.
     ///     - timeout: The timeout for making request.
-    public init(apiKey: String, apiVersion: APIVersion, baseURL: URL, timeout: Double = 10.0, usingCache: Bool = true) {
-        
-        self.webservice =  Webservice(baseURL: baseURL, apiKey: apiKey, apiVersion: apiVersion, requestTimeout: timeout, cached: usingCache)
+    ///     - usingCache: Boolena value indicating if cached data should be returned.
+    public init(baseURL: URL, clientAuth: IdentityAndTrust, timeout: Double = 10.0, usingCache: Bool = true) {
+    
+        /*
+         let localCertPath = Bundle(for: Self.self).url(forResource: "api-client.", withExtension: "p12")!
+         let certData = try! Data(contentsOf: localCertPath)
+         let localCAPath = Bundle(for: Self.self).url(forResource: "ca", withExtension: "der")!
+         let caData = try! Data(contentsOf: localCAPath)
+         let clientAuth = IdentityAndTrust(certData: certData  as NSData, CAData: caData as NSData, certPassword: "we4711", apiKey: "TEST_API_KEY_001")!
+         */
+        self.webservice = Webservice(baseURL: baseURL, clientAuth: clientAuth, apiVersion: .v0_1,  requestTimeout: timeout, cached: usingCache)
     }
     
     /// Calculates and returns the currently used disc space for cached webservice responses.

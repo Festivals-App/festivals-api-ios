@@ -45,6 +45,8 @@ class Webservice: NSObject {
     private let baseURL: URL
     /// The session to use for requests.
     private let session: URLSession
+    /// The session delegate that handles TLS handling.
+    private let sessionDelegate: SessionDelegate
     /// The version of the web api to use.
     private let apiVersion: String
     /// The timeout for making requests.
@@ -58,18 +60,20 @@ class Webservice: NSObject {
     
     /// Initilizes the webservice object.
     /// - Parameters:
-    ///     - baseURL: The base URL used for makeing calls to the FestivalsAPI web service.
-    ///     - session: The session used for requests.
-    ///     - apiKey: The API key used for making requests.
-    init(baseURL: URL, apiKey: String, apiVersion: APIVersion, requestTimeout: Double = 10.0, cached: Bool = true) {
+    ///     - baseURL: The base URL used for makeing calls to the FestivalsGatewayAPI service.
+    ///     - clientAuth:
+    ///     - apiVersion:
+    ///     - requestTimeout:
+    init(baseURL: URL, clientAuth: IdentityAndTrust, apiVersion: APIVersion = .v0_1, requestTimeout: Double = 10.0, cached: Bool = true) {
         
         self.baseURL = baseURL
         self.requestTimeout = requestTimeout
-        let config = URLSessionConfiguration.ephemeral
-        config.httpAdditionalHeaders = ["Api-Key": apiKey]
-        self.session = URLSession(configuration: config)
         self.apiVersion = apiVersion.rawValue
         self.cached = cached
+        self.sessionDelegate = SessionDelegate(clientAuth: clientAuth)
+        let config = URLSessionConfiguration.ephemeral
+        config.httpAdditionalHeaders = ["Api-Key": clientAuth.apiKey, "X-Request-ID": UUID()]
+        self.session = URLSession(configuration: config, delegate:sessionDelegate, delegateQueue: nil)
     }
     
     // MARK: Manage Objects
@@ -86,7 +90,7 @@ class Webservice: NSObject {
         
         let query = self.makeFetchQuery(with: objectType, ids, including: relationships)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .GET, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
             

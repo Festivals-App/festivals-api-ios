@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>FestivalsAPI_URL</key>
-	<string>http://192.168.8.118:10439</string>
+	<string>https://api.festivalsapp.home</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
