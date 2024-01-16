@@ -16,7 +16,7 @@ public struct IdentityAndTrust {
     var apiKey: String
     var CA: SecCertificate
 
-    init?(certData: NSData, CAData: NSData, certPassword: String, apiKey: String) {
+    public init?(certData: NSData, CAData: NSData, certPassword: String, apiKey: String) {
         
         var securityStatus: OSStatus = errSecSuccess
         var items: CFArray?
