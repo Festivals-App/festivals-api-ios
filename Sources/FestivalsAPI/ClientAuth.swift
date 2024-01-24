@@ -10,11 +10,11 @@ import Foundation
 
 public struct IdentityAndTrust {
     
-    var identityRef: SecIdentity
-    var trust: SecTrust
-    var certificates: [SecCertificate]
-    var apiKey: String
-    var CA: SecCertificate
+    public let identityRef: SecIdentity
+    public let trust: SecTrust
+    public let certificates: [SecCertificate]
+    public let apiKey: String
+    public let CA: SecCertificate
 
     public init?(certData: NSData, CAData: NSData, certPassword: String, apiKey: String) {
         
@@ -107,25 +107,6 @@ public class SessionDelegate : NSObject, URLSessionDelegate {
                                           certificates: clientAuth.certificates as [AnyObject],
                                           persistence: URLCredential.Persistence.forSession)
         completionHandler(.useCredential, urlCredential)
-        
-        /*
-        //print("-----> challenge.protectionSpace.authenticationMethod: \(challenge.protectionSpace.authenticationMethod)")
-        
-        if let identityAndTrust = IdentityAndTrust(fromResource: "api-client", withExtension: "p12", certPassword: "we4711") {
-            //print("Succesfully validated ClientCertificate")
-            let urlCredential = URLCredential(identity: identityAndTrust.identityRef,
-                                              certificates: identityAndTrust.certificates as [AnyObject],
-                                              persistence: URLCredential.Persistence.forSession)
-            completionHandler(.useCredential, urlCredential)
-            return
-        }
-        else { print("Failed to create IdentityAndTrust object") }
-        
-        
-        
-        challenge.sender?.cancel(challenge)
-        completionHandler(URLSession.AuthChallengeDisposition.rejectProtectionSpace, nil)
-         */
     }
     
     func urlSession(_ session: URLSession,
