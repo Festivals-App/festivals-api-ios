@@ -112,36 +112,38 @@ public class SessionDelegate : NSObject, URLSessionDelegate {
     func urlSession(_ session: URLSession,
                     didReceiveServerTrustChallenge challenge: URLAuthenticationChallenge,
                     with completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+
         
-        //print("-----> challenge.protectionSpace.authenticationMethod: \(challenge.protectionSpace.authenticationMethod)")
         
-        
-        guard let localCertificateData = clientAuth.CA.data() else {
-            print("Failed to get data from local certificate.")
+        let trust = challenge.protectionSpace.serverTrust!
+        guard shouldAllowHTTPSConnection(trust: trust, trustedCA: clientAuth.CA) else {
             completionHandler(.cancelAuthenticationChallenge, nil)
             return
         }
-        
-        let serverTrust:SecTrust = challenge.protectionSpace.serverTrust!
-        let serverCertificates = (SecTrustCopyCertificateChain(serverTrust)! as NSArray)
-        
-        
-        for cert in serverCertificates {
-            let serverCertificate: SecCertificate = cert as! SecCertificate
-            //print("server: \(String(describing: SecCertificateCopySubjectSummary(serverCertificate))) - client: \(String(describing: SecCertificateCopySubjectSummary(localCertificate)))")
-            let remoteCertificateData = CFBridgingRetain(SecCertificateCopyData(serverCertificate))!
-            if (remoteCertificateData.isEqual(localCertificateData) == true) {
-                //print("Succesfully validated ServerTrust")
-                
-                //let credential = URLCredential(trust: serverTrust)
-                //challenge.sender?.use(credential, for: challenge)
-                completionHandler(.useCredential, URLCredential(trust: serverTrust))
-                return
-            }
-        }
-        completionHandler(.cancelAuthenticationChallenge, nil)
+
+        completionHandler(.useCredential, URLCredential(trust: trust))
+        return
     }
     
+    // found at https://developer.apple.com/forums/thread/703234
+    func shouldAllowHTTPSConnection(trust: SecTrust, trustedCA: SecCertificate) -> Bool {
+        var err = SecTrustSetPolicies(trust, SecPolicyCreateBasicX509())
+        guard err == errSecSuccess else { return false }
+        err = SecTrustSetAnchorCertificates(trust, [trustedCA] as NSArray)
+        guard err == errSecSuccess else { return false }
+        err = SecTrustSetAnchorCertificatesOnly(trust, true)
+        guard err == errSecSuccess else { return false }
+        let wasIssuedByOurCA = SecTrustEvaluateWithError(trust, nil)
+        guard wasIssuedByOurCA else { return false }
+        guard
+            let chain = SecTrustCopyCertificateChain(trust) as? [SecCertificate],
+            let trustedLeaf = chain.first
+        else {
+            return false
+        }
+        // C. Check the now-trusted leaf certificate
+        return true
+    }
     
     func SecCertificateCreateFrom(resource: String, withExtension: String) -> SecCertificate? {
         
