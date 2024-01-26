@@ -196,4 +196,11 @@ class WebserviceTests: XCTestCase {
         let twoFestivals = self.service.makeFetchQuery(with: "festival", [1,2])
         XCTAssertTrue(twoFestivals == "/festivals?ids=1,2", "Function makeFetchQuery() produced a wrong query.")
     }
+    
+    
+    func testMakeFetchResourceQuery() throws {
+        
+        let eventLocationAllInclude = self.service.makeFetchResourceQuery(with: "location", for: "event", 62, including: ["image", "link", "place"])
+        XCTAssertTrue(eventLocationAllInclude == "/events/62/location?include=image,link,place", "Function makeFetchQuery() produced a wrong query.")
+    }
 }
