@@ -1,7 +1,6 @@
 <p align="center">
     <a href="https://github.com/festivals-app/festivals-api-ios/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/festivals-app/festivals-api-ios?style=flat"></a>
     <a href="https://github.com/festivals-app/festivals-api-ios/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/festivals-app/festivals-api-ios?style=flat"></a>
-    <a href="https://github.com/Carthage/Carthage" title="License"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
     <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/festivals-app/festivals-api-ios.svg"></a>
 </p>
 
@@ -31,8 +30,8 @@ The client library is the optimal starting point to implement new [FestivalsApp]
 
 #### Requirements
 -  [Xcode](https://apps.apple.com/de/app/xcode/id497799835) Version 15.2+
--  [jazzy](https://github.com/realm/jazzy) 0.13.6+ for building the documentation
--  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.8.0+ for string localization
+-  [jazzy](https://github.com/realm/jazzy) 0.14.4+ for building the documentation
+-  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.15.0+ for string localization
    
 #### ExampleApp
 There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree/master/ExampleApp) for developing and testing.
@@ -69,7 +68,7 @@ Once you have your Swift package set up, adding FestivalsAPI as a dependency is 
 
 ```ogdl
 dependencies: [
-    .package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.1"))
+    .package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.3"))
 ]
 ```
 
