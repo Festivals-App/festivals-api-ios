@@ -383,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#jazzy Xcode script\nif which jazzy > /dev/null; then\n\njazzy \\\n--theme apple \\\n--min-acl internal\n\nelse\necho \"warning: jazzy not installed, download it from https://github.com/realm/jazzy\"\nfi\n";
+			shellScript = "#jazzy Xcode script\nif which jazzy > /dev/null; then\n    jazzy --theme apple --min-acl internal\nelse\n    echo \"warning: jazzy not installed, download it from https://github.com/realm/jazzy\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
