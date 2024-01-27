@@ -77,7 +77,7 @@ public class SessionDelegate : NSObject, URLSessionDelegate {
     
     private let clientAuth: IdentityAndTrust
 
-    init(clientAuth: IdentityAndTrust) {
+    public init(clientAuth: IdentityAndTrust) {
         self.clientAuth = clientAuth
     }
     
