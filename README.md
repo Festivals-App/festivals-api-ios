@@ -20,58 +20,38 @@ A client library that implements the complete FestivalsAPI feature set and makes
   <a href="#development">Development</a> •
   <a href="#usage">Usage</a> •
   <a href="#installation">Installation</a> •
-  <a href="#engage">Engage</a> •
-  <a href="#licensing">Licensing</a>
+  <a href="#engage">Engage</a>
 </p>
 <hr/>
 
-## Overview
-
-The library consists of the `FestivalsClient` class, the handler classes and their corresponding objects.
-
-* **Objects**: Festival, Event, Artist, Location, ImageRef, Link, Place, Tag
-
-* **Handler**: FestivalHandler, EventHandler, ArtistHandler, LocationHandler, ImageRefHandler, LinkHandler, PlaceHandler and TagHandler
-
 ## Development
+The FestivalsAPI client library is tightly coupled with the [festivals-server](https://github.com/Festivals-App/festivals-server) which provides the implementation of the [FestivalsAPI](https://github.com/Festivals-App/festivals-server/blob/main/DOCUMENTATION.md) and is also coupled with the [festivals-identity-server](https://github.com/Festivals-App/festivals-identity-server) which provides means to authenticate and authorize against the FestivalsAPI. To find out more about the architecture and technical information see the [ARCHITECTURE](./ARCHITECTURE.md) document. The general documentation for the Festivals App is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains architecture information, general deployment documentation, templates and other helpful documents.
 
-### Setup
+The client library is the optimal starting point to implement new [FestivalsApp](https://github.com/Festivals-App/festivals-app-ios) behaviour.
 
-1. Install and setup Xcode 13.1 or higher
-2. Install jazzy
-   ```console
-   brew install jazzy
-   ```
-3. Install bartycrouch
-   ```console
-   brew install bartycrouch
-   ```
-   
-### Build
-    
-There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree/master/ExampleApp) for developing and testing which you can build using Xcode.
-    
-### Testing
-
-The unit tests are implemented via the XCTest framework and can be run using Xcode. To run the tests successfully you need to provide a valid address to a testable FestivalsAPI instance in the Info.plist under the `FestivalsAPI_URL` key. To setup the FestivalsAPI see the [festivals-server](https://github.com/Festivals-App/festivals-server) repository.
-
-At the moment the tests are run manually, there are plans to automate the tests as soon as it is decided on the automation/CI which should be used. 
-
-### Requirements
-
--  iOS 13.0+
--  Xcode 15.0+
--  swift-tools-version:5.3+
+#### Requirements
+-  [Xcode](https://apps.apple.com/de/app/xcode/id497799835) Version 15.2+
 -  [jazzy](https://github.com/realm/jazzy) 0.13.6+ for building the documentation
 -  [bartycrouch](https://github.com/Flinesoft/BartyCrouch) 4.8.0+ for string localization
+   
+#### ExampleApp
+There is an [ExampleApp](https://github.com/Festivals-App/festivals-api-ios/tree/master/ExampleApp) for developing and testing.
+    
+#### Testing
+The unit tests are implemented via the XCTest framework. To run the tests successfully you need to provide a valid address to a testable FestivalsAPI instance in the Info.plist under the `FestivalsAPI_URL` key. To setup the FestivalsAPI see the [festivals-server](https://github.com/Festivals-App/festivals-server) repository. At the moment the tests are run manually, i want to run the tests automated but i need to decided on the automation/CI which should be used.
 
 ## Usage
+The library consists of the `FestivalsClient` class, the handler classes and their corresponding objects.
 
-To use this library, create an `FestivalsClient` object by calling the `init(apiKey:apiVersion:baseURL:)` function. The client object provides you with a handler for each object type provided by the FestivalsAPI, through which you can fetch, create and delete those objects.
+- **Objects**: Festival, Event, Artist, Location, ImageRef, Link, Place, Tag
+- **Handler**: FestivalHandler, EventHandler, ArtistHandler, LocationHandler, ImageRefHandler, LinkHandler, PlaceHandler and TagHandler
+
+To use this library, create an `FestivalsClient` object by calling the `init(baseURL:clientAuth:)` function. The client object provides you with a handler for each object type provided by the FestivalsAPI, through which you can fetch, create and delete those objects.
 
 ```swift
 // Create the handler
-let client = FestivalsClient(apiKey: <#API Key#>, apiVersion: .v0_1, baseURL: <#API URL#>)
+let clientAuth = IdentityAndTrust(certData:<#certData#><##>, CAData:<#caData#>, certPassword: <#Password#>, apiKey:<#apiKey#>)
+let client = FestivalsClient(baseURL: <#baseURL#>, clientAuth: <#IdentityAndTrust#>)
 
 // fetch all festivals
 client.festivalHandler.all { (festivals, err) in
@@ -79,43 +59,21 @@ client.festivalHandler.all { (festivals, err) in
         print(err)
         return
     }
-    
     // use festivals
 }
 ```
 
 ## Installation
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate FestivalsAPI into your Xcode project using Carthage, specify it in your Cartfilee:
-
-```ogdl
-github "https://github.com/Phisto/FestivalsAPI-Swift" ~> 0.1
-```
-
-### Swift Package Manager
-
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
-
 Once you have your Swift package set up, adding FestivalsAPI as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 
 ```ogdl
 dependencies: [
-.package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.1"))
+    .package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.1"))
 ]
 ```
 
-## Architecture
-
-The FestivalsAPI client library is tightly coupled with the [festivals-server](https://github.com/Festivals-App/festivals-server) which provides the implementation of the FestivalsAPI and is also coupled with the [festivals-identity-server](https://github.com/Festivals-App/festivals-identity-server) which provides means to authenticate and authorize against the FestivalsAPI. It is used by the [festivals-app-ios](https://github.com/Festivals-App/festivals-app-ios) and the [festivals-creator-app](https://github.com/Festivals-App/festivals-creator-app) and should be consumable by any of apples major device platforms. To find out more about architecture and technical information see the [ARCHITECTURE](./ARCHITECTURE.md) document.
-
-The client library is the optimal starting point to implement new FestivalsApp behaviour.
-
-The full documentation for the FestivalsApp is in the [festivals-documentation](https://github.com/festivals-app/festivals-documentation) repository. The documentation repository contains technical documents, architecture information, UI/UX specifications, and whitepapers related to this implementation.
-
 ## Engage
-
 I welcome every contribution, whether it is a pull request or a fixed typo. The best place to discuss questions and suggestions regarding the FestivalsAPI iOS client library is the projects [issues](https://github.com/Festivals-App/festivals-api-ios/issues) section. More general information and a good starting point if you want to get involved is the [festival-documentation](https://github.com/Festivals-App/festivals-documentation) repository.
 
 The following channels are available for discussions, feedback, and support requests:
@@ -125,12 +83,5 @@ The following channels are available for discussions, feedback, and support requ
 | **General Discussion**   | <a href="https://github.com/festivals-app/festivals-documentation/issues/new/choose" title="General Discussion"><img src="https://img.shields.io/github/issues/festivals-app/festivals-documentation/question.svg?style=flat-square"></a> </a>   |
 | **Other Requests**    | <a href="mailto:simon.cay.gaus@gmail.com" title="Email me"><img src="https://img.shields.io/badge/email-Simon-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
 
-## Licensing
-
-Copyright (c) 2020-2023 Simon Gaus.
-
-Licensed under the **GNU Lesser General Public License v3.0** (the "License"); you may not use this file except in compliance with the License.
-
-You may obtain a copy of the License at https://www.gnu.org/licenses/lgpl-3.0.html.
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.
+#### Licensing
+Copyright (c) 2020-2024 Simon Gaus. Licensed under the [**GNU Lesser General Public License v3.0**](./LICENSE)
