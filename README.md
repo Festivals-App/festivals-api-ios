@@ -68,7 +68,7 @@ Once you have your Swift package set up, adding FestivalsAPI as a dependency is 
 
 ```ogdl
 dependencies: [
-    .package(url: "https://github.com/Phisto/FestivalsAPI-Swift.git", .upToNextMajor(from: "0.3"))
+    .package(url: "https://github.com/Festivals-App/festivals-api-ios.git", .upToNextMajor(from: "0.3"))
 ]
 ```
 
