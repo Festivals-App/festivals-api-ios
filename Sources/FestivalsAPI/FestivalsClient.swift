@@ -78,7 +78,7 @@ public final class FestivalsClient {
     ///     - clientAuth: The client authentication obejct to use for making request.
     ///     - timeout: The timeout for making request.
     ///     - usingCache: Boolena value indicating if cached data should be returned.
-    public init(baseURL: URL, clientAuth: IdentityAndTrust, timeout: Double = 10.0, usingCache: Bool = true) {
+    public init(baseURL: URL, clientAuth: ClientAuth, timeout: Double = 10.0, usingCache: Bool = true) {
     
         /*
          let localCertPath = Bundle(for: Self.self).url(forResource: "api-client.", withExtension: "p12")!
@@ -88,6 +88,24 @@ public final class FestivalsClient {
          let clientAuth = IdentityAndTrust(certData: certData  as NSData, CAData: caData as NSData, certPassword: "we4711", apiKey: "TEST_API_KEY_001")!
          */
         self.webservice = Webservice(baseURL: baseURL, clientAuth: clientAuth, apiVersion: .v0_1,  requestTimeout: timeout, cached: usingCache)
+    }
+    
+    /// Initilizes the FestivalsAPI client object.
+    /// - Parameters:
+    ///     - baseURL: The base URL used for making request.
+    ///     - userAuth: The user authentication obejct to use for making request.
+    ///     - timeout: The timeout for making request.
+    ///     - usingCache: Boolena value indicating if cached data should be returned.
+    public init(baseURL: URL, userAuth: UserAuth, timeout: Double = 10.0, usingCache: Bool = true) {
+    
+        /*
+         let localCertPath = Bundle(for: Self.self).url(forResource: "api-client.", withExtension: "p12")!
+         let certData = try! Data(contentsOf: localCertPath)
+         let localCAPath = Bundle(for: Self.self).url(forResource: "ca", withExtension: "der")!
+         let caData = try! Data(contentsOf: localCAPath)
+         let clientAuth = IdentityAndTrust(certData: certData  as NSData, CAData: caData as NSData, certPassword: "we4711", apiKey: "TEST_API_KEY_001")!
+         */
+        self.webservice = Webservice(baseURL: baseURL, userAuth: userAuth, apiVersion: .v0_1,  requestTimeout: timeout, cached: usingCache)
     }
     
     /// Calculates and returns the currently used disc space for cached webservice responses.

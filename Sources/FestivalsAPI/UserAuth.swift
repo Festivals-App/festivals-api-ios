@@ -1,15 +1,18 @@
 //
-//  ClientAuth.swift
+//  UserAuth.swift
 //  FestivalsAPI
 //
-//  Created by Simon Gaus on 15.01.24.
+//  Created by Simon Gaus on 30.03.24.
 //  Copyright © 2024 Simon Gaus. All rights reserved.
 //
 
 import Foundation
 
-public struct ClientAuth {
+public struct UserAuth {
     
+    public let jwt: String
     public let apiKey: String
     public let certificates: CertificateProvider
 }
+
+

@@ -22,7 +22,8 @@ class LocationHandlerTests: XCTestCase {
         guard let caData = try? Data(contentsOf: localCAPath) else { return }
         guard let localCertPath = Bundle(for: Self.self).url(forResource: "api-client", withExtension: "p12") else { return }
         guard let certData = try? Data(contentsOf: localCertPath) else { return }
-        guard let clientAuth = IdentityAndTrust(certData: certData  as NSData, CAData: caData as NSData, certPassword: "we4711", apiKey: "TEST_API_KEY_001") else { return }
+        guard let certProvider = CertificateProvider(certData: certData  as NSData, certPassword: "we4711", rootCAData: caData as NSData) else { return }
+        let clientAuth = ClientAuth(apiKey: "TEST_API_KEY_001", certificates: certProvider)
         self.webservice = Webservice(baseURL: URL(string: urlValue)!, clientAuth: clientAuth, apiVersion: .v0_1, cached: false)
         self.handler = LocationHandler.init(with: self.webservice)
     }

@@ -3,7 +3,7 @@
 //  FestivalsAPI
 //
 //  Created by Simon Gaus on 11.04.20.
-//  Copyright © 2020 Simon Gaus. All rights reserved.
+//  Copyright © 2020-2024 Simon Gaus. All rights reserved.
 //
 
 import Foundation
@@ -46,7 +46,7 @@ class Webservice: NSObject {
     /// The session to use for requests.
     private let session: URLSession
     /// The session delegate that handles TLS handling.
-    private let sessionDelegate: SessionDelegate
+    private let sessionDelegate: TLSSessionDelegate
     /// The version of the web api to use.
     private let apiVersion: String
     /// The timeout for making requests.
@@ -64,16 +64,40 @@ class Webservice: NSObject {
     ///     - clientAuth:
     ///     - apiVersion:
     ///     - requestTimeout:
-    init(baseURL: URL, clientAuth: IdentityAndTrust, apiVersion: APIVersion = .v0_1, requestTimeout: Double = 10.0, cached: Bool = true) {
+    ///     - cached:
+    init(baseURL: URL, clientAuth: ClientAuth, apiVersion: APIVersion = .v0_1, requestTimeout: Double = 10.0, cached: Bool = true) {
         
         self.baseURL = baseURL
         self.requestTimeout = requestTimeout
         self.apiVersion = apiVersion.rawValue
         self.cached = cached
-        self.sessionDelegate = SessionDelegate(clientAuth: clientAuth)
+        self.sessionDelegate = TLSSessionDelegate(certificateProvider: clientAuth.certificates)
         let config = URLSessionConfiguration.ephemeral
         config.httpAdditionalHeaders = ["Api-Key": clientAuth.apiKey, "X-Request-ID": UUID()]
         self.session = URLSession(configuration: config, delegate:sessionDelegate, delegateQueue: nil)
+    }
+    
+    /// Initilizes the webservice object.
+    /// - Parameters:
+    ///     - baseURL: The base URL used for makeing calls to the FestivalsGatewayAPI service.
+    ///     - userAuth:
+    ///     - apiVersion:
+    ///     - requestTimeout:
+    ///     - cached:
+    init(baseURL: URL, userAuth: UserAuth, apiVersion: APIVersion = .v0_1, requestTimeout: Double = 10.0, cached: Bool = true) {
+        
+        self.baseURL = baseURL
+        self.requestTimeout = requestTimeout
+        self.apiVersion = apiVersion.rawValue
+        self.cached = cached
+        self.sessionDelegate = TLSSessionDelegate(certificateProvider: userAuth.certificates)
+        let config = URLSessionConfiguration.ephemeral
+        config.httpAdditionalHeaders = ["Authorization": "Bearer \(userAuth.jwt)", 
+                                        "Api-Key": userAuth.apiKey,
+                                        "X-Request-ID": UUID()]
+        self.session = URLSession(configuration: config,
+                                  delegate:sessionDelegate,
+                                  delegateQueue: nil)
     }
     
     // MARK: Manage Objects
@@ -109,7 +133,7 @@ class Webservice: NSObject {
         
         let query = self.makeCreateQuery(for: objectType)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: data)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .POST, and: data)
         
         self.perfrom(request, self.cached) { (data, err) in
             
@@ -136,7 +160,7 @@ class Webservice: NSObject {
         
         let query = self.makeUpdateQuery(for: objectType, with: id)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .PATCH, and: data)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .PATCH, and: data)
         
         self.perfrom(request, self.cached) { (data, err) in
             
@@ -163,7 +187,7 @@ class Webservice: NSObject {
         
         let query = self.makeDeleteQuery(for: objectType, with: id)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .DELETE, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
             
@@ -188,7 +212,7 @@ class Webservice: NSObject {
         
         let query = self.makeSearchQuery(for: objectType, with: name)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .GET, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
             
@@ -211,7 +235,7 @@ class Webservice: NSObject {
     
         let query = self.makeFetchResourceQuery(with: resourceType, for: objectType, id, including: relationships)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .GET, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .GET, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
 
@@ -232,7 +256,7 @@ class Webservice: NSObject {
         
         let query = self.makeSetResourceQuery(for: resourceName, with: resourceID, and: objectType, with: objectID)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .POST, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .POST, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
             
@@ -257,10 +281,9 @@ class Webservice: NSObject {
         
         let query = self.makeRemoveResourceQuery(for: resourceName, with: resourceID, and: objectType, with: objectID)
         let queryURL = self.baseURL.absoluteString.appending(query)
-        let request = self.makeRequest(with: URL.init(string: queryURL)!, .DELETE, and: nil)
+        let request = self.makeRequest(with: URL(string: queryURL)!, .DELETE, and: nil)
         
         self.perfrom(request, self.cached) { (data, err) in
-            
             guard let _ = data else {
                 completion(false, err)
                 return
@@ -384,15 +407,13 @@ class Webservice: NSObject {
     /// - Returns: The configured request.
     func makeRequest(with url: URL, _ methode: HTTPMethode, and data: Data?) -> URLRequest {
         
-        let request = NSMutableURLRequest.init(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: self.requestTimeout)
+        let request = NSMutableURLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: self.requestTimeout)
         request.httpMethod = methode.rawValue
-        
         if let data = data {
             request.addValue(HTTPContentType.ContentTypeJSON.rawValue, forHTTPHeaderField: HTTPHeaderField.ContentType.rawValue)
             request.addValue(String(data.count), forHTTPHeaderField: HTTPHeaderField.ContentLengt.rawValue)
             request.httpBody = data
         }
-        
         return request.copy() as! URLRequest
     }
     
@@ -441,7 +462,6 @@ class Webservice: NSObject {
                 queryString = queryString + "?include=\(includes)"
             }
         }
-     
         return queryString
     }
     
@@ -449,7 +469,6 @@ class Webservice: NSObject {
     /// - Parameter objectType: The type of object you want to create.
     /// - Returns: The query string.
     func makeCreateQuery(for objectType: String) -> String {
-        
         return "/\(objectType)s"
     }
     
@@ -458,7 +477,6 @@ class Webservice: NSObject {
     /// - Parameter objectID: The ID of the object you want to update.
     /// - Returns: The query string.
     func makeUpdateQuery(for objectType: String, with objectID: Int) -> String {
-        
         return "/\(objectType)s/\(objectID)"
     }
     
@@ -467,7 +485,6 @@ class Webservice: NSObject {
     /// - Parameter objectID: The ID of the object you want to delete.
     /// - Returns: The query string.
     func makeDeleteQuery(for objectType: String, with objectID: Int) -> String {
-        
         return "/\(objectType)s/\(objectID)"
     }
     
@@ -477,7 +494,6 @@ class Webservice: NSObject {
     ///     - name: The object name to search.
     /// - Returns: The query string.
     func makeSearchQuery(for objectType: String, with name: String) -> String {
-        
         return "/\(objectType)s?name=\(name)"
     }
     
@@ -491,11 +507,9 @@ class Webservice: NSObject {
     func makeFetchResourceQuery(with relationshipName: String, for objectType: String, _ objectID: Int, including relationships: [String]?) -> String {
     
         var queryString = "/\(objectType)s/\(objectID)/\(relationshipName)"
-        
         if let relationships = relationships {
             queryString = queryString + "?include=" + relationships.joined(separator: ",")
         }
-        
         return queryString
     }
     
@@ -507,7 +521,6 @@ class Webservice: NSObject {
     ///     - objectID: The ID of the object you want to set the resource for.
     /// - Returns: The query string.
     func makeSetResourceQuery(for resourceName: String, with resourceID: Int, and objectType: String, with objectID: Int) -> String {
-    
         return "/\(objectType)s/\(objectID)/\(resourceName)/\(resourceID)"
     }
     
@@ -519,7 +532,6 @@ class Webservice: NSObject {
     ///     - objectID: The ID of the object you want to remove the resource for.
     /// - Returns: The query string.
     func makeRemoveResourceQuery(for resourceName: String, with resourceID: Int, and objectType: String, with objectID: Int) -> String {
-    
         return "/\(objectType)s/\(objectID)/\(resourceName)/\(resourceID)"
     }
     
