@@ -12,4 +12,9 @@ public struct ClientAuth {
     
     public let apiKey: String
     public let certificates: CertificateProvider
+    
+    public init(apiKey: String, certificates: CertificateProvider) {
+        self.apiKey = apiKey
+        self.certificates = certificates
+    }
 }

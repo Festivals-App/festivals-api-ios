@@ -13,6 +13,12 @@ public struct UserAuth {
     public let jwt: String
     public let apiKey: String
     public let certificates: CertificateProvider
+    
+    public init(jwt: String, apiKey: String, certificates: CertificateProvider) {
+        self.jwt = jwt
+        self.apiKey = apiKey
+        self.certificates = certificates
+    }
 }
 
 
