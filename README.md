@@ -49,8 +49,11 @@ To use this library, create an `FestivalsClient` object by calling the `init(bas
 
 ```swift
 // Create the handler
-let clientAuth = IdentityAndTrust(certData:<#certData#><##>, CAData:<#caData#>, certPassword: <#Password#>, apiKey:<#apiKey#>)
-let client = FestivalsClient(baseURL: <#baseURL#>, clientAuth: <#IdentityAndTrust#>)
+let certificates = CertificateProvider(certData: <#certData#>, certPassword: <#Password#>, rootCAData: <#caData#>) {
+let clientAuth = ClientAuth(apiKey:<#apiKey#>, certificates: certificates)
+or 
+let userAuth = UserAuth(jwt: <#jwt#>, apiKey:<#apiKey#>, certificates: certificates)
+let client = FestivalsClient(baseURL: <#baseURL#>, clientAuth: <#user or client auth#>)
 
 // fetch all festivals
 client.festivalHandler.all { (festivals, err) in
