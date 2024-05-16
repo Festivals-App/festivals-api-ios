@@ -96,6 +96,10 @@ public class Event: ObservableObject, Hashable, Identifiable {
     public var description: String
     /// The type of the event.
     public var type: EventType
+    /// Boolean value indicating if the event has a scheduled date.
+    public var isScheduled: Bool
+    /// Boolean value indicating if the event has a scheduled time slot.
+    public var hasTimeslot: Bool
     
     /// The image associated with the event.
     @Published public var image: ImageRef?
@@ -118,6 +122,8 @@ public class Event: ObservableObject, Hashable, Identifiable {
         guard let object_end_int        = objectDict["event_end"] as? Int else { return nil }
         guard let object_description    = objectDict["event_description"] as? String else { return nil }
         guard let object_type           = objectDict["event_type"] as? Int else { return nil }
+        guard let object_is_scheduled    = objectDict["event_is_scheduled"] as? Bool else { return nil }
+        guard let object_has_timeslot    = objectDict["event_has_timeslot"] as? Bool else { return nil }
         
         let validEventType             = EventType(rawValue: object_type)
         let eventType = validEventType != nil ? validEventType! : EventType.other
@@ -150,7 +156,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
             }
         }
         
-        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, image: object_image, artists: object_artists, location: object_location)
+        self.init(objectID: object_id, version: object_version, name: object_name, start: object_start, end: object_end, description: object_description, type: eventType, isScheduled: object_is_scheduled, hasTimeslot: object_has_timeslot, image: object_image, artists: object_artists, location: object_location)
     }
     
     /// Initializes an event with the given values.
@@ -164,7 +170,7 @@ public class Event: ObservableObject, Hashable, Identifiable {
     ///   - type: The type of the event.
     ///   - artists: The artists of the event.
     ///   - location: The location of the event.
-    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, image: ImageRef? = nil, artists: [Artist] = [], location: Location? = nil) {
+    public init(objectID: Int = 0, version: String = "<unversioned>", name: String, start: Date, end: Date, description: String, type: EventType, isScheduled: Bool, hasTimeslot: Bool, image: ImageRef? = nil, artists: [Artist] = [], location: Location? = nil) {
         
         self.objectID = objectID
         self.version = version
@@ -173,6 +179,8 @@ public class Event: ObservableObject, Hashable, Identifiable {
         self.end = end
         self.description = description
         self.type = type
+        self.isScheduled = isScheduled
+        self.hasTimeslot = hasTimeslot
         
         self.image = image
         self.artist = artists.first
@@ -197,7 +205,15 @@ public class Event: ObservableObject, Hashable, Identifiable {
     /// - Returns: The JSON representation as data.
     public func JSON() -> Data {
         
-        let dict: [String: Any] = ["event_id": self.objectID, "event_version": self.version, "event_name": self.name, "event_start": Int(self.start.timeIntervalSince1970), "event_end": Int(self.end.timeIntervalSince1970), "event_description": self.description, "event_type": self.type.rawValue]
+        let dict: [String: Any] = ["event_id": self.objectID, 
+                                   "event_version": self.version,
+                                   "event_name": self.name,
+                                   "event_start": Int(self.start.timeIntervalSince1970),
+                                   "event_end": Int(self.end.timeIntervalSince1970),
+                                   "event_description": self.description,
+                                   "event_type": self.type.rawValue,
+                                   "event_is_scheduled": self.isScheduled,
+                                   "event_has_timeslot": self.hasTimeslot]
         return try! JSONSerialization.data(withJSONObject: dict, options: [])
     }
     

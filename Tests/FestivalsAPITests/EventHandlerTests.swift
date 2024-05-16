@@ -85,7 +85,7 @@ class EventHandlerTests: XCTestCase {
         var deltedTheEvent: Bool = false
         
         let eventDict: [String: Any] = ["event_id": 0, "event_version": "", "event_name": "TESTEVENT",
-                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.talk.rawValue]
+                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.talk.rawValue, "event_is_scheduled": true, "event_has_timeslot": true]
         let event = Event(with: eventDict)!
         
         self.handler.create(event: event) { (createdEvent, error) in
@@ -117,7 +117,7 @@ class EventHandlerTests: XCTestCase {
         var deltedTheEvent: Bool = false
         
         let eventDict: [String: Any] = ["event_id": 0, "event_version": "", "event_name": "TESTEVENT",
-                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.food.rawValue]
+                                        "event_start": 100, "event_end": 200, "event_description": "TESTEVENTDESCRIPTION", "event_type": EventType.food.rawValue, "event_is_scheduled": true, "event_has_timeslot": true]
         let event = Event(with: eventDict)!
         
         self.handler.create(event: event) { (createdEvent, error) in
