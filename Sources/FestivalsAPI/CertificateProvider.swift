@@ -138,13 +138,11 @@ public class TLSSessionDelegate : NSObject, URLSessionDelegate {
     ///   - trustedCA: The given
     /// - Returns: Returns `true` if the server should be trusted, otherwise `false`.
     private func shouldAllowHTTPSConnection(trust: SecTrust, trustedCA: SecCertificate) -> Bool {
-        // set the policy for the trust
-        var err = SecTrustSetPolicies(trust, SecPolicyCreateBasicX509())
-        guard err == errSecSuccess else { return false }
+        // found at https://developer.apple.com/forums/thread/703234
         // set the root CA cert as anchor certificate for evaluation
-        err = SecTrustSetAnchorCertificates(trust, [trustedCA] as NSArray)
+        var err = SecTrustSetAnchorCertificates(trust, [trustedCA] as NSArray)
         guard err == errSecSuccess else { return false }
-        // only trust anchor certificates eg theroot CA cert
+        // only trust anchor certificates eg the root CA cert
         err = SecTrustSetAnchorCertificatesOnly(trust, true)
         guard err == errSecSuccess else { return false }
         // evaluate the trust object
@@ -155,15 +153,6 @@ public class TLSSessionDelegate : NSObject, URLSessionDelegate {
             return false
         }
         return true
-        /*
-        guard let chain = SecTrustCopyCertificateChain(trust) as? [SecCertificate],
-              let trustedLeaf = chain.first
-        else {
-            return false
-        }
-         C. Check the now-trusted leaf certificate
-        found at https://developer.apple.com/forums/thread/703234
-        */
     }
     
     /*
