@@ -12,7 +12,7 @@
 
 A client library that implements the complete FestivalsAPI feature set and makes coding against it super easy.
 
-![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/overview_api_ios.png "Figure 1: Architecture Overview Highlighted")
+![Figure 1: Architecture Overview Highlighted](https://github.com/Festivals-App/festivals-documentation/blob/main/images/architecture/architecture_overview_ios_api.svg "Figure 1: Architecture Overview Highlighted")
 
 <hr/>
 <p align="center">
@@ -86,4 +86,5 @@ The following channels are available for discussions, feedback, and support requ
 | **Other Requests**    | <a href="mailto:simon.cay.gaus@gmail.com" title="Email me"><img src="https://img.shields.io/badge/email-Simon-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
 
 #### Licensing
+
 Copyright (c) 2020-2024 Simon Gaus. Licensed under the [**GNU Lesser General Public License v3.0**](./LICENSE)
