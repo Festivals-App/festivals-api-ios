@@ -16,13 +16,16 @@ class FestivalHandlerTests: XCTestCase {
     var handler: FestivalHandler!
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        guard let urlValue = Bundle(for: Self.self).object(forInfoDictionaryKey: "FestivalsAPI_URL") as? String else { return }
-        guard let localCAPath = Bundle(for: Self.self).url(forResource: "ca", withExtension: "der") else { return }
-        guard let caData = try? Data(contentsOf: localCAPath) else { return }
-        guard let localCertPath = Bundle(for: Self.self).url(forResource: "api-client", withExtension: "p12") else { return }
-        guard let certData = try? Data(contentsOf: localCertPath) else { return }
-        guard let certProvider = CertificateProvider(certData: certData  as NSData, certPassword: "we4711", rootCAData: caData as NSData) else { return }
+        
+        guard let urlValue = ProcessInfo.processInfo.environment["BASE_URL"] else {
+            throw HandlerTestsError.setUpFailed(reason: "No BASE_URL environment variable set")
+        }
+        guard let certs = try? loadCertificates() else {
+            throw HandlerTestsError.setUpFailed(reason: "Failed to load certificates")
+        }
+        guard let certProvider = CertificateProvider(certData: certs.1, certPassword: "we4711", rootCAData: certs.0) else {
+            throw HandlerTestsError.setUpFailed(reason: "Failed to create certificate provider")
+        }
         let clientAuth = ClientAuth(apiKey: "TEST_API_KEY_001", certificates: certProvider)
         self.webservice = Webservice(baseURL: URL(string: urlValue)!, clientAuth: clientAuth, apiVersion: .v0_1, cached: false)
         self.handler = FestivalHandler.init(with: self.webservice)
@@ -217,18 +220,23 @@ class FestivalHandlerTests: XCTestCase {
         let event = Event(with: eventDict)!
         
         eventHandler.create(event: event) { (createdEvent, error) in
-    
+            
             didCreateEvent = (createdEvent != nil)
             
-            self.handler.set(eventID: createdEvent!.objectID, for: 2) { (setSuccessfully, error) in
-                
-                didSetEvent = setSuccessfully
-                
-                eventHandler.delete(event: createdEvent!) { (deletedSuccessfully, error) in
+            if didCreateEvent {
+                self.handler.set(eventID: createdEvent!.objectID, for: 2) { (setSuccessfully, error) in
                     
-                    didDeleteEvent = deletedSuccessfully
-                    expectation.fulfill()
+                    didSetEvent = setSuccessfully
+                    
+                    eventHandler.delete(event: createdEvent!) { (deletedSuccessfully, error) in
+                        
+                        didDeleteEvent = deletedSuccessfully
+                        expectation.fulfill()
+                    }
                 }
+            }
+            else {
+                expectation.fulfill()
             }
         }
 

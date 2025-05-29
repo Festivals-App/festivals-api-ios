@@ -1,0 +1,70 @@
+{
+  "configurations" : [
+    {
+      "id" : "838E6936-FE55-47DD-BBD2-3AFC257FC1E4",
+      "name" : "Local",
+      "options" : {
+        "environmentVariableEntries" : [
+          {
+            "key" : "BASE_URL",
+            "value" : "https:\/\/api.festivalsapp.dev:8443"
+          },
+          {
+            "key" : "CA_NAME",
+            "value" : "ca_dev"
+          },
+          {
+            "key" : "CLIENT_CERT_NAME",
+            "value" : "client_dev"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "A7CBF711-00B3-4950-B92A-A5C521EEB9C7",
+      "name" : "Staging",
+      "options" : {
+        "environmentVariableEntries" : [
+          {
+            "key" : "BASE_URL",
+            "value" : "https:\/\/api.festivalsapp.home"
+          },
+          {
+            "key" : "CA_NAME",
+            "value" : "ca_stage"
+          },
+          {
+            "key" : "CLIENT_CERT_NAME",
+            "value" : "client_stage"
+          }
+        ]
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "BASE_URL",
+        "value" : "https:\/\/api.festivalsapp.dev:8443"
+      },
+      {
+        "key" : "CA_NAME",
+        "value" : "ca_dev"
+      },
+      {
+        "key" : "CLIENT_CERT_NAME",
+        "value" : "client_dev"
+      }
+    ]
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "FestivalsAPITests",
+        "name" : "FestivalsAPITests"
+      }
+    }
+  ],
+  "version" : 1
+}
