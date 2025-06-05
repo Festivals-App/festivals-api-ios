@@ -56,14 +56,6 @@ public struct Place: Codable, Hashable, Identifiable {
     /// Initializes a place with the given values.
     /// - Parameters:
     ///   - objectID: The objectID of the place. *Only applicable to places that come from the webservice. Locally created places do not have a distinct objectID.*
-    ///   - name: The name of the tag.
-    
-    
-    
-    
-    /// Initializes a place with the given values.
-    /// - Parameters:
-    ///   - objectID: The objectID of the place. *Only applicable to places that come from the webservice. Locally created places do not have a distinct objectID.*
     ///   - version: The version of the place. *Only applicable to places that come from the webservice. Locally created places do not have a valid version.*
     ///   - street: The street of the place.
     ///   - zip: The zip of the place.
