@@ -148,20 +148,17 @@ public class ArtistHandler {
     
     public func allSimple(artists completion: @escaping (_ artists: [Artist]?, _ error: Error?) -> (Void)) {
         
-        self.artists() { artists, error in
+        self.webservice.fetch("artist", with: nil, including: nil) { (objects, error) in
             
-            self.webservice.fetch("artist", with: nil, including: nil) { (objects, error) in
-                
-                guard let objects = objects else {
-                    completion(nil, error)
-                    return
-                }
-                guard let artists = Artist.artists(from: objects) else {
-                    completion(nil, APIError.parsingFailed)
-                    return
-                }
-                completion(artists, nil)
+            guard let objects = objects else {
+                completion(nil, error)
+                return
             }
+            guard let artists = Artist.artists(from: objects) else {
+                completion(nil, APIError.parsingFailed)
+                return
+            }
+            completion(artists, nil)
         }
     }
     
