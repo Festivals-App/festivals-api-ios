@@ -156,6 +156,22 @@ public class LocationHandler {
         }
     }
     
+    public func allSimple(locations completion: @escaping (_ locations: [Location]?, _ error: Error?) -> (Void)) {
+        
+        self.webservice.fetch("location", with: nil, including: nil) { (objects, error) in
+            
+            guard let objects = objects else {
+                completion(nil, error)
+                return
+            }
+            guard let locations = Location.locations(from: objects) else {
+                completion(nil, APIError.parsingFailed)
+                return
+            }
+            completion(locations, nil)
+        }
+    }
+    
     ///  Fetches the locations with the given IDs.
     /// - Parameters:
     ///     - objectIDs: Th IDs of the locations you want to fetch.
